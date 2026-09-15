@@ -315,3 +315,5 @@ if __name__ == "__main__":
     t_loader, v_loader = load_partition("data/node_1")
     images, labels = next(iter(t_loader))
     print(f"Loaded batch: Images shape = {images.shape}, Labels shape = {labels.shape}")
+
+# Note: Evaluator requires strict ImageNet channel normalization constants.
