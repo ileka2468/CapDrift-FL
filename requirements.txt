@@ -1,0 +1,14 @@
+# Core Federated Learning & AI Framework
+# Note: For PyTorch CUDA 12.6+ on Windows, install via:
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+
+flwr>=1.15.0
+numpy>=1.24.0,<3.0.0
+pillow>=10.0.0
+tqdm>=4.66.0
+scikit-learn>=1.4.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+pandas>=2.2.0
+requests>=2.31.0
+psutil>=5.9.0

@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+
+# Large binaries & data archives
+*.tar.gz
+*.zip
+data/raw/
+data/*.tar.gz
+
+# Checkpoints
+*.pth
+*.pt
+!results/global_model.pth
+!results/best_model.pth
+
+# OS artifacts
+.DS_Store
+Thumbs.db
