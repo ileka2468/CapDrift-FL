@@ -1,0 +1,54 @@
+[
+    {
+        "id": "node_1",
+        "name": "Hospital A (Cisco UCS pve01)",
+        "host_ip": "192.168.20.100",
+        "ssh_user": "root",
+        "container_id": "201",
+        "data_dir": "/opt/fl_client/data/node_1",
+        "client_script": "/opt/fl_client/client.py",
+        "python_bin": "/opt/fl_client/venv/bin/python3",
+        "compute": "CPU (AVX2, 8 threads)",
+        "connection_type": "ssh_lxc",
+        "enabled": true
+    },
+    {
+        "id": "node_2",
+        "name": "Hospital B (Cisco UCS pve02)",
+        "host_ip": "192.168.10.100",
+        "ssh_user": "root",
+        "container_id": "202",
+        "data_dir": "/opt/fl_client/data/node_2",
+        "client_script": "/opt/fl_client/client.py",
+        "python_bin": "/opt/fl_client/venv/bin/python3",
+        "compute": "CPU (AVX2, 8 threads)",
+        "connection_type": "ssh_lxc",
+        "enabled": true
+    },
+    {
+        "id": "node_3",
+        "name": "Hospital C (Cisco UCS pve03)",
+        "host_ip": "192.168.40.100",
+        "ssh_user": "root",
+        "container_id": "203",
+        "data_dir": "/opt/fl_client/data/node_3",
+        "client_script": "/opt/fl_client/client.py",
+        "python_bin": "/opt/fl_client/venv/bin/python3",
+        "compute": "CPU (AVX2, 8 threads)",
+        "connection_type": "ssh_lxc",
+        "enabled": true
+    },
+    {
+        "id": "node_4",
+        "name": "Workstation (Central GPU)",
+        "host_ip": "127.0.0.1",
+        "ssh_user": null,
+        "container_id": null,
+        "data_dir": "data/node_4",
+        "client_script": "src/client.py",
+        "python_bin": ".\\.venv\\Scripts\\python.exe",
+        "compute": "CUDA (RTX 5070 Ti)",
+        "connection_type": "local",
+        "enabled": true
+    }
+]
