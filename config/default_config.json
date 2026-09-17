@@ -1,0 +1,30 @@
+{
+    "experiment_name": "Chest_XRay_Pneumonia_Federated",
+    "description": "Federated medical diagnostics benchmark across 4-node heterogeneous cluster",
+    "model": {
+        "architecture": "mobilenet_v3_small",
+        "pretrained": true,
+        "weights_path": "results/best_model.pth"
+    },
+    "dataset": {
+        "data_dir": "data/global_test/train",
+        "image_size": 224,
+        "auto_detect_classes": true,
+        "classes": ["NORMAL", "PNEUMONIA"]
+    },
+    "federated": {
+        "rounds": 6,
+        "min_clients": 4,
+        "strategy": "FedAvg",
+        "fraction_fit": 1.0,
+        "server_ip": "192.168.30.102",
+        "port": 8080
+    },
+    "training": {
+        "epochs": 1,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adamw",
+        "weight_decay": 0.0001
+    }
+}
