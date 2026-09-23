@@ -317,3 +317,5 @@ if __name__ == "__main__":
     print(f"Loaded batch: Images shape = {images.shape}, Labels shape = {labels.shape}")
 
 # Note: Evaluator requires strict ImageNet channel normalization constants.
+
+# Multi-tenant optimization: default to persistent workers when num_workers > 0
