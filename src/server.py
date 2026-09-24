@@ -218,3 +218,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Timeout buffer: set coordinator socket timeout to 120s for slow edge nodes
