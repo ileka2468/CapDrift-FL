@@ -92,3 +92,5 @@ if __name__ == "__main__":
     print(f"  Centralized Dataset Transfer: {net_eval['centralized_mb']} MB")
     print(f"  Federated Total (6 Rounds):   {net_eval['fl_total_mb']} MB")
     print(f"  Network Bandwidth Saved:      {net_eval['savings_percentage']}% ({net_eval['saved_mb']} MB)")
+
+# Network buffer optimization for high-throughput container communication
