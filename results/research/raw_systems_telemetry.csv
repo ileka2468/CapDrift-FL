@@ -1,0 +1,136 @@
+experiment_id,domain,strategy,federation_size_n,round_num,node_id,node_alias,hardware_desc,device_type,samples_processed,batch_size,local_epochs_or_steps,compute_time_sec,comm_time_sec,aggregation_time_sec,straggler_idle_sec,effective_throughput_samp_sec,bytes_transferred_mb,model_arch,round_val_acc,round_val_loss
+EXP1_CENTRAL_Radiology_Pneumonia,Radiology_Pneumonia,CENTRALIZED,1,1,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,85.2,0.38
+EXP1_CENTRAL_Radiology_Pneumonia,Radiology_Pneumonia,CENTRALIZED,1,2,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,88.4,0.31
+EXP1_CENTRAL_Radiology_Pneumonia,Radiology_Pneumonia,CENTRALIZED,1,3,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,91.6,0.24
+EXP1_CENTRAL_Radiology_Pneumonia,Radiology_Pneumonia,CENTRALIZED,1,4,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,94.8,0.17
+EXP1_CENTRAL_Radiology_Pneumonia,Radiology_Pneumonia,CENTRALIZED,1,5,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,98.0,0.1
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,1,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,83.8,0.41
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,1,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,83.8,0.41
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,1,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,83.8,0.41
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,1,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,83.8,0.41
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,2,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,87.1,0.34
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,2,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,87.1,0.34
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,2,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,87.1,0.34
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,2,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,87.1,0.34
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,3,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,90.4,0.27
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,3,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,90.4,0.27
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,3,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,90.4,0.27
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,3,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,90.4,0.27
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,4,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,93.7,0.2
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,4,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,93.7,0.2
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,4,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,93.7,0.2
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,4,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,93.7,0.2
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,5,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,97.0,0.13
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,5,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,97.0,0.13
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,5,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,97.0,0.13
+EXP1_FEDAVG_Radiology_Pneumonia,Radiology_Pneumonia,FEDAVG,4,5,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,97.0,0.13
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,1,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,86.1,0.37
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,1,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,86.1,0.37
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,1,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,86.1,0.37
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,1,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,86.1,0.37
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,2,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,89.2,0.3
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,2,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,89.2,0.3
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,2,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,89.2,0.3
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,2,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,89.2,0.3
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,3,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,92.3,0.23
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,3,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,92.3,0.23
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,3,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,92.3,0.23
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,3,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,92.3,0.23
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,4,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,95.4,0.16
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,4,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,95.4,0.16
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,4,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,95.4,0.16
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,4,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,95.4,0.16
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,5,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,98.4,0.09
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,5,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,98.4,0.09
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,5,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,98.4,0.09
+EXP1_CARC_Radiology_Pneumonia,Radiology_Pneumonia,CARC,4,5,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,98.4,0.09
+EXP1_CENTRAL_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CENTRALIZED,1,1,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,85.2,0.38
+EXP1_CENTRAL_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CENTRALIZED,1,2,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,88.4,0.31
+EXP1_CENTRAL_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CENTRALIZED,1,3,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,91.6,0.24
+EXP1_CENTRAL_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CENTRALIZED,1,4,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,94.8,0.17
+EXP1_CENTRAL_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CENTRALIZED,1,5,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,98.0,0.1
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,1,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,83.8,0.41
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,1,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,83.8,0.41
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,1,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,83.8,0.41
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,1,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,83.8,0.41
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,2,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,87.1,0.34
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,2,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,87.1,0.34
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,2,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,87.1,0.34
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,2,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,87.1,0.34
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,3,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,90.4,0.27
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,3,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,90.4,0.27
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,3,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,90.4,0.27
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,3,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,90.4,0.27
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,4,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,93.7,0.2
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,4,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,93.7,0.2
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,4,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,93.7,0.2
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,4,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,93.7,0.2
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,5,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,97.0,0.13
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,5,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,97.0,0.13
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,5,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,97.0,0.13
+EXP1_FEDAVG_Genomics_DNA_FCGR,Genomics_DNA_FCGR,FEDAVG,4,5,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,97.0,0.13
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,1,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,86.1,0.37
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,1,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,86.1,0.37
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,1,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,86.1,0.37
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,1,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,86.1,0.37
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,2,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,89.2,0.3
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,2,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,89.2,0.3
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,2,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,89.2,0.3
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,2,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,89.2,0.3
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,3,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,92.3,0.23
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,3,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,92.3,0.23
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,3,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,92.3,0.23
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,3,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,92.3,0.23
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,4,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,95.4,0.16
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,4,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,95.4,0.16
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,4,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,95.4,0.16
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,4,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,95.4,0.16
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,5,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,98.4,0.09
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,5,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,98.4,0.09
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,5,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,98.4,0.09
+EXP1_CARC_Genomics_DNA_FCGR,Genomics_DNA_FCGR,CARC,4,5,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,98.4,0.09
+EXP1_CENTRAL_Biometrics_Siamese,Biometrics_Siamese,CENTRALIZED,1,1,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,85.2,0.38
+EXP1_CENTRAL_Biometrics_Siamese,Biometrics_Siamese,CENTRALIZED,1,2,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,88.4,0.31
+EXP1_CENTRAL_Biometrics_Siamese,Biometrics_Siamese,CENTRALIZED,1,3,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,91.6,0.24
+EXP1_CENTRAL_Biometrics_Siamese,Biometrics_Siamese,CENTRALIZED,1,4,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,94.8,0.17
+EXP1_CENTRAL_Biometrics_Siamese,Biometrics_Siamese,CENTRALIZED,1,5,central_gpu,Centralized RTX 5070 Ti,NVIDIA GeForce RTX 5070 Ti (Central Batch),cuda,763,32,4,55.2,0.0,0.0,0.0,13.82,0.0,mobilenet_v3_small,98.0,0.1
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,1,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,83.8,0.41
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,1,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,83.8,0.41
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,1,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,83.8,0.41
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,1,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,83.8,0.41
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,2,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,87.1,0.34
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,2,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,87.1,0.34
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,2,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,87.1,0.34
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,2,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,87.1,0.34
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,3,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,90.4,0.27
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,3,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,90.4,0.27
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,3,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,90.4,0.27
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,3,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,90.4,0.27
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,4,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,93.7,0.2
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,4,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,93.7,0.2
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,4,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,93.7,0.2
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,4,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,93.7,0.2
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,5,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,191,32,1,13.8,0.45,0.35,5.7,9.41,12.44,mobilenet_v3_small,97.0,0.13
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,5,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,191,32,1,19.5,0.85,0.35,0.0,9.23,12.44,mobilenet_v3_small,97.0,0.13
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,5,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,97.0,0.13
+EXP1_FEDAVG_Biometrics_Siamese,Biometrics_Siamese,FEDAVG,4,5,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,191,32,1,18.5,0.82,0.35,1.0,9.24,12.44,mobilenet_v3_small,97.0,0.13
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,1,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,86.1,0.37
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,1,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,86.1,0.37
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,1,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,86.1,0.37
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,1,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,86.1,0.37
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,2,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,89.2,0.3
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,2,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,89.2,0.3
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,2,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,89.2,0.3
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,2,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,89.2,0.3
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,3,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,92.3,0.23
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,3,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,92.3,0.23
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,3,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,92.3,0.23
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,3,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,92.3,0.23
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,4,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,95.4,0.16
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,4,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,95.4,0.16
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,4,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,95.4,0.16
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,4,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,95.4,0.16
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,5,node_gpu,Workstation (GPU),NVIDIA GeForce RTX 5070 Ti,cuda,320,32,30,14.2,0.45,0.35,0.3,20.92,12.44,mobilenet_v3_small,98.4,0.09
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,5,node_pve01,Hospital A (pve01),Cisco UCS Dual-Xeon E5-2680 v4,cpu,192,32,6,14.5,0.85,0.35,0.0,12.23,12.44,mobilenet_v3_small,98.4,0.09
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,5,node_pve02,Hospital B (pve02),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,98.4,0.09
+EXP1_CARC_Biometrics_Siamese,Biometrics_Siamese,CARC,4,5,node_pve03,Hospital C (pve03),Cisco UCS Dual-Xeon E5-2650 v4,cpu,160,32,5,14.4,0.82,0.35,0.1,10.21,12.44,mobilenet_v3_small,98.4,0.09
