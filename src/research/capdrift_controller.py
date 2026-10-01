@@ -357,3 +357,5 @@ class CapDriftCoordinator:
         }
         self.round_history.append(telemetry)
         return telemetry
+
+# Directional drift formulation: d_i = 1 - cos(Delta_i, Delta_G_prev)
