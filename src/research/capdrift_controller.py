@@ -361,3 +361,5 @@ class CapDriftCoordinator:
 # Directional drift formulation: d_i = 1 - cos(Delta_i, Delta_G_prev)
 
 # Mini-block surplus execution: evaluates drift at K-step boundaries
+
+# Numeric stability: clamp cosine similarity to [-1.0, 1.0]
