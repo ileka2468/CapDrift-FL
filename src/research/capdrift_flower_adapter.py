@@ -386,3 +386,5 @@ class CapDriftFlowerStrategy(FedAvg):
             "loss": loss,
             "utilization": utilization
         }
+
+# Clipping cap: c_t = kappa_c * median_norm(G_i)
