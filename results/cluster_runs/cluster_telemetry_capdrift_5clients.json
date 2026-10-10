@@ -1,0 +1,154 @@
+[
+  {
+    "round": 1,
+    "accuracy": 1.7,
+    "loss": 1.2002,
+    "precision": 1.0,
+    "recall": 0.017,
+    "f1": 0.0335,
+    "round_duration_sec": 3.626,
+    "straggler_waste_sec": 3.491,
+    "cluster_utilization_pct": 80.74,
+    "median_norm": 3.9102,
+    "clipping_cap": 5.8653,
+    "num_clipped": 0,
+    "clients": [
+      {
+        "drift_detected": 0,
+        "ram_mb": 699.3,
+        "node_id": "hospital_04_pve02",
+        "cpu_percent": 62.2,
+        "throughput": 1.87,
+        "smoothed_throughput": 1.87,
+        "step_budget": 5,
+        "steps_executed": 5,
+        "train_duration_sec": 2.672,
+        "final_drift": 0.0
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 698.9,
+        "node_id": "hospital_03_pve02",
+        "cpu_percent": 61.6,
+        "throughput": 1.86,
+        "step_budget": 5,
+        "steps_executed": 5,
+        "smoothed_throughput": 1.86,
+        "train_duration_sec": 2.695,
+        "final_drift": 0.0
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 688.4,
+        "node_id": "hospital_01_pve01",
+        "steps_executed": 5,
+        "final_drift": 0.0,
+        "cpu_percent": 46.4,
+        "step_budget": 5,
+        "throughput": 1.54,
+        "train_duration_sec": 3.251,
+        "smoothed_throughput": 1.54
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 715.0,
+        "node_id": "hospital_02_pve01",
+        "cpu_percent": 52.6,
+        "throughput": 1.38,
+        "final_drift": 0.0,
+        "step_budget": 5,
+        "steps_executed": 5,
+        "train_duration_sec": 3.626,
+        "smoothed_throughput": 1.38
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 667.2,
+        "node_id": "hospital_05_pve03",
+        "step_budget": 5,
+        "final_drift": 0.0,
+        "steps_executed": 5,
+        "cpu_percent": 63.5,
+        "throughput": 2.09,
+        "train_duration_sec": 2.395,
+        "smoothed_throughput": 2.09
+      }
+    ]
+  },
+  {
+    "round": 2,
+    "accuracy": 25.29,
+    "loss": 2.0233,
+    "precision": 1.0,
+    "recall": 0.2529,
+    "f1": 0.4038,
+    "round_duration_sec": 11.676,
+    "straggler_waste_sec": 1.054,
+    "cluster_utilization_pct": 98.19,
+    "median_norm": 14.9539,
+    "clipping_cap": 22.4309,
+    "num_clipped": 0,
+    "clients": [
+      {
+        "drift_detected": 0,
+        "ram_mb": 689.0,
+        "node_id": "hospital_05_pve03",
+        "step_budget": 25,
+        "final_drift": 0.3061,
+        "steps_executed": 25,
+        "cpu_percent": 62.5,
+        "throughput": 2.14,
+        "train_duration_sec": 11.667,
+        "smoothed_throughput": 2.1
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 689.5,
+        "node_id": "hospital_01_pve01",
+        "steps_executed": 18,
+        "final_drift": 0.2392,
+        "cpu_percent": 47.1,
+        "step_budget": 18,
+        "throughput": 1.6,
+        "train_duration_sec": 11.228,
+        "smoothed_throughput": 1.56
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 737.9,
+        "node_id": "hospital_02_pve01",
+        "cpu_percent": 51.8,
+        "throughput": 1.39,
+        "final_drift": 0.2377,
+        "step_budget": 16,
+        "steps_executed": 16,
+        "train_duration_sec": 11.501,
+        "smoothed_throughput": 1.38
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 687.3,
+        "node_id": "hospital_03_pve02",
+        "cpu_percent": 60.8,
+        "throughput": 1.88,
+        "step_budget": 22,
+        "steps_executed": 22,
+        "smoothed_throughput": 1.86,
+        "train_duration_sec": 11.676,
+        "final_drift": 0.2816
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 736.3,
+        "node_id": "hospital_04_pve02",
+        "cpu_percent": 61.6,
+        "throughput": 1.95,
+        "smoothed_throughput": 1.9,
+        "step_budget": 22,
+        "steps_executed": 22,
+        "train_duration_sec": 11.254,
+        "final_drift": 0.4172
+      }
+    ]
+  }
+]

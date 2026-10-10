@@ -1,0 +1,154 @@
+[
+  {
+    "round": 1,
+    "accuracy": 9.83,
+    "loss": 0.9071,
+    "precision": 1.0,
+    "recall": 0.0983,
+    "f1": 0.179,
+    "round_duration_sec": 3.641,
+    "straggler_waste_sec": 3.33,
+    "cluster_utilization_pct": 81.71,
+    "median_norm": 3.9089,
+    "clipping_cap": 5.8633,
+    "num_clipped": 0,
+    "clients": [
+      {
+        "drift_detected": 0,
+        "ram_mb": 680.1,
+        "node_id": "hospital_05_pve03",
+        "step_budget": 5,
+        "final_drift": 0.0,
+        "throughput": 2.02,
+        "steps_executed": 5,
+        "cpu_percent": 62.7,
+        "train_duration_sec": 2.478,
+        "smoothed_throughput": 2.02
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 693.7,
+        "node_id": "hospital_04_pve02",
+        "cpu_percent": 62.9,
+        "smoothed_throughput": 1.92,
+        "final_drift": 0.0,
+        "throughput": 1.92,
+        "steps_executed": 5,
+        "train_duration_sec": 2.602,
+        "step_budget": 5
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 645.5,
+        "node_id": "hospital_03_pve02",
+        "cpu_percent": 60.5,
+        "throughput": 1.79,
+        "smoothed_throughput": 1.79,
+        "step_budget": 5,
+        "final_drift": 0.0,
+        "train_duration_sec": 2.793,
+        "steps_executed": 5
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 701.9,
+        "node_id": "hospital_02_pve01",
+        "steps_executed": 5,
+        "smoothed_throughput": 1.37,
+        "final_drift": 0.0,
+        "throughput": 1.37,
+        "cpu_percent": 51.8,
+        "train_duration_sec": 3.641,
+        "step_budget": 5
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 658.3,
+        "node_id": "hospital_01_pve01",
+        "step_budget": 5,
+        "throughput": 1.49,
+        "smoothed_throughput": 1.49,
+        "cpu_percent": 49.9,
+        "steps_executed": 5,
+        "train_duration_sec": 3.361,
+        "final_drift": 0.0
+      }
+    ]
+  },
+  {
+    "round": 2,
+    "accuracy": 39.58,
+    "loss": 0.7706,
+    "precision": 1.0,
+    "recall": 0.3958,
+    "f1": 0.5671,
+    "round_duration_sec": 3.492,
+    "straggler_waste_sec": 3.408,
+    "cluster_utilization_pct": 80.48,
+    "median_norm": 3.8016,
+    "clipping_cap": 5.7024,
+    "num_clipped": 0,
+    "clients": [
+      {
+        "drift_detected": 0,
+        "ram_mb": 672.5,
+        "node_id": "hospital_05_pve03",
+        "step_budget": 5,
+        "final_drift": 0.0,
+        "throughput": 2.07,
+        "steps_executed": 5,
+        "cpu_percent": 61.2,
+        "train_duration_sec": 2.41,
+        "smoothed_throughput": 2.03
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 710.8,
+        "node_id": "hospital_02_pve01",
+        "steps_executed": 5,
+        "smoothed_throughput": 1.39,
+        "final_drift": 0.0,
+        "throughput": 1.43,
+        "cpu_percent": 50.9,
+        "train_duration_sec": 3.492,
+        "step_budget": 5
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 716.0,
+        "node_id": "hospital_03_pve02",
+        "cpu_percent": 61.3,
+        "throughput": 1.91,
+        "smoothed_throughput": 1.83,
+        "step_budget": 5,
+        "final_drift": 0.0,
+        "train_duration_sec": 2.621,
+        "steps_executed": 5
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 709.3,
+        "node_id": "hospital_01_pve01",
+        "step_budget": 5,
+        "throughput": 1.64,
+        "smoothed_throughput": 1.53,
+        "cpu_percent": 49.1,
+        "steps_executed": 5,
+        "train_duration_sec": 3.041,
+        "final_drift": 0.0
+      },
+      {
+        "drift_detected": 0,
+        "ram_mb": 699.9,
+        "node_id": "hospital_04_pve02",
+        "cpu_percent": 63.5,
+        "smoothed_throughput": 1.95,
+        "final_drift": 0.0,
+        "throughput": 2.01,
+        "steps_executed": 5,
+        "train_duration_sec": 2.488,
+        "step_budget": 5
+      }
+    ]
+  }
+]
