@@ -1,0 +1,5 @@
+Method,Peak Acc (%),Final Acc (%),Final Loss,Total Time (s),Idle Waste (s),Mean Util (%),Gated Events,Clipped Events
+FedAvg,71.9,64.71,0.559,65.8,167.09,36.52,0,0
+FedProx,71.24,59.48,0.6336,65.8,167.09,36.52,0,0
+FedNova,86.27,85.62,0.3187,126.08,127.53,74.71,0,0
+CapDrift-FL,87.58,84.97,0.3771,73.33,162.14,41.29,28,1
