@@ -1,0 +1,7 @@
+Method,Alpha (Skew),Peak Acc (%),Final Acc (%),Final Loss,Gated Events,Clipped Events,Mean Util (%)
+FedAvg,0.1,55.56,53.59,0.7126,0,0,36.52
+CapDrift-FL,0.1,64.71,56.86,0.6318,20,1,42.88
+FedAvg,0.3,60.13,56.86,0.6674,0,0,36.52
+CapDrift-FL,0.3,81.05,68.63,0.5283,20,0,42.88
+FedAvg,0.5,72.55,72.55,0.5411,0,0,36.52
+CapDrift-FL,0.5,86.93,86.93,0.3324,20,1,42.88

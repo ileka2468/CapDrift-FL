@@ -1,0 +1,842 @@
+[
+  {
+    "method": "FedAvg",
+    "alpha": 0.1,
+    "peak_accuracy": 55.56,
+    "final_accuracy": 53.59,
+    "final_loss": 0.7126,
+    "total_time_sec": 49.35,
+    "total_idle_sec": 125.32,
+    "mean_utilization_pct": 36.52,
+    "total_gating_events": 0,
+    "total_clipping_events": 0,
+    "history": [
+      {
+        "round": 1,
+        "val_accuracy": 55.56,
+        "val_loss": 0.6381,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 2,
+        "val_accuracy": 55.56,
+        "val_loss": 0.6576,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 3,
+        "val_accuracy": 53.59,
+        "val_loss": 0.6815,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 4,
+        "val_accuracy": 52.29,
+        "val_loss": 0.7388,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 5,
+        "val_accuracy": 52.94,
+        "val_loss": 0.7178,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 6,
+        "val_accuracy": 53.59,
+        "val_loss": 0.7126,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      }
+    ]
+  },
+  {
+    "method": "CapDrift-FL",
+    "alpha": 0.1,
+    "peak_accuracy": 64.71,
+    "final_accuracy": 56.86,
+    "final_loss": 0.6318,
+    "total_time_sec": 56.88,
+    "total_idle_sec": 120.37,
+    "mean_utilization_pct": 42.88,
+    "total_gating_events": 20,
+    "total_clipping_events": 1,
+    "history": [
+      {
+        "round": 1,
+        "val_accuracy": 52.29,
+        "val_loss": 0.6931,
+        "round_duration_sec": 15.76,
+        "round_idle_sec": 15.94,
+        "cluster_utilization_pct": 74.71,
+        "steps_per_client": {
+          "client_0": 50,
+          "client_1": 50,
+          "client_2": 38,
+          "client_3": 11
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 1
+      },
+      {
+        "round": 2,
+        "val_accuracy": 60.78,
+        "val_loss": 0.6273,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 3,
+        "val_accuracy": 60.78,
+        "val_loss": 0.5813,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 4,
+        "val_accuracy": 61.44,
+        "val_loss": 0.5742,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 5,
+        "val_accuracy": 64.71,
+        "val_loss": 0.5718,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 6,
+        "val_accuracy": 56.86,
+        "val_loss": 0.6318,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      }
+    ]
+  },
+  {
+    "method": "FedAvg",
+    "alpha": 0.3,
+    "peak_accuracy": 60.13,
+    "final_accuracy": 56.86,
+    "final_loss": 0.6674,
+    "total_time_sec": 49.35,
+    "total_idle_sec": 125.32,
+    "mean_utilization_pct": 36.52,
+    "total_gating_events": 0,
+    "total_clipping_events": 0,
+    "history": [
+      {
+        "round": 1,
+        "val_accuracy": 54.9,
+        "val_loss": 0.6423,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 2,
+        "val_accuracy": 56.21,
+        "val_loss": 0.6241,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 3,
+        "val_accuracy": 56.86,
+        "val_loss": 0.6269,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 4,
+        "val_accuracy": 56.86,
+        "val_loss": 0.6239,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 5,
+        "val_accuracy": 60.13,
+        "val_loss": 0.5962,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 6,
+        "val_accuracy": 56.86,
+        "val_loss": 0.6674,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      }
+    ]
+  },
+  {
+    "method": "CapDrift-FL",
+    "alpha": 0.3,
+    "peak_accuracy": 81.05,
+    "final_accuracy": 68.63,
+    "final_loss": 0.5283,
+    "total_time_sec": 56.88,
+    "total_idle_sec": 120.37,
+    "mean_utilization_pct": 42.88,
+    "total_gating_events": 20,
+    "total_clipping_events": 0,
+    "history": [
+      {
+        "round": 1,
+        "val_accuracy": 66.67,
+        "val_loss": 0.5336,
+        "round_duration_sec": 15.76,
+        "round_idle_sec": 15.94,
+        "cluster_utilization_pct": 74.71,
+        "steps_per_client": {
+          "client_0": 50,
+          "client_1": 50,
+          "client_2": 38,
+          "client_3": 11
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 2,
+        "val_accuracy": 76.47,
+        "val_loss": 0.4559,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 3,
+        "val_accuracy": 79.74,
+        "val_loss": 0.438,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 4,
+        "val_accuracy": 81.05,
+        "val_loss": 0.4328,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 5,
+        "val_accuracy": 80.39,
+        "val_loss": 0.4292,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 6,
+        "val_accuracy": 68.63,
+        "val_loss": 0.5283,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      }
+    ]
+  },
+  {
+    "method": "FedAvg",
+    "alpha": 0.5,
+    "peak_accuracy": 72.55,
+    "final_accuracy": 72.55,
+    "final_loss": 0.5411,
+    "total_time_sec": 49.35,
+    "total_idle_sec": 125.32,
+    "mean_utilization_pct": 36.52,
+    "total_gating_events": 0,
+    "total_clipping_events": 0,
+    "history": [
+      {
+        "round": 1,
+        "val_accuracy": 66.67,
+        "val_loss": 0.6045,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 2,
+        "val_accuracy": 60.78,
+        "val_loss": 0.6216,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 3,
+        "val_accuracy": 64.05,
+        "val_loss": 0.6049,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 4,
+        "val_accuracy": 60.13,
+        "val_loss": 0.6219,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 5,
+        "val_accuracy": 71.9,
+        "val_loss": 0.566,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 6,
+        "val_accuracy": 72.55,
+        "val_loss": 0.5411,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 0
+      }
+    ]
+  },
+  {
+    "method": "CapDrift-FL",
+    "alpha": 0.5,
+    "peak_accuracy": 86.93,
+    "final_accuracy": 86.93,
+    "final_loss": 0.3324,
+    "total_time_sec": 56.88,
+    "total_idle_sec": 120.37,
+    "mean_utilization_pct": 42.88,
+    "total_gating_events": 20,
+    "total_clipping_events": 1,
+    "history": [
+      {
+        "round": 1,
+        "val_accuracy": 82.35,
+        "val_loss": 0.3504,
+        "round_duration_sec": 15.76,
+        "round_idle_sec": 15.94,
+        "cluster_utilization_pct": 74.71,
+        "steps_per_client": {
+          "client_0": 50,
+          "client_1": 50,
+          "client_2": 38,
+          "client_3": 11
+        },
+        "gated_per_client": {
+          "client_0": false,
+          "client_1": false,
+          "client_2": false,
+          "client_3": false
+        },
+        "num_clipped": 1
+      },
+      {
+        "round": 2,
+        "val_accuracy": 84.97,
+        "val_loss": 0.3517,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 3,
+        "val_accuracy": 85.62,
+        "val_loss": 0.3474,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 4,
+        "val_accuracy": 80.39,
+        "val_loss": 0.3627,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 5,
+        "val_accuracy": 84.97,
+        "val_loss": 0.3428,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      },
+      {
+        "round": 6,
+        "val_accuracy": 86.93,
+        "val_loss": 0.3324,
+        "round_duration_sec": 8.22,
+        "round_idle_sec": 20.89,
+        "cluster_utilization_pct": 36.52,
+        "steps_per_client": {
+          "client_0": 5,
+          "client_1": 5,
+          "client_2": 5,
+          "client_3": 5
+        },
+        "gated_per_client": {
+          "client_0": true,
+          "client_1": true,
+          "client_2": true,
+          "client_3": true
+        },
+        "num_clipped": 0
+      }
+    ]
+  }
+]
