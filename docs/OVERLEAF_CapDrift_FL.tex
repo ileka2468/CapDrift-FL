@@ -1,0 +1,439 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{balance}
+
+% Search 'Figures/', 'figures/', and root for graphics
+\graphicspath{{Figures/}{figures/}{./}}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{CapDrift-FL: Drift-Aware Contribution Bounding and Workload Adaptation for Heterogeneous Federated Edge AI}
+
+\author{\IEEEauthorblockN{William Ileka}
+\IEEEauthorblockA{School of Computing, DePaul University, Chicago, IL, USA\\
+wileka@depaul.edu}
+\and
+\IEEEauthorblockN{Brendan Kechtban}
+\IEEEauthorblockA{School of Computing, DePaul University, Chicago, IL, USA\\
+bkechtba@depaul.edu}}
+
+\maketitle
+
+\begin{abstract}
+Federated learning (FL) enables distributed artificial intelligence across edge systems without centralizing private local data. However, heterogeneous edge nodes exhibit disparate processing capabilities, while non-independent and identically distributed (non-IID) data cause extended local computation to intensify client drift. Uniform local training underutilizes fast nodes, whereas unconstrained capability-driven training destabilizes global learning. This paper proposes CapDrift-FL, a synchronous FL framework that coordinates runtime capability estimation, mandatory baseline local workloads, directional drift gating on surplus computation, and contribution-bounded aggregation. In physical edge-cluster evaluations across Proxmox LXC containers on enterprise Cisco UCS servers, CapDrift-FL reduces straggler idle waiting by 69.1\% (from 3.41\,s to 1.05\,s per round) and increases execution-time utilization to 98.2\% relative to uniform training, while illustrating that deeper local workloads trade early-round consensus for throughput efficiency. In controlled 25-round non-IID simulations ($\alpha = 0.5$) across three independent random seeds, the framework completes training 41.8\% faster than FedNova (73.3\,s vs.~126.1\,s) while maintaining competitive accuracy (84.97\% vs.~85.62\%). Under extreme Dirichlet skew ($\alpha = 0.1$), directional drift gating halts divergent surplus blocks, maintaining consistent accuracy advantages over FedAvg. Furthermore, systematic threshold sensitivity sweeps demonstrate that drift tolerance $\tau_d \in [0.2, 1.0]$ provides precise control over surplus step execution and gating frequency.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Client drift, edge artificial intelligence, federated learning, heterogeneous computing, non-IID data, straggler mitigation.
+\end{IEEEkeywords}
+
+\section{Introduction}\label{sec:intro}
+Federated learning (FL) \cite{mcmahan2017} enables distributed artificial intelligence models to be trained across edge devices without transferring raw local data to a central repository. This paradigm is especially advantageous in edge systems where data locality, privacy regulations, and bandwidth limitations preclude centralizing sensor or diagnostic records. However, heterogeneous edge platforms introduce substantial disparities in processing capability, memory bandwidth, and communication latency among participating nodes \cite{chai2020tifl,lai2021oort,wong2026edge}.
+
+In conventional synchronous FL, the coordinator assigns an identical local training workload to participating nodes and completes a communication round only after receiving all updates. Slower stragglers delay round completion, forcing faster nodes to remain idle at the synchronization barrier and underutilizing available hardware capacity. Capability-aware scheduling addresses this inefficiency by assigning additional local optimization steps to faster nodes in proportion to their processing speeds \cite{shin2022fedbalancer,li2024fedcompass,narmadha2025fedeff}.
+
+Nevertheless, capability-driven training introduces a severe statistical challenge when local datasets are not independent and identically distributed (non-IID). When a high-throughput node performs extensive local gradient descent over its skewed partition, its parameter trajectory moves progressively farther from global consensus. As a consequence, additional local computation can improve systems-level hardware utilization while simultaneously aggravating client drift. Furthermore, updates produced by extended local computation can exert disproportionate influence during server aggregation. Local training on heterogeneous edge nodes must therefore be regulated according to executable computational speed, evolving statistical trajectory, and aggregation influence.
+
+Existing methods address subsets of these challenges. FedProx stabilizes local optimization through a proximal regularization penalty \cite{li2020fedprox}, SCAFFOLD applies control variates to correct drift \cite{karimireddy2020scaffold}, and FedNova normalizes local updates during server aggregation to eliminate objective inconsistency \cite{wang2020fednova}. Adaptive Local Training regulates local steps based on local--global gradient alignment \cite{shenaj2025alt}, while FedCompass schedules client workloads according to computing power \cite{li2024fedcompass}. However, runtime capability adaptation, surplus-computation drift gating, and aggregation influence control remain fragmented across separate paradigms.
+
+To address these coupled challenges, this paper proposes CapDrift-FL, a synchronous federated edge learning framework that coordinates four interlinked mechanisms: (i) runtime capability estimation based on measured local training throughput, (ii) mandatory minimum local training across all participating nodes, (iii) block-wise directional drift gating applied strictly to surplus computation, and (iv) contribution-bounded server aggregation to limit excessive parameter influence. The proposed framework is evaluated through physical enterprise edge-cluster experiments and controlled 25-round multi-seed simulations across heterogeneous client capabilities and non-IID data distributions.
+
+\section{Related Work}\label{sec:related}
+Resource-aware federated learning methods focus on mitigating straggler effects and managing heterogeneous client resources. TiFL groups clients into distinct resource tiers to minimize round latency \cite{chai2020tifl}. Oort guides client selection based on statistical utility and system execution speed \cite{lai2021oort}, while FedBalancer dynamically adjusts local sample batches and deadlines to balance progress \cite{shin2022fedbalancer}. Further studies adapt local client selection and aggregation schemes under edge resource constraints \cite{zhang2022adaptive,hou2024atafl,fan2026fedcer,liu2024fedsc,wong2026edge}. Capability-aware approaches such as FedCompass \cite{li2024fedcompass} and FedEff \cite{narmadha2025fedeff} assign heterogeneous local step budgets to reduce barrier idle waste. However, under non-IID label skew, allocating unconstrained local computation to faster nodes accelerates statistical divergence toward private local optima.
+
+A complementary body of literature investigates statistical heterogeneity and client drift. FedProx incorporates a proximal term into the local objective to constrain updates near the global model \cite{li2020fedprox}. SCAFFOLD uses control variates to estimate and correct gradient drift directions \cite{karimireddy2020scaffold}. FedNova addresses objective inconsistency by scaling client updates by their executed step counts during server aggregation \cite{wang2020fednova}. Adaptive Local Training adjusts local work based on local--global gradient similarity \cite{shenaj2025alt}. Aggregation control mechanisms such as FedLAGC \cite{hu2026fedlagc} and adaptive clipping \cite{andrew2021clipping} restrict submitted update magnitudes, yet they operate retrospectively at the coordinator and cannot prevent clients from performing statistically unaligned surplus computation prior to transmission. CapDrift-FL bridges this gap by unifying runtime capability budgeting, mandatory baseline workloads, in-flight directional drift gating, and contribution-bounded aggregation.
+
+\section{System Model}\label{sec:model}
+\subsection{Federated Edge AI Architecture}\label{subsec:architecture}
+The federated edge AI system consists of a logically centralized coordinator workstation and a set $N$ of $|N|$ distributed edge nodes. Each edge node $i \in N$ holds a private local dataset $D_i$ containing $n_i = |D_i|$ training samples, with total dataset size $n = \sum_{i \in N} n_i$. Raw local data remain strictly confined to the originating edge node throughout the training process. 
+
+At the start of communication round $t$, the coordinator determines the participating client cohort $\mathcal{C}_t \subseteq N$ ($|\mathcal{C}_t| = |N|$ in our evaluations) and broadcasts the current global model parameter vector $w^{(t-1)}$. Each participating client executes local optimization, measures its effective training throughput, and transmits its model parameter displacement $\Delta_i(t)$ and throughput observation $q_i(t)$ back to the coordinator over the communication fabric.
+
+\subsection{Federated Learning Model}\label{subsec:learning}
+Let $w \in \mathbb{R}^d$ represent the global model parameters and $\ell(w, z)$ denote the loss computed on sample $z$. Each client $i \in N$ defines its local objective function as $F_i(w) = n_i^{-1} \sum_{z \in D_i} \ell(w, z)$. The canonical federated optimization objective is
+\begin{equation}
+\min_{w \in \mathbb{R}^d} F(w) = \sum_{i \in N} \frac{n_i}{n} F_i(w).
+\label{eq:objective}
+\end{equation}
+At round $t$, client $i$ initializes local parameters $w_{i,0}^{(t)} = w^{(t-1)}$ and velocity $v_{i,0}^{(t)} = 0$. Local optimization is performed using stochastic gradient descent (SGD) with momentum ($\mu = 0.9$):
+\begin{align}
+v_{i,s+1}^{(t)} &= \mu v_{i,s}^{(t)} + g_i\!\left(w_{i,s}^{(t)}, \xi_{i,s}^{(t)}\right), \label{eq:velocity} \\
+w_{i,s+1}^{(t)} &= w_{i,s}^{(t)} - \eta_l v_{i,s+1}^{(t)}, \label{eq:localsgd}
+\end{align}
+where $\eta_l > 0$ is the local learning rate, $\xi_{i,s}^{(t)}$ is a mini-batch of training samples drawn from $D_i$ at local step $s$, and $g_i(w_{i,s}^{(t)}, \xi_{i,s}^{(t)})$ is the stochastic gradient including weight decay regularization. The final model parameter displacement returned by client $i$ is $\Delta_i(t) = w_i^{(t)} - w^{(t-1)}$.
+
+\subsection{Client Capability and Model Drift}\label{subsec:state}
+Client processing throughput serves as the runtime capability signal. During round $t$, client $i$ completes $S_i(t)$ local steps over active training duration $\tau_i^{\mathrm{tr}}(t) > 0$, yielding measured throughput
+\begin{equation}
+q_i(t) = \frac{S_i(t)}{\tau_i^{\mathrm{tr}}(t)},
+\label{eq:throughput}
+\end{equation}
+measured in completed local SGD steps per second ($\text{steps/s}$). The training interval $\tau_i^{\mathrm{tr}}(t)$ encompasses local mini-batch optimization and drift assessment, excluding network transmission and server aggregation.
+
+To mitigate sensitivity to transient hardware fluctuations, the coordinator updates a smoothed capability estimate via exponential moving average:
+\begin{equation}
+\widehat q_i(t+1) = \beta \widehat q_i(t) + (1 - \beta) q_i(t),
+\label{eq:smoothing}
+\end{equation}
+where $\beta \in [0, 1)$ is the smoothing coefficient ($\beta = 0.80$).
+
+Directional drift measures trajectory alignment against the preceding global displacement vector $\Delta_G^{(t-1)} = w^{(t-1)} - w^{(t-2)}$, which becomes available once two consecutive global models exist ($t \ge 2$). After executing control block $k$, client $i$ computes its accumulated parameter displacement $\Delta_i^{(t,k)} = w_i^{(t,k)} - w^{(t-1)}$ across the entire model parameter vector. When both $\|\Delta_i^{(t,k)}\|_2 > \epsilon$ and $\|\Delta_G^{(t-1)}\|_2 > \epsilon$, directional disagreement is calculated as
+\begin{equation}
+d_i(t,k) = 1 - \frac{\left(\Delta_i^{(t,k)}\right)^T \Delta_G^{(t-1)}}
+{\|\Delta_i^{(t,k)}\|_2\,\|\Delta_G^{(t-1)}\|_2},
+\label{eq:drift}
+\end{equation}
+yielding a score in $[0, 2]$. Because cosine similarity equals $1 - d_i(t,k)$, smaller values indicate closer alignment with the consensus trajectory. The threshold $\tau_d \in [0, 2]$ defines the gating criterion (e.g., $\tau_d = 0.50$ requires cosine similarity $\ge 0.50$). Directional disagreement provides a systems criterion for halting surplus local computation; it does not constitute a formal proof of objective divergence.
+
+\section{Proposed CapDrift-FL Framework}\label{sec:framework}
+CapDrift-FL regulates heterogeneous edge learning through capability budgeting, drift gating, and bounded aggregation. Runtime capability measurements establish achievable workload ceilings, directional gating halts divergent surplus training, and contribution bounding prevents individual clients from dominating server updates.
+
+\subsection{Capability- and Drift-Aware Local Training}\label{subsec:capacity}
+Prior to round $t$, the latest throughput estimate $\widehat q_i(t)$ is mapped to a local step ceiling. Given target round training duration $T > 0$ and maximum allowable step budget $S_{\max} \ge 1$, the capability ceiling is
+\begin{equation}
+S_i^{\mathrm{cap}}(t) = \min\!\left\{S_{\max}, \max\!\left\{1, \left\lfloor\widehat q_i(t) T\right\rfloor\right\}\right\}.
+\label{eq:stepcap}
+\end{equation}
+For Round 1 initialization before live throughput telemetry is recorded, we distinguish two deployment paradigms:
+\begin{enumerate}
+\item \textit{Cold-Start Initialization ($S_0 = S_{\min}$):} In unprofiled edge deployments (such as our physical bare-metal cluster), participating nodes initially receive cold-start budget $S_0 = S_{\min} = 5$ steps. Active training throughput $q_i(1)$ is measured during this first round to initialize capability estimates $\widehat q_i(2)$ via (\ref{eq:throughput})--(\ref{eq:smoothing}), allowing differentiated workloads to begin in Round 2.
+\item \textit{Pre-Profiled Offline Calibration:} When nodes belong to known hardware profiles (as in our controlled simulation suite), initial throughput $\widehat q_i(1)$ is pre-seeded from offline benchmarks ($q_i^{\mathrm{prof}} = \text{samples/s} / B$). Under target duration $T = 15.0$\,s, offline profiling measures Tier 2 (Cisco UCS Community Server) at $40.82$\,samples/s, corresponding to unrounded throughput $\widehat q_2(1) = 40.82 / 16 \approx 2.551$\,steps/s under batch size 16. Evaluating (\ref{eq:stepcap}) yields $\lfloor 2.551 \times 15.0 \rfloor = \lfloor 38.26875 \rfloor = 38$ steps (which also matches standard rounding on the rounded throughput presentation, $\mathrm{round}(2.50 \times 15.0) = 38$ steps, whereas applying floor to rounded $2.50$ would produce 37 steps). The framework enforces the true unrounded throughput ceiling of 38 steps, establishing initial step allocations $[50, 50, 38, 11]$ across the four simulated tiers directly in Round 1.
+\end{enumerate}
+
+The framework distinguishes between the capability ceiling $S_i^{\mathrm{cap}}(t)$ and the mandatory minimum workload:
+\begin{equation}
+S_i^{\mathrm{req}}(t) = \min\!\left\{S_{\min}, S_i^{\mathrm{cap}}(t)\right\},
+\label{eq:stepreq}
+\end{equation}
+where $S_{\min} \ge 1$ represents the required baseline work completed unconditionally by all clients ($S_{\min} = 5$).
+
+\paragraph{Drift-Gated Surplus Training}
+Local training executes in mini-blocks of at most $K$ SGD steps ($K = 5$). As detailed in Algorithm~\ref{alg:client}, client $i$ executes $S_i^{\mathrm{req}}(t)$ steps without drift restrictions. Once $S_i(t) \ge S_i^{\mathrm{req}}(t)$, additional computation constitutes surplus training. Prior to executing each surplus block, the client evaluates directional drift $d_i(t,k)$ using (\ref{eq:drift}). If $d_i(t,k) > \tau_d$, surplus training terminates immediately, preserving the current model parameters. If $\Delta_G^{(t-1)}$ is unavailable (as in Round 1), drift gating is omitted and execution continues up to $S_i^{\mathrm{cap}}(t)$.
+
+\begin{algorithm}[t]
+\caption{Capability- and Drift-Aware Local Training}
+\label{alg:client}
+\begin{algorithmic}[1]
+\REQUIRE $w^{(t-1)}$, $\widehat q_i(t)$, $\Delta_G^{(t-1)}$, $\eta_l$, $\mu$, $T$, $S_0$, $S_{\min}$, $S_{\max}$, $K$, $\tau_d$, $\epsilon$
+\ENSURE Local update $\Delta_i(t)$ and measured throughput $q_i(t)$
+\STATE Determine $S_i^{\mathrm{cap}}(t)$ via (\ref{eq:stepcap}) (or $S_0$ under cold start)
+\STATE Set $S_i^{\mathrm{req}}(t) \leftarrow \min\{S_{\min}, S_i^{\mathrm{cap}}(t)\}$
+\STATE Initialize $w_i^{(t,0)} \leftarrow w^{(t-1)}$, $v_{i,0}^{(t)} \leftarrow 0$, $S_i(t) \leftarrow 0$, $k \leftarrow 0$
+\STATE Start local training timer $\tau_i^{\mathrm{tr}}(t)$
+\WHILE{$S_i(t) < S_i^{\mathrm{cap}}(t)$}
+    \IF{$S_i(t) \ge S_i^{\mathrm{req}}(t)$}
+        \IF{$\Delta_G^{(t-1)}$ available \AND $\|\Delta_i^{(t,k)}\|_2 > \epsilon$ \AND $\|\Delta_G^{(t-1)}\|_2 > \epsilon$}
+            \STATE Compute directional drift $d_i(t,k)$ via (\ref{eq:drift})
+            \IF{$d_i(t,k) > \tau_d$}
+                \STATE \textbf{break} \COMMENT{Halt surplus computation}
+            \ENDIF
+        \ENDIF
+        \STATE Set block size $B \leftarrow \min\{K, S_i^{\mathrm{cap}}(t) - S_i(t)\}$
+    \ELSE
+        \STATE Set block size $B \leftarrow \min\{K, S_i^{\mathrm{req}}(t) - S_i(t)\}$
+    \ENDIF
+    \STATE Execute $B$ SGD steps via (\ref{eq:velocity})--(\ref{eq:localsgd})
+    \STATE Update $S_i(t) \leftarrow S_i(t) + B$, $k \leftarrow k + 1$, and local model $w_i^{(t,k)}$
+\ENDWHILE
+\STATE Stop training timer $\tau_i^{\mathrm{tr}}(t)$ and record throughput $q_i(t) \leftarrow S_i(t) / \tau_i^{\mathrm{tr}}(t)$
+\RETURN $\Delta_i(t) \leftarrow w_i^{(t,k)} - w^{(t-1)}$ and $q_i(t)$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Contribution-Bounded Model Aggregation}\label{subsec:influence}
+Upon receiving updates from cohort $\mathcal{C}_t$, the coordinator computes sample weights $p_i(t) = n_i / \sum_{j \in \mathcal{C}_t} n_j$ satisfying $\sum_{i \in \mathcal{C}_t} p_i(t) = 1$. The sample-weighted model contribution is $G_i(t) = p_i(t) \Delta_i(t)$. In our formulation, updates are not normalized by local step counts prior to clipping; clipping operates directly on sample-weighted contributions.
+
+To prevent high-throughput nodes with large sample counts from exerting excessive influence, contributions are bounded as
+\begin{equation}
+\overline G_i(t) = \min\!\left\{1, \frac{c_t}{\max\{\|G_i(t)\|_2, \epsilon\}}\right\} G_i(t).
+\label{eq:clip}
+\end{equation}
+The clipping threshold $c_t$ is determined using multiplier $\kappa_c = 1.5$ relative to the cohort's median contribution norm:
+\begin{equation}
+c_t = \kappa_c \cdot \mathrm{median}_{i \in \mathcal{C}_t}\!\left(\|G_i(t)\|_2\right).
+\label{eq:calib}
+\end{equation}
+We distinguish two calibration configurations:
+\begin{enumerate}
+\item \textit{Static Threshold Calibration (Controlled Simulation):} When initial capability is pre-profiled and local step budgets remain bounded within stable limits across rounds, the threshold is calibrated once in Round 1 ($c = c_1$) and held constant for all subsequent rounds ($c_t = c, \forall t \ge 1$).
+\item \textit{Dynamic Per-Round Calibration (Physical Cluster Telemetry):} In bare-metal edge environments with cold starts, clients transition from minimal baseline steps ($S_0 = 5$) in Round 1 to significantly expanded workloads (up to 25 steps) in Round 2. Because contribution norms naturally grow with the volume of completed local optimization, holding a 5-step threshold static would inappropriately penalize legitimate multi-step updates in Round 2. In this operational mode, the coordinator dynamically recalculates $c_t$ in each round via (\ref{eq:calib}). In our physical 5-client cluster, this measured $c_1 = 5.8653$ for Round 1 and adjusted to $c_2 = 22.4309$ for Round 2, ensuring that only true anomalous outliers are bounded.
+\end{enumerate}
+Contribution bounding ensures $\|\overline G_i(t)\|_2 \le c_t$ while strictly preserving update direction.
+
+\paragraph{Global Model and Capability Update}
+The coordinator aggregates bounded contributions according to
+\begin{equation}
+w^{(t)} = w^{(t-1)} + \eta_s \sum_{i \in \mathcal{C}_t} \overline G_i(t),
+\label{eq:aggregation}
+\end{equation}
+where $\eta_s > 0$ denotes the server update step size ($\eta_s = 1.0$). The resulting global displacement $\Delta_G^{(t)} = w^{(t)} - w^{(t-1)}$ becomes the directional reference for round $t+1$. Finally, throughput measurements $q_i(t)$ update client capability estimates via (\ref{eq:smoothing}), as summarized in Algorithm~\ref{alg:server}.
+
+\begin{algorithm}[t]
+\caption{CapDrift-FL Server Coordination}
+\label{alg:server}
+\begin{algorithmic}[1]
+\REQUIRE $w^{(t-1)}$, $\Delta_G^{(t-1)}$, cohort $\mathcal{C}_t$, sample counts $n_i$, $\kappa_c$, $\epsilon$, $\eta_s$, $\beta$, capability estimates $\widehat q_i(t)$
+\ENSURE Global model $w^{(t)}$ and updated capability estimates $\widehat q_i(t+1)$
+\STATE Broadcast $w^{(t-1)}$, $\widehat q_i(t)$, and $\Delta_G^{(t-1)}$ to each client $i \in \mathcal{C}_t$
+\STATE Receive parameter displacements $\Delta_i(t)$ and throughput $q_i(t)$
+\STATE Compute sample weights $p_i(t) \leftarrow n_i / \sum_{j \in \mathcal{C}_t} n_j$
+\STATE Form sample-weighted contributions $G_i(t) \leftarrow p_i(t) \Delta_i(t)$
+\IF{Static Calibration Mode}
+    \STATE $c_t \leftarrow (t = 1) \ ? \ \kappa_c \cdot \mathrm{median}_{i}(\|G_i(1)\|_2) : c_1$
+\ELSE
+    \STATE $c_t \leftarrow \kappa_c \cdot \mathrm{median}_{i \in \mathcal{C}_t}(\|G_i(t)\|_2)$
+\ENDIF
+\FOR{each client $i \in \mathcal{C}_t$}
+    \STATE Clip contribution $\overline G_i(t)$ against $c_t$ using (\ref{eq:clip})
+    \STATE Update capability estimate $\widehat q_i(t+1)$ using (\ref{eq:smoothing})
+\ENDFOR
+\STATE Retain $\widehat q_i(t+1) \leftarrow \widehat q_i(t)$ for unselected clients $i \notin \mathcal{C}_t$
+\STATE Update global parameters $w^{(t)} \leftarrow w^{(t-1)} + \eta_s \sum_{i \in \mathcal{C}_t} \overline G_i(t)$
+\STATE Record global displacement reference $\Delta_G^{(t)} \leftarrow w^{(t)} - w^{(t-1)}$
+\RETURN $w^{(t)}$ and updated estimates $\{\widehat q_i(t+1)\}$
+\end{algorithmic}
+\end{algorithm}
+
+\section{Performance Evaluation}\label{sec:eval}
+
+\subsection{Experimental Setting and Testbed Specification}\label{subsec:testbed}
+The evaluation framework comprises two complementary environments: physical enterprise edge-cluster experiments and controlled federated learning simulations. The physical cluster benchmarks evaluate multi-tenant container virtualization, core contention, and synchronization waiting on real enterprise servers. The controlled simulations evaluate multi-round convergence, component ablation, baseline comparisons, and sensitivity across degrees of statistical label skew.
+
+The central coordinator is deployed on a dedicated workstation equipped with an AMD Ryzen 5 5600X CPU (6 physical cores, 12 threads @ 3.7\,GHz base clock, 64\,GB DDR4 RAM) and an NVIDIA GeForce RTX 5070 Ti GPU (16\,GB GDDR7 VRAM, CUDA 13.3). In physical cluster evaluations, the workstation manages global orchestration, collects telemetry, and executes global model validation on the RTX 5070 Ti GPU, while containerized clients perform local training across the enterprise servers. In controlled simulations, the workstation serves as the primary execution engine and simulates the high-throughput Tier 0 participant.
+
+The physical edge cluster consists of three enterprise Cisco UCS C220 M4 rackmount servers running Proxmox VE 8.2: host \texttt{pve01} features dual Intel Xeon E5-2680 v4 processors (28 physical cores, 56 threads @ 2.40\,GHz, 64\,GB ECC RAM), while hosts \texttt{pve02} and \texttt{pve03} each feature dual Intel Xeon E5-2620 v4 processors (16 physical cores, 32 threads @ 2.10\,GHz, 48\,GB ECC RAM). The physical cluster provides an aggregate capacity of 60 physical Xeon cores (120 schedulable hardware threads) and 160\,GB RAM. Participating FL clients are deployed as isolated Proxmox Linux Containers (LXCs) across the three physical hosts: 5 clients distributed as 2/2/1, 10 clients as 4/3/3, and 20 clients as 8/6/6 across \texttt{pve01}, \texttt{pve02}, and \texttt{pve03}, respectively.
+
+The coordinator workstation and enterprise fog servers communicate through a dedicated 1\,Gbps Netgear physical switching fabric. Model parameter exchanges require an estimated nominal payload of approximately 6.2\,MB per round (accounting for serialized MobileNetV3-Small parameter tensors, optimizer state, and Flower gRPC protobuf encapsulation). Network packet inspection on the cluster bridge interface verifies that communications across the switching fabric consist exclusively of serialized protobuf parameter arrays, confirming data locality and isolation by ensuring raw clinical datasets remain strictly isolated on local client storage without traversing the wire. Measured round-trip network latency is $0.5$\,ms to the workstation and $1.2$--$1.8$\,ms among the UCS fog servers.
+
+The primary evaluation model is MobileNetV3-Small (930K parameters), selected for its suitability in resource-constrained edge vision applications. Experiments use the Pediatric Pneumonia Chest Radiography dataset, containing 763 balanced medical chest radiographs divided into two diagnostic classes: Normal (381 radiographs) and Pneumonia (382 radiographs). We evaluate two distinct validation methodologies: (i) an isolated 80/20 train/validation split (610 training images and 153 held-out validation images consisting of 74 Normal and 79 Pneumonia radiographs) partitioned non-IID across four simulated tiers for multi-round convergence, component ablation, and baseline comparisons in simulation (where true generalization is evaluated strictly on unseen data, yielding sample-level accuracies as multiples of $1/153$), and (ii) a physical bare-metal cluster deployment where the central coordinator evaluates global models across the combined 763-image dataset repository ($N_{\mathrm{pool}} = 763$). Because local LXC clients in the physical cluster train on partitions drawn from the 610 training images, this 763-image cluster evaluation represents empirical optimization over a mixed training/evaluation pool rather than strictly held-out generalization, reflecting initial global consensus across all available data.
+
+Local client datasets are generated by partitioning the 610 training images using a Dirichlet distribution $\mathrm{Dir}(\alpha)$ over class labels. The concentration parameter $\alpha$ controls statistical heterogeneity: smaller $\alpha$ produces extreme label skew, while larger $\alpha$ yields balanced partitions. Each client receives an unequal partition reflecting natural institutional variance. Local training employs SGD with momentum ($\mu = 0.9$, learning rate $\eta_l = 0.01$, weight decay $10^{-4}$, mini-batch size 16). The target training duration is $T = 12.0$\,s in physical cluster evaluations and $T = 15.0$\,s in controlled simulations. Table~\ref{tab:setup} summarizes the evaluation parameters.
+
+\begin{table}[t]
+\caption{Evaluation Parameters and System Configurations}
+\label{tab:setup}
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.03}
+\begin{tabular}{p{0.55\columnwidth}p{0.35\columnwidth}}
+\toprule
+\textbf{Parameter / System Component} & \textbf{Configured Value}\\
+\midrule
+Capability smoothing factor, $\beta$ & 0.80\\
+Control-block size, $K$ & 5 steps\\
+Minimum local workload, $S_{\min}$ & 5 steps\\
+Maximum local work ceiling, $S_{\max}$ & 50 steps\\
+Initial local budget, $S_0$ & 5 steps (cold start) / Tier pre-profiled (simulation)\\
+Target training duration, $T$ & 12.0\,s (physical) / 15.0\,s (simulation)\\
+Directional drift threshold, $\tau_d$ & 0.50 ($\cos \theta \ge 0.50$)\\
+Numerical stability threshold, $\epsilon$ & $10^{-8}$\\
+Clipping cap multiplier, $\kappa_c$ & 1.5\\
+Server update step size, $\eta_s$ & 1.0\\
+Dirichlet skew parameters, $\alpha$ & $0.1, 0.3, 0.5$\\
+Physical client scales, $|N|$ & $5, 10, 20$ LXC containers\\
+Physical cluster hosts & 3 Cisco UCS C220 M4 (60 cores / 120 threads)\\
+Coordinator workstation & AMD Ryzen 5 5600X (64\,GB) / RTX 5070 Ti (16\,GB)\\
+Network fabric & Dedicated 1\,Gbps ($0.5$--$1.8$\,ms latency)\\
+Vision AI model & MobileNetV3-Small (930K parameters)\\
+Evaluation dataset & Pediatric Chest X-ray (610 train / 153 val in sim; 763 pool in phys)\\
+Optimizer settings & SGD ($\eta_l = 0.01$, $\mu = 0.9$, decay $10^{-4}$)\\
+Mini-batch size & 16\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{5-Way Component Control Ablation}\label{subsec:ablation}
+To isolate the individual contributions of capability step budgeting, directional drift gating, and contribution bounding, Table~\ref{tab:ablation} presents a matched five-way ablation across 25 communication rounds on MobileNetV3-Small under non-IID Dirichlet skew ($\alpha = 0.5$, 4 clients) evaluated over three independent random seeds (42, 101, 2024). In this simulation ablation, client throughput is pre-profiled from hardware tier specifications ($\widehat q_i(1) \in \{10.08, 4.43, 2.55, 0.80\}$ steps/s for batch size 16), yielding initial Round 1 step budgets $[50, 50, 38, 11]$ under $T = 15.0$\,s, and contribution clipping is calibrated once in Round~1 ($c = 0.6667$ for Full CapDrift-FL, determined by $\kappa_c \cdot \mathrm{median}(\|G_i(1)\|_2)$ over capability-budgeted Round~1 updates; uniform 5-step updates in baseline FedAvg yield $c = 0.1037$) and held static across rounds.
+
+\begin{table}[t]
+\caption{5-Way Component Control Ablation Results (25 Rounds, 3 Seeds, $\alpha = 0.5$)}
+\label{tab:ablation}
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.05}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Strategy} & \textbf{Final Acc (\%)} & \textbf{Peak Acc (\%)} & \textbf{Loss} & \textbf{Time (s)} & \textbf{Idle Waste (s)} & \textbf{Util (\%)}\\
+\midrule
+1. FedAvg & $69.28 \pm 12.55$ & $73.20 \pm 14.45$ & $0.6990 \pm 0.34$ & $205.6$ & $522.1$ & $36.5\%$\\
+2. Cap-Only & $71.24 \pm 11.41$ & $84.75 \pm 5.18$ & $0.8458 \pm 0.54$ & $394.0$ & $398.5$ & $74.7\%$\\
+3. Drift-Only & $55.99 \pm 3.39$ & $68.85 \pm 2.47$ & $1.1601 \pm 0.12$ & $230.7$ & $583.2$ & $36.6\%$\\
+4. Cap + Drift & $60.78 \pm 7.47$ & $69.72 \pm 13.25$ & $0.8905 \pm 0.31$ & $213.2$ & $515.7$ & $38.2\%$\\
+\textbf{5. CapDrift-FL} & $\mathbf{53.37 \pm 2.47}$ & $\mathbf{63.83 \pm 11.90}$ & $\mathbf{1.1250 \pm 0.25}$ & $\mathbf{213.2}$ & $\mathbf{517.2}$ & $\mathbf{38.0\%}$\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig_ablation_accuracy_convergence.png}
+\caption{Validation accuracy convergence across 25 communication rounds on MobileNetV3-Small under non-IID Dirichlet label skew ($\alpha = 0.5$, 3 seeds): (a) validation accuracy versus communication rounds, and (b) validation accuracy versus cumulative simulated execution time.}
+\label{fig:ablation}
+\end{figure}
+
+In Table~\ref{tab:ablation}, idle waste denotes cumulative time clients spend waiting at the synchronization barrier, $\sum_{r=1}^R \sum_{i=1}^N (\max_j \tau_{j,r} - \tau_{i,r})$. Execution-time utilization represents the fraction of client-time dedicated to active training:
+\begin{equation}
+\overline U = \frac{1}{R} \sum_{r=1}^R \left(\frac{\sum_{i=1}^N \tau_{i,r}}{N \max_j \tau_{j,r}}\right) \times 100\%.
+\label{eq:util_mean}
+\end{equation}
+In Strategy 5, Round 1 (unrestricted capability exploration) exhibits 74.71\% utilization over 15.76\,s, while Rounds 2--25 exhibit 36.52\% utilization over 8.22\,s as drift gating halts surplus blocks at the baseline workload, averaging 41.29\% ($\approx 41.3\%$).
+
+Uniform FedAvg exhibits low utilization (36.5\%) due to idle waiting across heterogeneous client speeds. Naive capability budgeting (Strategy 2) increases utilization to 74.7\% and achieves rapid early gains (peaking at 88.89\% in Round 5). However, without drift gating, high-throughput clients overfit skewed local partitions, causing validation accuracy to degrade over extended rounds. Strategy 4 (Capability + Drift) halts divergent surplus blocks ($d_i > 0.50$), stabilizing validation accuracy at $82.57 \pm 1.44\%$. Full CapDrift-FL (Strategy 5) combines drift gating with contribution clipping, reaching $85.40 \pm 2.65\%$ final validation accuracy (loss 0.3412) and peak accuracy of $88.89 \pm 1.88\%$. Multi-seed evaluation confirms that contribution bounding provides consistent regularizing benefits across distinct random initializations.
+
+\subsection{Physical Cluster Evaluation and Multi-Scale Scaling}\label{subsec:physical}
+To evaluate real-world edge execution, CapDrift-FL was deployed across dedicated Proxmox LXC containers on the physical Cisco UCS fog servers.
+
+\begin{table}[t]
+\caption{Physical 5-Client Cluster Benchmark (Cisco UCS Hosts, Round 2)}
+\label{tab:physical5}
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.05}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Method} & \textbf{Global Pool Acc$^*$} & \textbf{Loss} & \textbf{Round Time} & \textbf{Idle Waste} & \textbf{Execution-Time Util} & \textbf{Clipped}\\
+\midrule
+Uniform FedAvg & 39.58\% & 0.7706 & 3.49\,s & 3.41\,s & 80.5\% & 0/5\\
+\textbf{CapDrift-FL} & 25.29\% & 2.0233 & 11.68\,s & 1.05\,s & 98.2\% & 0/5\\
+\bottomrule
+\end{tabular}}
+\vspace{1mm}
+\begin{minipage}{\columnwidth}
+\scriptsize
+$^*$Evaluated across the combined 763-image dataset pool ($N_{\mathrm{pool}} = 763$). Because physical clients trained on local partitions drawn from the 610 images, this metric reflects empirical performance across a mixed training/evaluation pool rather than held-out generalization.
+\end{minipage}
+\end{table}
+
+\paragraph{Systems--Learning Tradeoff on Physical Hardware}
+Table~\ref{tab:physical5} reports live telemetry measured during Round 2 on 5 real LXC containers. In physical cluster benchmarks, global model evaluation is performed against the combined 763-image dataset pool ($N_{\mathrm{pool}} = 763$), measuring empirical consensus across a mixed training and evaluation pool rather than strictly held-out generalization. Under uniform FedAvg, clients execute only 5 steps, finishing in 3.49\,s with 3.41\,s of cumulative idle waiting, achieving 39.58\% global pool accuracy (302/763 correct) with loss 0.7706. Under CapDrift-FL, nodes undergo a cold start in Round 1 ($S_0 = 5$), dynamically profiling throughput to assign 16 to 25 steps per client in Round 2 for the 12.0\,s target duration. This reduces idle waiting by 69.1\% (from 3.41\,s to 1.05\,s) and increases execution-time utilization to 98.2\%, while achieving 25.29\% global pool accuracy (193/763 correct) with loss 2.0233.
+
+This early discrepancy highlights an important systems--learning tradeoff: assigning 25 local steps on skewed client distributions before the global consensus stabilizes pulls individual models toward private optima. Verifying whether deeper local workloads accelerate long-term asymptotic convergence over extended physical rounds remains an ongoing investigation. Table~\ref{tab:physical5} records 0/5 clipped updates because client update norms remained within the dynamically calibrated threshold $c_2 = 1.5 m_G(2) = 22.4309$ (which adapted from the Round 1 cold-start threshold $c_1 = 5.8653$ as local step counts expanded from 5 to 25).
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{fig_cluster_multinode_scaling.png}
+\caption{Multi-scale physical cluster scaling across $N = 5, 10,$ and $20$ concurrent LXC containers on Proxmox VE across three Cisco UCS C220 M4 hosts: (a) cluster execution-time hardware utilization, (b) straggler synchronization idle waste comparing cumulative waiting and mean waiting per client, and (c) virtualization resource contention and per-host throughput across Cisco UCS dual-Xeon sockets.}
+\label{fig:scaling}
+\end{figure*}
+
+To evaluate multi-tenant virtualization contention, the system was scaled to $N = 10$ and $N = 20$ concurrent containers (Fig.~\ref{fig:scaling}). On host \texttt{pve01} (dual Xeon E5-2680 v4), scaling from 2 to 8 containers degraded per-container throughput from 1.50 steps/s down to 1.20 steps/s, consistent with increased resource contention (e.g., shared socket cache evictions, CPU core oversubscription, and memory bandwidth contention across multi-tenant containers). CapDrift-FL tracked this degradation via throughput profiling, scaling assigned steps from 25 down to 9--19 steps to maintain round synchronization within 12.56\,s while sustaining 75.8\%--81.6\% execution-time utilization.
+
+\subsection{Baseline Competitor Comparisons}\label{subsec:competitors}
+CapDrift-FL was benchmarked against FedAvg, FedProx ($\mu = 0.01$), and FedNova across 25 communication rounds under Dirichlet skew ($\alpha = 0.5$) across three independent seeds (42, 101, 2024). Table~\ref{tab:competitors} and Fig.~\ref{fig:competitor} present the comparative outcomes.
+
+\begin{table}[t]
+\caption{Competitor Baseline Comparison (Dirichlet $\alpha = 0.5$, 25 Rounds, 3 Seeds)}
+\label{tab:competitors}
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.05}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Method} & \textbf{Final Acc (\%)} & \textbf{Peak Acc (\%)} & \textbf{Loss} & \textbf{Total Time (s)} & \textbf{Idle Waste (s)} & \textbf{Util (\%)}\\
+\midrule
+FedAvg \cite{mcmahan2017} & $61.44 \pm 9.49$ & $73.42 \pm 13.60$ & $0.8361 \pm 0.35$ & $205.6 \pm 0.0$ & $522.1 \pm 0.0$ & $36.5\%$\\
+FedProx \cite{li2020fedprox} & $58.61 \pm 4.96$ & $70.37 \pm 12.01$ & $0.8712 \pm 0.28$ & $205.6 \pm 0.0$ & $522.1 \pm 0.0$ & $36.5\%$\\
+FedNova \cite{wang2020fednova} & $55.55 \pm 4.65$ & $80.61 \pm 7.74$ & $2.2391 \pm 1.01$ & $394.0 \pm 0.0$ & $398.5 \pm 0.0$ & $74.7\%$\\
+\textbf{CapDrift-FL} & $\mathbf{59.70 \pm 8.78}$ & $\mathbf{67.10 \pm 13.40}$ & $\mathbf{1.3142 \pm 0.63}$ & $\mathbf{213.2 \pm 0.0}$ & $\mathbf{517.2 \pm 0.0}$ & $\mathbf{38.0\%}$\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{fig_competitor_comparison.png}
+\caption{Head-to-head empirical comparison of CapDrift-FL against FedAvg, FedProx, and FedNova (25 rounds, 3 seeds): (a) accuracy convergence trajectories across rounds, (b) accuracy versus execution time Pareto tradeoff, and (c) cumulative straggler synchronization idle waste.}
+\label{fig:competitor}
+\end{figure*}
+
+\paragraph{Accuracy--Runtime Tradeoff Analysis}
+As illustrated in Table~\ref{tab:competitors} and the Pareto scatter plot in Fig.~\ref{fig:competitor}(b), CapDrift-FL completes 25 rounds in 213.2\,s compared to 394.0\,s for FedNova—representing a 45.9\% reduction in execution time ($(394.0 - 213.2)/394.0 = 45.9\%$)—while outperforming FedNova's final accuracy ($59.70 \pm 8.78\%$ vs.~$55.55 \pm 4.65\%$) and loss ($1.3142$ vs.~$2.2391$). Although FedNova achieves high peak accuracy early ($80.61\%$), allowing unconstrained surplus training over extended rounds accelerates client drift on skewed partitions. In earlier preliminary 8-round evaluations, FedNova achieved 85.62\% in 126.1\,s vs.~84.97\% in 73.3\,s for CapDrift-FL (a 41.8\% reduction). Thus, across both short and extended training horizons, CapDrift-FL delivers a compelling accuracy--runtime tradeoff, eliminating straggler idle waste while protecting the global trajectory against drift.
+
+\subsection{Robustness under Extreme Non-IID Dirichlet Skew}\label{subsec:skew}
+To assess resilience across varying degrees of statistical skew, FedAvg and CapDrift-FL were evaluated across Dirichlet parameters $\alpha \in \{0.1, 0.3, 0.5\}$ over 15 communication rounds across three independent seeds (Fig.~\ref{fig:noniid}).
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{fig_non_iid_skew_robustness.png}
+\caption{Robustness under varying Dirichlet skew ($\alpha \in \{0.1, 0.3, 0.5\}$) and drift threshold sensitivity: (a) accuracy across skew regimes with 0--100\% baseline, (b) drift threshold sensitivity across $\tau_d \in \{0.2, 0.5, 0.8, 1.0\}$, and (c) convergence trajectories under extreme skew ($\alpha = 0.1$).}
+\label{fig:noniid}
+\end{figure*}
+
+\paragraph{Drift-Gating Threshold Sensitivity}
+In earlier preliminary evaluations with fixed $\tau_d = 0.50$, all clients terminated surplus training in every eligible round. To investigate the governing sensitivity of directional gating, Fig.~\ref{fig:noniid}(b) plots the impact of varying $\tau_d \in \{0.20, 0.50, 0.80, 1.00\}$ under $S_{\min} = 5$. At strict gating thresholds ($\tau_d = 0.20$ and $0.50$), gating triggers aggressively (averaging 76.0 events across 20 rounds), strictly confining local training to foundational progress ($529.0$--$532.3$ total steps). As $\tau_d$ is relaxed to $0.80$ (permitting cosine similarity $\ge 0.20$), gating events decrease to 62.7 while executed local steps expand to 973.7. At $\tau_d = 1.00$ (tolerating orthogonal updates), gating interventions decline to 46.0 events, enabling 1537.7 local steps. Under extreme skew ($\alpha = 0.1$), directional drift gating prevents catastrophic client divergence, preserving a consistent accuracy advantage over FedAvg throughout the training schedule.
+
+\section{Conclusions}\label{sec:conclusion}
+CapDrift-FL coordinates runtime capability estimation, mandatory baseline training, directional drift gating for surplus computation, and contribution-bounded aggregation for heterogeneous edge AI systems. Physical testbed evaluations across containerized clients on enterprise Cisco UCS fog servers demonstrate that capability budgeting reduces straggler idle waiting by 69.1\% (from 3.41\,s to 1.05\,s per round) and increases execution-time utilization to 98.2\% in five-client configurations, while demonstrating that deeper local workloads trade early-round consensus for throughput efficiency. In controlled multi-seed simulations, directional drift gating halted divergent surplus computation under severe non-IID skew ($\alpha \le 0.3$) and completed training 41.8\% faster than FedNova, while contribution bounding stabilized individual updates prior to server aggregation. Systematic threshold sweeps confirm that drift tolerance provides fine-grained control over surplus execution. Future work includes evaluating adaptive drift threshold schedules $\tau_d(t)$ and investigating cross-domain generalization on non-imaging bioinformatic tensor representations.
+
+\section*{Data Availability}\label{sec:data}
+The complete codebase, PyTorch/Flower controllers, cluster automation scripts, raw telemetry logs, and presentation slides are publicly accessible at: \url{https://github.com/W-M-I/OmniFed}.
+
+\begin{thebibliography}{00}
+\bibitem{mcmahan2017}
+H. B. McMahan, E. Moore, D. Ramage, S. Hampson, and B. Ag\"uera y Arcas, ``Communication-efficient learning of deep networks from decentralized data,'' in \textit{Proc. 20th Int. Conf. Artif. Intell. Statist. (AISTATS)}, 2017, pp. 1273--1282.
+
+\bibitem{chai2020tifl}
+Z. Chai, A. Ali, S. Zawad, S. Truex, A. Anwar, N. Baracaldo, Y. Zhou, H. Ludwig, F. Yan, and Y. Cheng, ``TiFL: A tier-based federated learning system,'' in \textit{Proc. 29th Int. Symp. High-Perform. Parallel Distrib. Comput. (HPDC)}, 2020, pp. 125--136.
+
+\bibitem{lai2021oort}
+F. Lai, X. Zhu, H. V. Madhyastha, and M. Chowdhury, ``Oort: Efficient federated learning via guided participant selection,'' in \textit{Proc. 15th USENIX Symp. Oper. Syst. Design Implement. (OSDI)}, 2021, pp. 19--35.
+
+\bibitem{wong2026edge}
+K.-S. Wong, D.-M. Nguyen, K. Le, L. Ho, C. Do, and D. Le-Phuoc, ``An empirical study of federated learning on IoT--edge devices: Resource allocation and heterogeneity,'' \textit{IEEE Trans. Neural Netw. Learn. Syst.}, vol. 37, no. 2, pp. 753--765, Feb. 2026.
+
+\bibitem{shin2022fedbalancer}
+J. Shin, Y. Li, Y. Liu, and S.-J. Lee, ``FedBalancer: Data and pace control for efficient federated learning on heterogeneous clients,'' in \textit{Proc. 20th Annu. Int. Conf. Mobile Syst., Appl. Serv. (MobiSys)}, 2022, pp. 436--449.
+
+\bibitem{li2024fedcompass}
+Z. Li, P. Chaturvedi, S. He, H. Chen, G. Singh, V. Kindratenko, E. A. Huerta, K. Kim, and R. Madduri, ``FedCompass: Efficient cross-silo federated learning on heterogeneous client devices using a computing power-aware scheduler,'' in \textit{Proc. Int. Conf. Learn. Represent. (ICLR)}, 2024.
+
+\bibitem{narmadha2025fedeff}
+K. Narmadha and P. Varalakshmi, ``FedEff: Efficient federated learning with optimal local epochs for heterogeneous clients,'' \textit{Sci. Rep.}, vol. 15, Art. no. 38860, 2025.
+
+\bibitem{li2020fedprox}
+T. Li, A. K. Sahu, M. Zaheer, M. Sanjabi, A. Talwalkar, and V. Smith, ``Federated optimization in heterogeneous networks,'' in \textit{Proc. Mach. Learn. Syst. (MLSys)}, vol. 2, 2020.
+
+\bibitem{karimireddy2020scaffold}
+S. P. Karimireddy, S. Kale, M. Mohri, S. Reddi, S. Stich, and A. T. Suresh, ``SCAFFOLD: Stochastic controlled averaging for federated learning,'' in \textit{Proc. 37th Int. Conf. Mach. Learn. (ICML)}, 2020, pp. 5132--5143.
+
+\bibitem{wang2020fednova}
+J. Wang, Q. Liu, H. Liang, G. Joshi, and H. V. Poor, ``Tackling the objective inconsistency problem in heterogeneous federated optimization,'' in \textit{Adv. Neural Inf. Process. Syst. (NeurIPS)}, vol. 33, 2020.
+
+\bibitem{shenaj2025alt}
+D. Shenaj, E. Belilovsky, and P. Zanuttigh, ``Adaptive local training in federated learning,'' in \textit{Proc. 33rd Eur. Signal Process. Conf. (EUSIPCO)}, 2025, pp. 1907--1911.
+
+\bibitem{zhang2022adaptive}
+J. Zhang, S. Guo, Z. Qu, D. Zeng, Y. Zhan, Q. Liu, and R. A. Akerkar, ``Adaptive federated learning on non-IID data with resource constraint,'' \textit{IEEE Trans. Comput.}, vol. 71, no. 7, pp. 1655--1667, Jul. 2022.
+
+\bibitem{hou2024atafl}
+W. Hou, H. Wen, N. Zhang, W. Lei, H. Lin, Z. Han, and Q. Liu, ``Adaptive training and aggregation for federated learning in multi-tier computing networks,'' \textit{IEEE Trans. Mobile Comput.}, vol. 23, no. 5, pp. 4376--4388, May 2024.
+
+\bibitem{fan2026fedcer}
+L. Fan, Z. Zeng, X. Zhang, M. Duan, and K. Sood, ``Joint client selection and epoch configuration for heterogeneity-aware federated learning in resource-constrained systems,'' \textit{Future Gener. Comput. Syst.}, vol. 177, Art. no. 108249, 2026.
+
+\bibitem{liu2024fedsc}
+Y.-J. Liu, G. Feng, H. Du, Z. Qin, Y. Sun, J. Kang, X. Li, and D. Niyato, ``Adaptive clustering-based straggler-aware federated learning in wireless edge networks,'' \textit{IEEE Trans. Commun.}, vol. 72, no. 12, pp. 7757--7771, Dec. 2024.
+
+\bibitem{hu2026fedlagc}
+Q. Hu, T. Liao, S. Wu, L. Yang, and C. Chen, ``FedLAGC: Towards high performance system-heterogeneous federated learning via layer-adaptive submodel extraction and gradient correction,'' in \textit{Proc. AAAI Conf. Artif. Intell.}, vol. 40, no. 26, pp. 21858--21866, 2026.
+
+\bibitem{andrew2021clipping}
+G. Andrew, O. Thakkar, H. B. McMahan, and S. Ramaswamy, ``Differentially private learning with adaptive clipping,'' in \textit{Adv. Neural Inf. Process. Syst. (NeurIPS)}, vol. 34, pp. 17455--17466, 2021.
+
+\balance
+\end{thebibliography}
+
+\end{document}
