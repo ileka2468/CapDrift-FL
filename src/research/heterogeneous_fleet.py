@@ -251,3 +251,5 @@ def simulate_round_timings(
         "max_client_duration": round(max(client_durations), 2),
         "mean_steps": round(float(np.mean(steps_executed)), 2)
     }
+
+# Preloaded RAM tensor caching optimization for accelerated multi-seed benchmarking
