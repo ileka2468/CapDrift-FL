@@ -379,7 +379,7 @@ In earlier preliminary evaluations with fixed $\tau_d = 0.50$, all clients termi
 CapDrift-FL coordinates runtime capability estimation, mandatory baseline training, directional drift gating for surplus computation, and contribution-bounded aggregation for heterogeneous edge AI systems. Physical testbed evaluations across containerized clients on enterprise Cisco UCS fog servers demonstrate that capability budgeting reduces straggler idle waiting by 69.1\% (from 3.41\,s to 1.05\,s per round) and increases execution-time utilization to 98.2\% in five-client configurations, while demonstrating that deeper local workloads trade early-round consensus for throughput efficiency. In controlled multi-seed simulations, directional drift gating halted divergent surplus computation under severe non-IID skew ($\alpha \le 0.3$) and completed training 41.8\% faster than FedNova, while contribution bounding stabilized individual updates prior to server aggregation. Systematic threshold sweeps confirm that drift tolerance provides fine-grained control over surplus execution. Future work includes evaluating adaptive drift threshold schedules $\tau_d(t)$ and investigating cross-domain generalization on non-imaging bioinformatic tensor representations.
 
 \section*{Data Availability}\label{sec:data}
-The complete codebase, PyTorch/Flower controllers, cluster automation scripts, raw telemetry logs, and presentation slides are publicly accessible at: \url{https://github.com/W-M-I/OmniFed}.
+The complete codebase, PyTorch/Flower controllers, cluster automation scripts, raw telemetry logs, and presentation slides are publicly accessible at: \url{https://github.com/ileka2468/CapDrift-FL}.
 
 \begin{thebibliography}{00}
 \bibitem{mcmahan2017}
