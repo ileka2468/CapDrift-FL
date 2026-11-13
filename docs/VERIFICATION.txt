@@ -1,0 +1,118 @@
+CapDrift-FL | Verification report
+Change: results-first abstract, evaluation, conclusion and slide copy; new equal-time analysis of archived trial histories. Simulation implementation unchanged.
+
+1. Equation (7) — Corrected the input, not the operator. Configured tier rates 161.29, 70.92, 40.82 and 12.74 samples/s, batch size 16 and a 15 s target yield [50, 50, 38, 11] using floor and a 50-step ceiling. Exactly 2.50 steps/s yields 37; 40.82/16 = 2.55125 gives 38. The configured rates are not original unrounded hardware readings. The implemented allocation did not change.
+2. Eight-round ablation — Archived seed 42 Full CapDrift-FL: final accuracy 88.89%, modeled time 73.33 s, cap 0.6667, 28 gated client-rounds, one clipped contribution and 41.29% mean execution-time utilization. The 25-round full ablation instead records 96 gates per seed, 38.05% utilization and caps 0.67138 / 0.78569 / 0.76659.
+3. Legacy baseline and percentage reduction — Separate seed-42 baseline: CapDrift-FL 84.97% in 73.33 s vs. step-normalized FedNova 85.62% in 126.08 s. (126.08−73.33)/126.08 = 41.8385%. Stored centisecond values support 41.8%; original unrounded timers were not available. Distinct baseline and ablation histories explain why the two tables quote different endpoints; the cause of the trajectory difference is not established.
+4. Extended runs and seed variation — Archived baseline and ablation each contain 25 rounds at seeds 42, 101, 2024. Tables/curves use the correct suites and population SD. Baseline CapDrift-FL 59.70% / 213.16 s vs. FedNova variant 55.55% / 394.00 s (45.9% lower modeled time); FedAvg 61.44% / 205.62 s. In the separate ablation, capability-only leads (71.24%) and full CapDrift-FL ends at 53.37%. No single-clipping-event benefit or guaranteed convergence is claimed. Stability beyond 25 rounds was not tested here.
+5. Baseline fairness — Local runners share data split, partitioning, model factory and evaluator within suites. Workload and aggregation differ. The FedNova branch is step-normalized SGD with momentum; it is not a verified canonical momentum-aware baseline. Identical initialization and environment across historical runs were not established by execution manifests.
+6. Gating and workload — Existing 20-round sweep covers thresholds 0.2/0.5/0.8/1.0 at minimum 5 and additional minimum-workload combinations. It compares gates, steps, accuracy and time. New post-hoc comparison selects the last completed round at or before 150 modeled seconds in each trial, with no interpolation or peak selection. At minimum 5, means are 66.89/62.09/66.88/65.58%. TIME_BUDGET_TRACE.csv records all 21 selected observations. The independent (0.5,15) condition, broader K/T sweep and matched threshold-vs-FedNova rerun were not performed. Sweep clipping totals count returned records rather than just clipped updates and were not interpreted.
+7. Skew — Four-client Dirichlet partitioning is documented. Archived skew sweep has 15 rounds and three trials per setting, but no stored per-trial seed IDs. Final validation accuracy replaces the old identical-count panel narrative; the figure shows threshold sensitivity and uses a zero-based accuracy bar scale. CapDrift-FL leads only at alpha=0.3 in this sweep.
+8. Physical timing and percentage reduction — Five clients across three hosts, Round 2: cumulative waiting 3.408→1.054 s, (3.408−1.054)/3.408 = 69.0728%; longest client training interval 3.492→11.676 s; utilization 80.48→98.19%. This validates 69.1% at stored millisecond precision, not against raw unrounded timers. Physical timing excludes transfer, aggregation and evaluation. Simulation time models training and communication. Utilization measures active training relative to synchronization capacity, not CPU use. Scale plots distinguish mean from cumulative waiting and avoid claiming a specific contention mechanism.
+9. Physical accuracy — The evaluator dry check reproduced the folder error: the 763-image root is read as one class. Class subfolders contain 381 Normal / 382 Pneumonia; simulator split is 610/153 (validation 74/79). Removed the logged 25.29% and 39.58% from the reported results. Physical model reevaluation requires exact round checkpoints, deployed preprocessing/evaluator settings and a verified held-out label/split manifest.
+10. Mathematical and algorithm review — Clarified client-set cardinality, objective and FedProx notation; distinguished capability ceiling, minimum work, direction gate, clipping and feedback. Both algorithms are retained. Physical adapter differs in its drift reference, block rollback, weighting and clipping; it is described separately.
+11. Presentation and organization — Results-first abstract and two-paragraph conclusion; four performance figures, two algorithms and IEEE columns retained. Simulation setup consolidated; unsupported genomics subsection removed; data availability precedes references. Redesigned 15-slide deck separates legacy, multi-seed, threshold and physical results. Original files were preserved. No Overleaf/D2L edits or new model training were performed.
+12. Remaining inputs — Full-precision original timers; historical run manifests and initialization/partition identifiers; deployed checkpoint/evaluator pairs and verified held-out labels. Repository URL remains in manuscript; this pass did not verify remote contents.
+
+Artifact and command evidence
+C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\outputs\manuscript\main.tex
+C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\outputs\CapDrift_FL_Redesigned.pptx
+C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\outputs\CHANGES.diff
+C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\outputs\VERIFICATION.txt
+C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\outputs\ROLLBACK.sh
+C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\outputs\manuscript\main.pdf
+C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\outputs\NUMERICAL_TRACE.csv
+C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\outputs\TIME_BUDGET_TRACE.csv
+Original SHA-256 main.tex: 57957ee606a45958986a745d5b6b311f68a3365469ef95ed422ba5a870b1c7d7
+Original SHA-256 CapDrift_FL_Final_Presentation.pptx: 07563953068bd031a392e91e74b703ba25672aebf03c786969e0406b548527f6
+Original SHA-256 Pasted text(20261113-002246).txt: 9d2dbb6b406969954e52d187fd16b8aa8751a1ec0ac29abab39eb1af06ca1822
+
+BASELINE
+Working directory: C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an
+Command: C:\Users\quenc\AppData\Local\Programs\Python\Python313\python.exe C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\outputs\verify_artifacts.py C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\work\originals\main.tex
+Exit status: 1
+DOCUMENT_CHECKS=10 PASS=2 FAIL=8
+FAILED=non_iid_definition,legacy_horizon_separation,ablation_claim_correction,physical_label_issue,sd_definition,client_set_notation,fedprox_notation,timing_definitions
+
+MODIFIED
+Working directory: C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an
+Command: C:\Users\quenc\AppData\Local\Programs\Python\Python313\python.exe C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\outputs\verify_artifacts.py C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\outputs\manuscript\main.tex
+Exit status: 0
+DOCUMENT_CHECKS=10 PASS=10 FAIL=0
+FAILED=none
+
+ROLLBACK
+Working directory: C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an
+Command: "C:\Program Files\Git\bin\bash.exe" C:/Users/quenc/Documents/Codex/2026-11-12/referenced-chatgpt-conversation-this-is-an/outputs/ROLLBACK.sh C:/Users/quenc/Documents/Codex/2026-11-12/referenced-chatgpt-conversation-this-is-an/work/rollback_test
+Exit status: 0
+ROLLBACK_RESTORED=main.tex,CapDrift_FL_Final_Presentation.pptx
+
+RESTORED_BEHAVIOR
+Working directory: C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an
+Command: C:\Users\quenc\AppData\Local\Programs\Python\Python313\python.exe C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\outputs\verify_artifacts.py C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\work\rollback_test\main.tex
+Exit status: 1
+DOCUMENT_CHECKS=10 PASS=2 FAIL=8
+FAILED=non_iid_definition,legacy_horizon_separation,ablation_claim_correction,physical_label_issue,sd_definition,client_set_notation,fedprox_notation,timing_definitions
+
+NUMERICAL_LOG_AUDIT
+Working directory: C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an
+Command: C:\Users\quenc\AppData\Local\Programs\Python\Python313\python.exe C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\work\verify_numbers.py
+Exit status: 0
+LOG_CHECKS=825 TRIALS=66 FAILURES=0
+
+
+DATA_AND_MODEL_DRY_CHECK
+Working directory: C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an
+Command: C:\Users\quenc\Desktop\NetProject\.venv\Scripts\python.exe C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\work\dry_check.py
+Exit status: 0
+DEFAULT_EVALUATOR_CLASSES {'train': 0} COUNTS {np.int64(0): np.int64(763)}
+INTENDED_CLASSES {'NORMAL': 0, 'PNEUMONIA': 1} COUNTS {np.int64(0): np.int64(381), np.int64(1): np.int64(382)}
+SPLIT 610 153 VAL_COUNTS {np.int64(0): np.int64(74), np.int64(1): np.int64(79)}
+MODEL_PARAMETERS 1519906
+CUDA_AVAILABLE True
+
+EXISTING_CONTROLLER_UNIT_TESTS
+Working directory: C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an
+Command: C:\Users\quenc\Desktop\NetProject\.venv\Scripts\python.exe -m unittest discover -s C:\Users\quenc\Desktop\NetProject\OmniFed\tests -p test_capdrift_controller.py
+Exit status: 0
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 1.744s
+
+OK
+
+ [TEST SUCCESS] Round 1 CapDrift Telemetry verified successfully!
+
+EXISTING_VERIFIER_CORRECT_WORKDIR
+Working directory: C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\work\snapshot
+Command: C:\Users\quenc\Desktop\NetProject\.venv\Scripts\python.exe C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\work\snapshot\scripts\verify_numerical_reproducibility.py
+Exit status: 1
+Starting CapDrift-FL Verification Suite...
+============================================================
+1. Verifying Equation (7) Step Allocation...
+  Unrounded Tier 2 rate: 2.55125 steps/s -> floor(2.55125 * 15.0) = 38
+  Rounded rate: 2.5 steps/s -> round(2.5 * 15.0) = 38
+  [PASS] Equation (7) step allocation verified.
+============================================================
+2. Verifying Table II 25-Round Ablation Multi-Seed Summary...
+Traceback (most recent call last):
+  File "C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\work\snapshot\scripts\verify_numerical_reproducibility.py", line 81, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\work\snapshot\scripts\verify_numerical_reproducibility.py", line 74, in main
+    verify_ablation_results()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\quenc\Documents\Codex\2026-11-12\referenced-chatgpt-conversation-this-is-an\work\snapshot\scripts\verify_numerical_reproducibility.py", line 43, in verify_ablation_results
+    print(df[["variant", "mean_final_acc", "std_final_acc", "mean_exec_time_s", "mean_exec_util_pct"]])
+          ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quenc\Desktop\NetProject\.venv\Lib\site-packages\pandas\core\frame.py", line 4384, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\quenc\Desktop\NetProject\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 6302, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quenc\Desktop\NetProject\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 6355, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['variant', 'mean_exec_time_s', 'mean_exec_util_pct'] not in index"
+
+Final PDF reopened: 7 pages; budget analysis appears in PDF. PPTX reopened: 15 slides. Rollback copies match both original files byte-for-byte.

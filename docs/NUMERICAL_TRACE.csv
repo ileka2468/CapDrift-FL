@@ -1,0 +1,67 @@
+suite,method,seed,alpha,rounds,final_accuracy,peak_accuracy,final_loss,execution_seconds,idle_seconds,mean_utilization,gated_client_rounds,recorded_clipping_count,clipping_count_valid
+capdrift_ablation,1. FedAvg (Baseline),42,0.5,25,76.47,81.05,0.525,205.62,522.15,36.52,0,0,True
+capdrift_ablation,1. FedAvg (Baseline),101,0.5,25,79.74,85.62,0.3978,205.62,522.15,36.52,0,0,True
+capdrift_ablation,1. FedAvg (Baseline),2024,0.5,25,51.63,52.94,1.1741,205.62,522.15,36.52,0,0,True
+capdrift_ablation,2. Capability-Only,42,0.5,25,75.82,90.2,0.5283,394.0,398.52,74.71,0,0,True
+capdrift_ablation,2. Capability-Only,101,0.5,25,82.35,86.27,0.3968,394.0,398.52,74.71,0,0,True
+capdrift_ablation,2. Capability-Only,2024,0.5,25,55.56,77.78,1.6122,394.0,398.52,74.71,0,0,True
+capdrift_ablation,3. Drift-Only,42,0.5,25,60.78,70.59,0.9872,230.74,583.17,36.6,96,0,True
+capdrift_ablation,3. Drift-Only,101,0.5,25,53.59,65.36,1.2428,230.74,583.17,36.6,96,0,True
+capdrift_ablation,3. Drift-Only,2024,0.5,25,53.59,70.59,1.2504,230.74,583.17,36.6,96,0,True
+capdrift_ablation,4. Capability + Drift,42,0.5,25,69.93,83.01,0.6503,213.16,512.74,38.59,95,0,True
+capdrift_ablation,4. Capability + Drift,101,0.5,25,60.78,74.51,0.6873,213.16,517.2,38.05,96,0,True
+capdrift_ablation,4. Capability + Drift,2024,0.5,25,51.63,51.63,1.334,213.16,517.2,38.05,96,0,True
+capdrift_ablation,5. Full CapDrift-FL,42,0.5,25,56.86,80.39,0.8095,213.16,517.2,38.05,96,1,True
+capdrift_ablation,5. Full CapDrift-FL,101,0.5,25,51.63,58.17,1.1536,213.16,517.2,38.05,96,1,True
+capdrift_ablation,5. Full CapDrift-FL,2024,0.5,25,51.63,52.94,1.412,213.16,517.2,38.05,96,1,True
+competitor_benchmark,FedAvg,42,0.5,25,57.52,84.31,0.7245,205.62,522.15,36.52,0,0,True
+competitor_benchmark,FedAvg,101,0.5,25,74.51,81.7,0.469,205.62,522.15,36.52,0,0,True
+competitor_benchmark,FedAvg,2024,0.5,25,52.29,54.25,1.3148,205.62,522.15,36.52,0,0,True
+competitor_benchmark,FedProx,42,0.5,25,62.75,76.47,0.6346,205.62,522.15,36.52,0,0,True
+competitor_benchmark,FedProx,101,0.5,25,61.44,81.05,0.7195,205.62,522.15,36.52,0,0,True
+competitor_benchmark,FedProx,2024,0.5,25,51.63,53.59,1.2594,205.62,522.15,36.52,0,0,True
+competitor_benchmark,FedNova,42,0.5,25,62.09,90.2,1.3981,394.0,398.52,74.71,0,0,True
+competitor_benchmark,FedNova,101,0.5,25,51.63,71.24,3.6628,394.0,398.52,74.71,0,0,True
+competitor_benchmark,FedNova,2024,0.5,25,52.94,80.39,1.6563,394.0,398.52,74.71,0,0,True
+competitor_benchmark,CapDrift-FL,42,0.5,25,71.9,84.31,0.5233,213.16,517.2,38.05,96,1,True
+competitor_benchmark,CapDrift-FL,101,0.5,25,51.63,51.63,2.0525,213.16,517.2,38.05,96,1,True
+competitor_benchmark,CapDrift-FL,2024,0.5,25,55.56,65.36,1.3669,213.16,517.2,38.05,96,1,True
+non_iid_skew_sweep,FedAvg,not stored,0.1,15,59.48,61.44,0.6815,123.37,313.29,36.52,0,0,True
+non_iid_skew_sweep,FedAvg,not stored,0.1,15,79.74,86.93,0.5118,123.37,313.29,36.52,0,0,True
+non_iid_skew_sweep,FedAvg,not stored,0.1,15,51.63,51.63,1.0608,123.37,313.29,36.52,0,0,True
+non_iid_skew_sweep,CapDrift-FL,not stored,0.1,15,58.17,73.2,0.6911,130.91,308.34,39.07,56,1,True
+non_iid_skew_sweep,CapDrift-FL,not stored,0.1,15,51.63,83.01,1.2923,186.88,406.55,43.99,44,4,True
+non_iid_skew_sweep,CapDrift-FL,not stored,0.1,15,51.63,51.63,1.2522,130.91,308.34,39.07,56,1,True
+non_iid_skew_sweep,FedAvg,not stored,0.3,15,69.93,69.93,0.5565,123.37,313.29,36.52,0,0,True
+non_iid_skew_sweep,FedAvg,not stored,0.3,15,52.29,76.47,0.6883,123.37,313.29,36.52,0,0,True
+non_iid_skew_sweep,FedAvg,not stored,0.3,15,51.63,53.59,1.3147,123.37,313.29,36.52,0,0,True
+non_iid_skew_sweep,CapDrift-FL,not stored,0.3,15,77.78,81.7,0.4191,130.91,308.34,39.07,56,0,True
+non_iid_skew_sweep,CapDrift-FL,not stored,0.3,15,76.47,76.47,0.4891,209.22,440.93,46.52,38,4,True
+non_iid_skew_sweep,CapDrift-FL,not stored,0.3,15,56.21,71.24,0.8291,159.52,372.04,40.19,51,1,True
+non_iid_skew_sweep,FedAvg,not stored,0.5,15,87.58,87.58,0.4106,123.37,313.29,36.52,0,0,True
+non_iid_skew_sweep,FedAvg,not stored,0.5,15,74.51,86.93,0.5328,123.37,313.29,36.52,0,0,True
+non_iid_skew_sweep,FedAvg,not stored,0.5,15,51.63,51.63,1.0786,123.37,313.29,36.52,0,0,True
+non_iid_skew_sweep,CapDrift-FL,not stored,0.5,15,79.74,90.85,0.3935,130.91,308.34,39.07,56,1,True
+non_iid_skew_sweep,CapDrift-FL,not stored,0.5,15,58.17,86.93,0.6666,169.05,358.49,45.81,45,2,True
+non_iid_skew_sweep,CapDrift-FL,not stored,0.5,15,53.59,60.13,0.7268,130.91,308.34,39.07,56,1,True
+drift_threshold_sweep,tau=0.20_smin=5,42,0.5,20,86.93,86.93,0.3794,172.03,412.77,38.43,76,80,False
+drift_threshold_sweep,tau=0.20_smin=5,101,0.5,20,70.59,71.24,0.5447,172.03,412.77,38.43,76,80,False
+drift_threshold_sweep,tau=0.20_smin=5,2024,0.5,20,52.29,53.59,1.2999,172.03,412.77,38.43,76,80,False
+drift_threshold_sweep,tau=0.50_smin=5,42,0.5,20,57.52,64.71,1.1605,172.03,412.77,38.43,76,80,False
+drift_threshold_sweep,tau=0.50_smin=5,101,0.5,20,58.17,75.16,0.7153,172.03,411.78,38.58,76,80,False
+drift_threshold_sweep,tau=0.50_smin=5,2024,0.5,20,58.82,68.63,0.688,172.03,412.77,38.43,76,80,False
+drift_threshold_sweep,tau=0.80_smin=5,42,0.5,20,62.09,91.5,1.001,209.71,487.79,42.58,64,80,False
+drift_threshold_sweep,tau=0.80_smin=5,101,0.5,20,58.82,71.9,0.8491,205.28,447.5,45.28,61,80,False
+drift_threshold_sweep,tau=0.80_smin=5,2024,0.5,20,58.17,64.05,1.1329,212.82,480.16,43.56,63,80,False
+drift_threshold_sweep,tau=1.00_smin=5,42,0.5,20,54.25,82.35,1.1791,251.87,488.3,51.81,47,80,False
+drift_threshold_sweep,tau=1.00_smin=5,101,0.5,20,51.63,51.63,3.8481,274.47,526.34,51.88,43,80,False
+drift_threshold_sweep,tau=1.00_smin=5,2024,0.5,20,52.29,73.86,1.6186,254.31,492.7,51.52,48,80,False
+drift_threshold_sweep,tau=0.50_smin=10,42,0.5,20,58.17,71.24,1.0079,291.34,702.61,39.56,76,80,False
+drift_threshold_sweep,tau=0.50_smin=10,101,0.5,20,67.97,88.24,0.6024,291.34,702.61,39.56,76,80,False
+drift_threshold_sweep,tau=0.50_smin=10,2024,0.5,20,52.29,62.09,1.8177,291.34,702.61,39.56,76,80,False
+drift_threshold_sweep,tau=0.80_smin=10,42,0.5,20,54.25,86.93,1.7613,295.11,698.04,40.77,69,80,False
+drift_threshold_sweep,tau=0.80_smin=10,101,0.5,20,51.63,58.17,1.831,292.6,698.44,40.19,73,80,False
+drift_threshold_sweep,tau=0.80_smin=10,2024,0.5,20,59.48,64.71,1.0584,291.34,693.54,40.34,74,80,False
+drift_threshold_sweep,tau=0.80_smin=15,42,0.5,20,59.48,84.31,1.2782,315.2,685.36,45.64,52,80,False
+drift_threshold_sweep,tau=0.80_smin=15,101,0.5,20,52.29,71.24,1.6652,315.2,695.77,44.82,55,80,False
+drift_threshold_sweep,tau=0.80_smin=15,2024,0.5,20,51.63,51.63,3.5965,315.2,694.65,44.91,55,80,False
