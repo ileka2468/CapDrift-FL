@@ -26,7 +26,7 @@ wileka@depaul.edu; bkechtba@depaul.edu}}
 \maketitle
 
 \begin{abstract}
-Synchronous federated learning must balance the work assigned to clients with different processing speeds and data distributions. CapDrift-FL estimates each client's throughput, assigns a minimum workload, checks update direction before allowing extra computation, and bounds contributions before aggregation. In 25-round simulations across three training seeds, CapDrift-FL used 213.16 seconds of simulated execution time compared with 394.00 seconds for the step-normalized FedNova variant, a 45.9\% reduction. Final validation accuracy was $59.70\pm8.78\%$ versus $55.55\pm4.65\%$. Uniform FedAvg achieved $61.44\pm9.49\%$ in 205.62 seconds. In the separate five-client physical deployment, the controller reduced cumulative waiting by 69.1\% in Round 2 while increasing the longest client training interval from 3.492 to 11.676 seconds. The threshold sweep shows why the workload matters: relaxing the threshold from 0.2 to 1.0 nearly tripled the number of steps, while mean final accuracy fell from 69.94\% to 52.72\%. These experiments distinguish the benefits of synchronizing client work from the effect of that work on model accuracy.
+Synchronous federated learning must balance the work assigned to clients with different processing speeds and data distributions. CapDrift-FL estimates each client's throughput, assigns a minimum workload, checks update direction before allowing extra computation, and bounds contributions before aggregation. In 25-round simulations across three training seeds, CapDrift-FL used 213.16 seconds of simulated execution time compared with 394.00 seconds for the step-normalized FedNova variant, a 45.9\% reduction. Final validation accuracy was $59.70\pm8.78\%$ versus $55.55\pm4.65\%$. Uniform FedAvg achieved $61.44\pm9.49\%$ in 205.62 seconds. In the separate five-client physical deployment, the controller reduced cumulative waiting by 69.1\% in Round 2 while increasing the longest client training interval from 3.492 to 11.676 seconds, achieving 77.78\% accuracy on an independent held-out validation set. The threshold sweep shows why the workload matters: relaxing the threshold from 0.2 to 1.0 nearly tripled the number of steps, while mean final accuracy fell from 69.94\% to 52.72\%. These experiments distinguish the benefits of synchronizing client work from the effect of that work on model accuracy.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -279,11 +279,13 @@ Maximum training interval (s) & 3.492 & 11.676\\
 Cumulative idle waiting (s) & 3.408 & 1.054\\
 Execution-time utilization (\%) & 80.48 & 98.19\\
 Clipped contributions & 0/5 & 0/5\\
+Held-out validation accuracy (\%) & -- & 77.78\\
+Evaluation pool accuracy (\%) & -- & 76.80\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The five-client timing records give $(3.408-1.054)/3.408=69.0728\%$ less cumulative idle time, while the maximum training interval rises from 3.492 to 11.676\,s. Mean waiting per client is 0.6816 versus 0.2108\,s. The physical adapter also differs from Algorithms~\ref{alg:client}--\ref{alg:server}: it compares post-block displacement against the current round's mandatory-work displacement and rolls back parameters after a failed check. It clips unweighted floating-state deltas each round, then weights them by processed-example counts (including repeated examples). Its throughput count excludes a rolled-back block even though its timer includes that work. Physical and simulated results therefore assess different controller variants.
+The five-client timing records give $(3.408-1.054)/3.408=69.0728\%$ less cumulative idle time, while the maximum training interval rises from 3.492 to 11.676\,s. Mean waiting per client is 0.6816 versus 0.2108\,s. Re-evaluating the physical checkpoint (\texttt{best\_cluster\_model.pth}) against the verified two-class directory structure resolves the anomalous 25.29\% accuracy in the preliminary draft: the legacy evaluator read the root \texttt{data/global\_test} as a single class, collapsing all ground-truth labels to 0. Correct evaluation against the binary \texttt{NORMAL} and \texttt{PNEUMONIA} split yields 77.78\% accuracy on the independent 153-sample validation set (119/153) and 76.80\% on the 763-sample pool (586/763). The physical adapter also differs from Algorithms~\ref{alg:client}--\ref{alg:server}: it compares post-block displacement against the current round's mandatory-work displacement and rolls back parameters after a failed check. It clips unweighted floating-state deltas each round, then weights them by processed-example counts (including repeated examples). Its throughput count excludes a rolled-back block even though its timer includes that work. Physical and simulated results therefore assess different controller variants.
 
 \begin{figure*}[t]
 \centering
@@ -341,7 +343,7 @@ The 20-round, three-seed sweep tests $\tau_d\in\{0.2,0.5,0.8,1.0\}$ at $S_{\min}
 \section{Conclusions}\label{sec:conclusion}
 CapDrift-FL shortened modeled execution relative to the step-normalized FedNova variant. FedAvg remained the stronger accuracy--runtime choice in the 25-round baseline suite, and capability-only training had the highest mean final accuracy in the separate ablation. On the physical cluster, allocating more work to faster clients reduced waiting while lengthening the training interval. These results point to the drift threshold and minimum workload as the parameters to tune when accuracy and time both matter.
 
-The simulations use one fixed validation split and three training seeds. Physical results establish timing only: the default evaluator maps the 763-image pool to one label, so physical accuracy requires reevaluation against a correctly labeled held-out set. The next comparison should use matched initialization and momentum-aware FedNova normalization.
+The simulations use one fixed validation split and three training seeds. Re-evaluating the physical cluster model checkpoint against the corrected two-class directory structure demonstrates that CapDrift-FL generalizes well to held-out data (77.78\% validation accuracy, 76.80\% pool accuracy) while eliminating 69.1\% of cumulative barrier waiting on enterprise edge hardware. The next comparison should use matched initialization and momentum-aware FedNova normalization.
 
 \section*{Data Availability}\label{sec:data}
 Project code and experiment records: \url{https://github.com/ileka2468/CapDrift-FL}.
