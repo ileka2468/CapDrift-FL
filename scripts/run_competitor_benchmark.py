@@ -110,9 +110,9 @@ def run_competitor_trial(
     elif method_name == "FedProx":
         cfg = CapDriftConfig(enable_capability=False, enable_drift_gating=False, enable_clipping=False, S_min=5, S_max=5)
     elif method_name == "FedNova":
-        cfg = CapDriftConfig(enable_capability=True, enable_drift_gating=False, enable_clipping=False, T_target_sec=15.0, S_min=5, S_max=50)
+        cfg = CapDriftConfig(enable_capability=True, enable_drift_gating=False, enable_clipping=False, T_target_sec=6.5, S_min=5, S_max=40)
     elif method_name == "CapDrift-FL":
-        cfg = CapDriftConfig(enable_capability=True, enable_drift_gating=True, enable_clipping=True, T_target_sec=15.0, tau_drift=0.50, kappa_c=1.5, S_min=5, S_max=50)
+        cfg = CapDriftConfig(enable_capability=True, enable_drift_gating=True, enable_clipping=True, dynamic_clipping=True, T_target_sec=6.5, tau_drift=0.85, kappa_c=1.5, S_min=5, S_max=40)
     else:
         raise ValueError(f"Unknown method: {method_name}")
 

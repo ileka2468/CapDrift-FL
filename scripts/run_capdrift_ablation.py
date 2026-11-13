@@ -328,9 +328,9 @@ def execute_ablation_study(
                 enable_capability=True,
                 enable_drift_gating=False,
                 enable_clipping=False,
-                T_target_sec=15.0,
+                T_target_sec=6.5,
                 S_min=5,
-                S_max=50
+                S_max=40
             )
         ),
         (
@@ -339,9 +339,9 @@ def execute_ablation_study(
                 enable_capability=False,
                 enable_drift_gating=True,
                 enable_clipping=False,
-                tau_drift=0.50,
+                tau_drift=0.85,
                 S_min=5,
-                S_max=25
+                S_max=40
             )
         ),
         (
@@ -350,10 +350,10 @@ def execute_ablation_study(
                 enable_capability=True,
                 enable_drift_gating=True,
                 enable_clipping=False,
-                T_target_sec=15.0,
-                tau_drift=0.50,
+                T_target_sec=6.5,
+                tau_drift=0.85,
                 S_min=5,
-                S_max=50
+                S_max=40
             )
         ),
         (
@@ -362,11 +362,12 @@ def execute_ablation_study(
                 enable_capability=True,
                 enable_drift_gating=True,
                 enable_clipping=True,
-                T_target_sec=15.0,
-                tau_drift=0.50,
+                dynamic_clipping=True,
+                T_target_sec=6.5,
+                tau_drift=0.85,
                 kappa_c=1.5,
                 S_min=5,
-                S_max=50
+                S_max=40
             )
         ),
     ]

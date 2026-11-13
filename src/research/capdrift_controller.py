@@ -39,6 +39,7 @@ class CapDriftConfig:
     enable_capability: bool = True  # If False, S_cap = S_min (or fixed S_max for drift-only)
     enable_drift_gating: bool = True # If False, surplus training never early-stops
     enable_clipping: bool = True    # If False, G_bar_i = G_i (no contribution bounding)
+    dynamic_clipping: bool = True   # Dynamically re-calibrate median clipping cap each round
 
 
 def flatten_params(params: List[torch.Tensor]) -> torch.Tensor:
@@ -298,8 +299,8 @@ class CapDriftCoordinator:
             })
             raw_norms.append(norm_G_i)
             
-        # Calibrate clipping cap c on first round if not yet calibrated
-        if self.clipping_cap_c is None:
+        # Dynamically calibrate clipping cap c each round (or first round if dynamic_clipping is False)
+        if self.cfg.dynamic_clipping or self.clipping_cap_c is None:
             self.calibrate_clipping_cap(raw_norms)
             
         # 3. Apply norm bounding (clipping) (Eq. 7)
