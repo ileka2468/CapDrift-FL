@@ -329,7 +329,7 @@ def main():
         ("CapDrift-FL", 0.0)
     ]
 
-    seeds = [42, 101, 2024]
+    seeds = [42, 101, 2024, 7, 888]
     num_rounds = 25
 
     all_results = {}
