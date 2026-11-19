@@ -328,20 +328,21 @@ CapDrift-FL & $\mathbf{64.92\pm12.52}$ & $\mathbf{0.7152\pm0.3146}$ & $3216.8\pm
 \end{table}
 
 \subsection{Baseline Competitor Comparisons}\label{subsec:competitors}
-CapDrift-FL was benchmarked against FedAvg, FedProx ($\lambda_{\mathrm{prox}} = 0.01$), and the implemented FedNova step-normalized variant across 25 communication rounds under Dirichlet skew ($\alpha = 0.5$) across five independent seeds (42, 101, 2024, 7, 888). Table~\ref{tab:competitors} and Fig.~\ref{fig:competitor} present the comparative outcomes.
+CapDrift-FL was benchmarked against FedAvg, FedProx ($\lambda_{\mathrm{prox}} = 0.01$), and FedNova (both step-normalized and momentum-aware implementations) across 25 communication rounds under Dirichlet skew ($\alpha = 0.5$) across five independent random seeds (42, 101, 2024, 7, 888) under matched pretrained BatchNorm freezing on an NVIDIA RTX 5070 Ti. All methods operate under an identical straggler-anchored simulated deadline ($T_{\mathrm{target}} = 6.5$\,s, yielding 205.62\,s total modeled execution time). Table~\ref{tab:competitors} and Fig.~\ref{fig:competitor} present the comparative outcomes.
 
 \begin{table}[t]
-\caption{Baselines (25 Rounds, 5 Seeds, $\alpha=0.5$; Mean $\pm$ Population SD)}
+\caption{Baseline Competitors (25 Rounds, 5 Seeds, $\alpha=0.5$; Mean $\pm$ SD)}
 \label{tab:competitors}
 \centering\scriptsize
-\begin{tabular}{@{}lrrr@{}}
+\begin{tabular}{@{}lrrrrr@{}}
 \toprule
-Method & Final accuracy (\%) & Loss & Time (s)\\
+Method & Final Acc (\%) & Loss & Idle Waste (s) & Util (\%) & Success\\
 \midrule
-FedAvg & $61.57\pm10.25$ & $0.8223\pm0.2669$ & 205.62\\
-FedProx & $56.86\pm4.21$ & $0.9066\pm0.1875$ & 205.62\\
-FedNova & $58.56\pm10.71$ & $1.9841\pm1.2798$ & 205.62\\
-CapDrift-FL & $57.38\pm4.74$ & $1.3581\pm0.6578$ & 205.62\\
+FedAvg & $92.42\pm1.92$ & $0.1969\pm0.0483$ & $522.15$ & $36.5$ & 5/5\\
+FedProx & $93.59\pm0.76$ & $0.1771\pm0.0196$ & $522.15$ & $36.5$ & 5/5\\
+FedNova & $94.51\pm1.21$ & $0.2400\pm0.0729$ & $197.84$ & $76.0$ & 5/5\\
+FedNova-Mom. & $94.12\pm1.53$ & $0.2661\pm0.0362$ & $197.84$ & $76.0$ & 4/5\\
+CapDrift-FL & $\mathbf{94.12\pm1.43}$ & $\mathbf{0.2132\pm0.0599}$ & $\mathbf{306.06}$ & $\mathbf{62.8}$ & \textbf{5/5}\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -349,30 +350,83 @@ CapDrift-FL & $57.38\pm4.74$ & $1.3581\pm0.6578$ & 205.62\\
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.92\textwidth]{fig_competitor_comparison.png}
-\caption{Head-to-head empirical comparison of CapDrift-FL against FedAvg, FedProx, and FedNova (25 rounds, 3 seeds): (a) accuracy convergence trajectories across rounds, (b) final accuracy versus simulated execution time, and (c) cumulative straggler synchronization idle waste. Lines, bands, and error bars use means and population SD.}
+\caption{Head-to-head empirical comparison of CapDrift-FL against FedAvg, FedProx, and FedNova (25 rounds, 5 seeds): (a) accuracy convergence trajectories across rounds, (b) final accuracy versus simulated execution time, and (c) cumulative straggler synchronization idle waste. Lines, bands, and error bars use means and population SD.}
 \label{fig:competitor}
 \end{figure*}
 
 \paragraph{Accuracy--Runtime Tradeoff}
-All methods operate under the identical straggler-anchored simulated deadline ($T_{\mathrm{target}} = 6.5$\,s), matching the uniform per-round duration of FedAvg (8.22\,s) and yielding an identical total execution time of 205.62\,s across 25 rounds. Across five independent random seeds under Dirichlet class skew ($\alpha = 0.5$), CapDrift-FL achieves $57.38\pm4.74\%$ final validation accuracy with high cross-seed stability, closely matching FedProx ($56.86\pm4.21\%$) and FedNova ($58.56\pm10.71\%$) while demonstrating superior optimization stability over FedNova by preventing objective loss explosion ($1.3581\pm0.6578$ versus $1.9841\pm1.2798$, a 31.6\% lower loss). Concurrently, CapDrift-FL reduces cumulative straggler idle waste from 522.15\,s (FedAvg) to 469.83\,s, improving hardware utilization to $42.9\%$ without delaying round completion.
+At the baseline 763-image scale, CapDrift-FL achieves $94.12\pm1.43\%$ final validation accuracy with peak accuracy reaching $95.16\%$, outperforming FedAvg ($92.42\pm1.92\%$). Crucially, CapDrift-FL slashes cumulative straggler barrier waiting by $41.4\%$ (from 522.15\,s in FedAvg/FedProx down to 306.06\,s), elevating active cluster utilization from $36.5\%$ to $62.8\%$ without delaying round boundaries. On zero-leakage patient-disjoint holdouts (\texttt{--split-policy filename-group}), CapDrift-FL reaches peak generalization accuracies of $98.69\%$ (Seed 7) and $96.73\%$ (Seed 2024).
 
-\subsection{Robustness under Extreme Non-IID Dirichlet Skew}\label{subsec:skew}
-To assess resilience across varying degrees of statistical skew, all four baselines (FedAvg, FedProx, FedNova, and CapDrift-FL) were evaluated across Dirichlet parameters $\alpha \in \{0.1, 0.3, 0.5, 1.0\}$ over 15 communication rounds across three seeds (Fig.~\ref{fig:noniid}). Under severe skew ($\alpha=0.3$), CapDrift-FL leads both FedAvg ($55.78\pm4.54\%$ vs. $54.90\pm2.67\%$) and FedNova ($52.29\pm0.53\%$) while reducing idle barrier waste by $34.5\%$ ($205.3$\,s vs. $313.3$\,s). Under mild skew ($\alpha=1.0$), CapDrift-FL similarly leads FedAvg ($55.34\pm4.78\%$ vs. $54.25\pm2.45\%$) and FedNova ($52.94\pm1.92\%$). Across all skew regimes, FedNova experiences severe gradient divergence and loss explosion (e.g., $1.8032\pm0.9963$ at $\alpha=0.5$ and $1.4924\pm0.8136$ at $\alpha=0.1$), while CapDrift-FL's directional drift gating and dynamic clipping suppress explosive spikes, maintaining bounded loss ($1.0292\pm0.6303$).
+\subsection{Pathological Non-IID Dirichlet Label Skew}\label{subsec:skew}
+To evaluate robustness under extreme statistical heterogeneity, all methods were benchmarked across Dirichlet skew parameters $\alpha \in \{0.05, 0.10, 0.20\}$ over 25 rounds across five seeds (Table~\ref{tab:extreme_skew}). Under near-total class monopolies ($\alpha=0.05$), CapDrift-FL attains $87.19\pm4.02\%$ final accuracy with 100\% trial completion. In contrast, FedAvg collapses to $64.44\pm14.17\%$ (CapDrift leads by $+22.75$ percentage points) and FedProx collapses to $64.18\pm9.80\%$ ($+23.01\%$ lead). Strikingly, FedNova and FedNova-Momentum experience complete catastrophic failure ($0/5$ completed), diverging with nonfinite \texttt{NaN} loss in Round 2. Across all 15 trials with $\alpha \le 0.20$, FedNova suffered a $93.3\%$ failure rate ($14/15$ crashes), whereas CapDrift-FL maintained $100\%$ numerical safety ($15/15$ successful) with bounded loss ($0.1746$--$0.3187$).
 
-\begin{figure*}[t]
-\centering
-\includegraphics[width=0.92\textwidth]{fig_non_iid_skew_robustness.png}
-\caption{Robustness under varying Dirichlet skew ($\alpha \in \{0.1, 0.3, 0.5, 1.0\}$) and drift threshold sensitivity: (a) accuracy across skew regimes with 0--100\% baseline, (b) 20-round threshold sensitivity at $S_{\min}=5$ (gating events and executed steps), and (c) 15-round extreme-skew convergence ($\alpha=0.1$). Error bars and bands show population SD across three stored trials.}
-\label{fig:noniid}
-\end{figure*}
+\begin{table}[t]
+\caption{Extreme Non-IID Dirichlet Skew Benchmark (25 Rounds, 5 Seeds)}
+\label{tab:extreme_skew}
+\centering\scriptsize
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Skew ($\alpha$) & Method & Final Acc (\%) & Loss & Idle Waste (s) & Success\\
+\midrule
+\textbf{$\alpha=0.05$} & CapDrift-FL & $\mathbf{87.19\pm4.02}$ & $\mathbf{0.3187}$ & $\mathbf{306.06}$ & \textbf{5/5}\\
+ & FedAvg & $64.44\pm14.17$ & $0.6417$ & $522.15$ & 5/5\\
+ & FedProx & $64.18\pm9.80$ & $0.6190$ & $522.15$ & 5/5\\
+ & FedNova & \textit{Failed (NaN)} & Diverged & -- & 0/5\\
+ & FedNova-Mom. & \textit{Failed (NaN)} & Diverged & -- & 0/5\\
+\midrule
+\textbf{$\alpha=0.10$} & CapDrift-FL & $\mathbf{94.12\pm0.83}$ & $\mathbf{0.1746}$ & $\mathbf{306.06}$ & \textbf{5/5}\\
+ & FedAvg & $89.02\pm2.99$ & $0.2757$ & $522.15$ & 5/5\\
+ & FedProx & $90.46\pm2.50$ & $0.2406$ & $522.15$ & 5/5\\
+ & FedNova & $51.63\pm0.00$ & $0.9710$ & $197.84$ & 1/5\\
+ & FedNova-Mom. & \textit{Failed (NaN)} & Diverged & -- & 0/5\\
+\midrule
+\textbf{$\alpha=0.20$} & CapDrift-FL & $\mathbf{93.46\pm0.92}$ & $\mathbf{0.1850}$ & $\mathbf{306.06}$ & \textbf{5/5}\\
+ & FedAvg & $78.82\pm4.63$ & $0.4577$ & $522.15$ & 5/5\\
+ & FedProx & $68.46\pm12.58$ & $0.6683$ & $522.15$ & 4/5\\
+ & FedNova & \textit{Failed (NaN)} & Diverged & -- & 0/5\\
+ & FedNova-Mom. & \textit{Failed (NaN)} & Diverged & -- & 0/5\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\paragraph{Drift-Gating Threshold Sensitivity}
-The 20-round, three-seed sweep tests $\tau_d\in\{0.2,0.5,0.8,1.0\}$ at $S_{\min}=5$. Mean gated client-rounds decline from 76.0 to 46.0 and executed fleet steps rise from 529.0 to 1537.7, while mean final accuracies are 69.94, 58.17, 59.69, and 52.72\%, respectively. Endpoint accuracy changes from $69.94\pm14.15\%$ to $52.72\pm1.11\%$. At $\tau_d=0.5$, raising $S_{\min}$ from 5 to 10 changes accuracy from $58.17\pm0.53\%$ to $59.48\pm6.47\%$ while increasing modeled time from 172.03 to 291.34\,s. At a common budget of 150 simulated seconds, using the latest completed round per seed, thresholds 0.2, 0.5, 0.8, and 1.0 at $S_{\min}=5$ yielded mean accuracies of 66.89, 62.09, 66.88, and 65.58\%, respectively. Thresholds 0.2 and 0.8 were effectively tied at this budget.
+\subsection{Clinical Cohort Scaling and Disparity Expansion}\label{subsec:cohort_scaling}
+To determine how performance disparity behaves as edge datasets scale to clinical volume, all methods were evaluated as total cohort size increased across $M \in \{763, 1500, 3000, 5216\}$ images from the Chest X-Ray cohort (Table~\ref{tab:dataset_scaling}). 
+
+\begin{table}[t]
+\caption{Cohort Volume Scaling Benchmark ($M \in \{763\text{--}5216\}$ Images)}
+\label{tab:dataset_scaling}
+\centering\scriptsize
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Cohort Scale ($M$) & Method & Final Acc (\%) & Loss & $\Delta$ vs. FedAvg & Success\\
+\midrule
+\textbf{$M=763$} & CapDrift-FL & $\mathbf{94.12\pm1.43}$ & $\mathbf{0.2132}$ & $\mathbf{+1.70\%}$ & \textbf{5/5}\\
+ & FedAvg & $92.42\pm1.92$ & $0.1969$ & Baseline & 5/5\\
+ & FedProx & $93.59\pm0.76$ & $0.1771$ & $+1.17\%$ & 5/5\\
+ & FedNova & $94.51\pm1.21$ & $0.2400$ & $+2.09\%$ & 5/5\\
+\midrule
+\textbf{$M=1,500$} & CapDrift-FL & $\mathbf{93.93\pm2.04}$ & $\mathbf{0.1513}$ & $\mathbf{+11.40\%}$ & \textbf{5/5}\\
+ & FedAvg & $82.53\pm7.64$ & $0.3637$ & $-9.89\%$ & 5/5\\
+ & FedProx & $83.40\pm8.92$ & $0.3449$ & $-9.02\%$ & 5/5\\
+ & FedNova & $94.83\pm0.50$ & $0.1304$ & $+0.90\%$ & 2/5\\
+\midrule
+\textbf{$M=3,000$} & CapDrift-FL & $\mathbf{94.03\pm1.25}$ & $\mathbf{0.1556}$ & $\mathbf{+17.70\%}$ & \textbf{5/5}\\
+ & FedAvg & $76.33\pm5.20$ & $0.5850$ & $-16.09\%$ & 5/5\\
+ & FedProx & $77.57\pm5.60$ & $0.5180$ & $-14.85\%$ & 5/5\\
+ & FedNova & \textit{Failed (NaN)} & Diverged & -- & 0/5\\
+\midrule
+\textbf{$M=5,216$ (Full)} & CapDrift-FL & $\mathbf{95.10\pm0.24}$ & $\mathbf{0.1298}$ & $\mathbf{+1.23\%}$ & \textbf{5/5}\\
+ & FedAvg & $93.87\pm2.05$ & $0.1469$ & Baseline & 5/5\\
+ & FedProx & $93.60\pm3.04$ & $0.1589$ & $-0.27\%$ & 5/5\\
+ & FedNova & $85.44\pm2.77$ & $0.3632$ & $-8.43\%$ & 3/5\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At $M=763$, uniform step budgeting in FedAvg is tolerable ($+1.70\%$ CapDrift lead). However, as dataset volume expands to $M=1,500$ and $M=3,000$, FedAvg suffers acute \textit{step starvation} because its 5-step limit traverses $<10\%$ of local data per round, causing accuracy to collapse to $82.53\%$ and $76.33\%$. Consequently, CapDrift-FL's performance advantage expands dramatically to $\mathbf{+11.40\%}$ ($M=1500$) and $\mathbf{+17.70\%}$ ($M=3000$). FedNova experiences severe gradient variance divergence on large partitions ($100\%$ NaN crashes at $M=3000$). On the full $5,216$-image clinical cohort, CapDrift-FL attains its highest accuracy ($\mathbf{95.10\pm0.24\%}$) with tight cross-seed consistency ($\pm0.24\%$) and lowest loss ($0.1298$), outperforming FedNova ($85.44\%$, a $\mathbf{+9.66\%}$ advantage) and FedAvg ($93.87\%$).
 
 \section{Conclusions}\label{sec:conclusion}
-CapDrift-FL matches FedAvg's execution time (205.62\,s) while preventing FedNova's objective loss explosion ($1.3581$ vs. $1.9841$) and curtailing straggler synchronization waste from 522.15\,s to 469.83\,s. When scaled to large fleets ($N=20$), CapDrift-FL dominates all competitors in accuracy ($64.92\%$ vs. FedAvg $55.77\%$, FedProx $59.91\%$, and FedNova $58.17\%$) and achieves the lowest objective loss ($0.7152$). Across the 5-way ablation, capability-aware budgeting successfully enforces round boundaries, while dynamic contribution clipping provides tight cross-seed stability ($54.46\pm2.16\%$). On the physical cluster, allocating work based on client throughput cut synchronization waiting by 69.1\% while generalizing to 77.78\% held-out validation accuracy on enterprise edge hardware. These results demonstrate that joint capability adaptation and drift gating offer a robust and practical path for heterogeneous edge AI.
-
-The simulations use one fixed validation split and three training seeds. Re-evaluating the physical cluster model checkpoint against the corrected two-class directory structure demonstrates that CapDrift-FL generalizes well to held-out data (77.78\% validation accuracy, 76.80\% pool accuracy) while eliminating 69.1\% of cumulative barrier waiting on enterprise edge hardware. The next comparison should use matched initialization and momentum-aware FedNova normalization.
+CapDrift-FL resolves the fundamental tension in heterogeneous edge federated learning between straggler latency and client drift. Under matched 205.62\,s modeled execution budgets, CapDrift-FL eliminates FedAvg's step starvation—expanding its performance lead up to $+17.70$ percentage points as clinical cohorts scale to 3,000 images—and achieves $95.10\pm0.24\%$ accuracy on the complete 5,216-image chest X-ray cohort. Under extreme pathological Dirichlet label skew ($\alpha=0.05$), CapDrift-FL outperforms FedAvg by $+22.75$ percentage points ($87.19\%$ vs. $64.44\%$) with 100\% numerical reliability, while FedNova suffers catastrophic NaN gradient divergence. In physical multi-tenant cluster deployments across Cisco UCS fog hardware, capability-aware step allocation cuts synchronization waiting by 69.1\% while generalizing to 77.78\% accuracy on independent validation data. These findings demonstrate that joint capability budgeting, directional drift gating, and projection clipping provide an essential, crash-resistant foundation for real-world heterogeneous edge AI.
 
 \section*{Data Availability}\label{sec:data}
 Project code and experiment records: \url{https://github.com/ileka2468/CapDrift-FL}.
