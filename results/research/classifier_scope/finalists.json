@@ -1,0 +1,20 @@
+{
+  "plan_sha256": "cc57eaa03e029ed58cdba4c474a54c6a5f65e357564c40d2893e6d852ed5bcac",
+  "challengers": [
+    "whole-classifier"
+  ],
+  "scores": {
+    "v3-anchor": {
+      "final_accuracy": 91.80327868852459,
+      "final_loss": 0.28834774113092265
+    },
+    "whole-classifier": {
+      "final_accuracy": 89.34426229508196,
+      "final_loss": 0.35031293894423815
+    }
+  },
+  "screen_inputs": {
+    "v3-anchor": "5c63613dc27d365783ccb785eaae849bf1b3e5256a1003a613b06a89f828739a",
+    "whole-classifier": "f79c412835ceb59ceb03c853748081f75c8b46fee14883e2fc4834b78507ac77"
+  }
+}

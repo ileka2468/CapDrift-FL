@@ -1,0 +1,33 @@
+Preloading dataset into memory: C:\Users\quenc\Desktop\NetProject\data\global_test\train
+
+=======================================================
+  Competitor Benchmark: FedNova-Momentum (Rounds=25, seed=42)
+=======================================================
+   Round 01 | Acc: 92.62% | Loss: 0.3800 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 02 | Acc: 89.34% | Loss: 0.4059 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 03 | Acc: 86.89% | Loss: 0.3455 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 04 | Acc: 92.62% | Loss: 0.2468 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 05 | Acc: 87.70% | Loss: 0.3008 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 06 | Acc: 89.34% | Loss: 0.3547 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 07 | Acc: 59.84% | Loss: 1.3889 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 08 | Acc: 86.07% | Loss: 0.4567 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 09 | Acc: 50.00% | Loss: 3.1734 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+Traceback (most recent call last):
+  File "C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_capdrift_paired_errors.py", line 266, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_capdrift_paired_errors.py", line 262, in main
+    run_dev(study, args.fold, args.method)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_capdrift_paired_errors.py", line 138, in run_dev
+    trial, rows = train(study, method, data, val, clients, ids, seed)
+                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_capdrift_paired_errors.py", line 116, in train
+    trial = bench.run_competitor_trial(
+        backend, data, val, clients, study.tiers, num_rounds=protocol.ROUNDS,
+    ...<2 lines>...
+        final_model_observer=save, feature_lr_multiplier=.5 if method == FEATURE else 1.,
+    )
+  File "C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_competitor_benchmark.py", line 426, in run_competitor_trial
+    raise NonFiniteMetricError(r, val_acc, val_loss)
+run_competitor_benchmark.NonFiniteMetricError: round 10: accuracy=50.0, loss=nan

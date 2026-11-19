@@ -1,0 +1,4 @@
+Dataset_Size,Train_Samples,Val_Samples,Method,Successful Trials,Final Acc (%) [Mean ± Std],Peak Acc (%) [Mean ± Std],Final Loss,Total Time (s),Idle Waste (s),Mean Util (%),Mean Compute Util (%)
+3000,2400,600,CapDrift-FL,5/5,94.03 ± 1.25,95.10 ± 0.56,0.1556 ± 0.0245,205.62 ± 0.00,306.06 ± 0.00,62.79 ± 0.00,56.25 ± 0.00
+3000,2400,600,FedAvg,5/5,76.33 ± 5.20,94.00 ± 1.06,0.5850 ± 0.2976,205.62 ± 0.00,522.15 ± 0.00,36.52 ± 0.00,29.98 ± 0.00
+3000,2400,600,FedProx,5/5,77.57 ± 5.60,93.27 ± 1.18,0.5180 ± 0.2778,205.62 ± 0.00,522.15 ± 0.00,36.52 ± 0.00,29.98 ± 0.00

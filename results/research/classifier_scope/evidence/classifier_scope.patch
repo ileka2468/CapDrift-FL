@@ -1,0 +1,55 @@
+diff --git a/scripts/run_capdrift_recovery.py b/scripts/run_capdrift_classifier_scope.py
+index 35c34dd..08d2373 100644
+--- a/scripts/run_capdrift_recovery.py
++++ b/scripts/run_capdrift_classifier_scope.py
+@@ -1,4 +1,4 @@
+-"""Accuracy-first ablations rooted in the frozen 94.38% CapDrift-Tuned run.
++"""Single-factor classifier-scope study rooted in the frozen 94.38% CapDrift-Tuned run.
+ 
+ Only nested development results can select a challenger. The already-reported
+ 153-image comparison is a fixed regression target, not a fresh test. The
+@@ -34,7 +34,7 @@ SPLIT_SEED = 42
+ PARTITION_SEED = 42
+ ALPHA = 0.5
+ DEV = ((2309, 42, 42), (5171, 2024, 314))  # group split, optimizer, client partition
+-TOP = 2
++TOP = 1
+ 
+ 
+ def read_json(path):
+@@ -61,14 +61,7 @@ def candidates(base):
+     """Keep all unrelated controller settings unchanged for each ablation."""
+     return {
+         BASELINE: base,
+-        "taper-floor": replace(base, server_lr_final_ratio=0.25),
+-        "later-taper": replace(base, server_lr_decay_start_round=13, server_lr_final_ratio=0.20),
+-        "prior-adjusted": replace(base, local_prior_strength=1.0),
+-        "tempered-mass": replace(base, gradient_mass_blend=0.35),
+-        "prior-progress": replace(
+-            base, local_prior_strength=0.75, budget_lr_power=0.25, gradient_mass_blend=0.25,
+-            server_lr_decay_start_round=10, server_lr_final_ratio=0.15,
+-        ),
++        "whole-classifier": replace(base, drift_parameter_prefix="classifier"),
+     }
+ 
+ 
+@@ -125,6 +118,8 @@ def prepare(args):
+     torch.use_deterministic_algorithms(True)
+     torch.backends.cudnn.benchmark = False
+     device = torch.device("cpu" if args.cpu or not torch.cuda.is_available() else "cuda")
++    if device.type != "cuda":
++        raise RuntimeError("This study requires CUDA")
+     data_dir = tuning.resolve_data_dir(args.data_dir)
+     src = args.source_test.resolve(strict=True)
+     decode = args.stage == "evaluate" and args.holdout == "source"
+@@ -316,6 +311,10 @@ def evaluate(study, holdout, method):
+         loader = bench.DataLoader(bench.Subset(study.dataset, study.held), batch_size=32, shuffle=False)
+     else:
+         loader = study.source_loader
++    if method != "tuned":
++        selection = frozen_selection(study.output)
++        if selection["development_accuracy_delta_pp"] <= 0:
++            raise ValueError("No round-25 development gain; do not open holdouts for challenger")
+     role = [BASELINE, "challenger"] if method == "all" else [BASELINE if method == "tuned" else "challenger"]
+     for item in role:
+         if item == BASELINE:

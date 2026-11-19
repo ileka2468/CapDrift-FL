@@ -1,0 +1,41 @@
+{
+  "plan_sha256": "5359b08fe7b30db460f5434db7e269600b32a26d287aff9c323f8facd7b05aee",
+  "challengers": [
+    "prior-progress",
+    "later-taper"
+  ],
+  "scores": {
+    "v3-anchor": {
+      "final_accuracy": 91.80327868852459,
+      "final_loss": 0.28834774113092265
+    },
+    "taper-floor": {
+      "final_accuracy": 90.98360655737704,
+      "final_loss": 0.2883286253839243
+    },
+    "later-taper": {
+      "final_accuracy": 92.62295081967213,
+      "final_loss": 0.29995255636387186
+    },
+    "prior-adjusted": {
+      "final_accuracy": 91.80327868852459,
+      "final_loss": 0.25116248465463764
+    },
+    "tempered-mass": {
+      "final_accuracy": 91.80327868852459,
+      "final_loss": 0.2726152729792673
+    },
+    "prior-progress": {
+      "final_accuracy": 94.26229508196722,
+      "final_loss": 0.2723270183215376
+    }
+  },
+  "screen_inputs": {
+    "v3-anchor": "7fb6673fa84a9ad673494d923329d9f9eb0399ab984572099db5436bf988294b",
+    "taper-floor": "1b98e7334ccecee70f25e4ac29abcd3128614b019e9d6cd5d9984012fe7cb83e",
+    "later-taper": "7ec72900c2f824c8e0bb5dc34a8696c0f6a422ee49b6e1ba0584d8055c064ea1",
+    "prior-adjusted": "8053fb209811fa436ef8473bb26f8eab6c4ddab495f18a3946e9f4ed1344eb10",
+    "tempered-mass": "98f50d343a78515a0d6f22b4948a2d7fc63cbc62783dcd718c739932db4193be",
+    "prior-progress": "1c72331538270b0b06418342f724972b5b36163ec7af69e5139864a2400473ff"
+  }
+}

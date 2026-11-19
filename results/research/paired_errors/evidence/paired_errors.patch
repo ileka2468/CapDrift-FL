@@ -1,0 +1,51 @@
+--- a/scripts/run_competitor_benchmark.py
++++ b/scripts/run_competitor_benchmark.py
+@@ -183,6 +183,8 @@
+     schedule_total_rounds: Optional[int] = None,
+     normalize_momentum_updates: bool = False,
+     measure_balanced_accuracy: bool = False,
++    final_model_observer=None,
++    feature_lr_multiplier: float = 1.0,
+ ) -> Dict:
+     if device is None:
+         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+@@ -193,6 +195,10 @@
+         raise ValueError("normalized CapDrift requires an explicit CapDrift controller configuration")
+     if normalize_momentum_updates and config.scale_local_lr:
+         raise ValueError("momentum-aware ablations must use the common unscaled local LR")
++    if not math.isfinite(feature_lr_multiplier) or feature_lr_multiplier <= 0:
++        raise ValueError("feature_lr_multiplier must be finite and positive")
++    if feature_lr_multiplier != 1.0 and method_name not in CAPDRIFT_METHODS:
++        raise ValueError("feature LR ablation is a CapDrift option")
+     trial_start = time.perf_counter()
+     torch.manual_seed(seed)
+     np.random.seed(seed)
+@@ -273,8 +279,16 @@
+                 for module in local_model.modules():
+                     if isinstance(module, nn.modules.batchnorm._BatchNorm):
+                         module.register_forward_pre_hook(freeze_batchnorm_stats)
++            step_lr = local_lr if method_name in CAPDRIFT_METHODS else baseline_local_lr
++            optimizer_params = local_model.parameters()
++            if feature_lr_multiplier != 1.0:
++                # Preserve parameter order and apply the usual budget scale to both groups.
++                optimizer_params = [
++                    {"params": local_model.features.parameters(), "lr": step_lr * feature_lr_multiplier},
++                    {"params": local_model.classifier.parameters(), "lr": step_lr},
++                ]
+             optimizer = torch.optim.SGD(
+-                local_model.parameters(), lr=local_lr if method_name in CAPDRIFT_METHODS else baseline_local_lr,
++                optimizer_params, lr=step_lr,
+                 momentum=LOCAL_MOMENTUM, weight_decay=WEIGHT_DECAY, fused=True if fused_sgd else None,
+             )
+             step_duration_sec = BATCH_SIZE / tier.base_samples_per_sec
+@@ -466,6 +480,10 @@
+             f"Clipped: {num_clipped} | Projected: {num_projections}"
+         )
+ 
++    if final_model_observer is not None:
++        evaluation_model = eval_shadow if eval_parameters is not None else global_model
++        with torch.inference_mode():
++            final_model_observer(evaluation_model.eval())
+     accuracies = [h["val_accuracy"] for h in round_telemetry]
+     return {
+         "method": method_name,

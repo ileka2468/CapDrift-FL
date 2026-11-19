@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_capdrift_paired_replay.py", line 163, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_capdrift_paired_replay.py", line 150, in main
+    frozen = freeze(args.output_dir)
+  File "C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_capdrift_paired_replay.py", line 23, in freeze
+    raise ValueError("development evaluation did not promote a challenger")
+ValueError: development evaluation did not promote a challenger

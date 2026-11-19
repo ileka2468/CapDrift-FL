@@ -1,0 +1,110 @@
+{
+  "methods": {
+    "FedNova-Momentum": {
+      "completed": 5,
+      "attempted": 5,
+      "all_seed_mean": {
+        "final_accuracy": 95.68627450980392,
+        "final_loss": 0.12783187138147994
+      },
+      "failures": []
+    },
+    "FedNova": {
+      "completed": 5,
+      "attempted": 5,
+      "all_seed_mean": {
+        "final_accuracy": 95.0326797385621,
+        "final_loss": 0.14486749889998654
+      },
+      "failures": []
+    },
+    "v3-anchor": {
+      "completed": 5,
+      "attempted": 5,
+      "all_seed_mean": {
+        "final_accuracy": 94.37908496732025,
+        "final_loss": 0.13912388080475377
+      },
+      "failures": []
+    },
+    "prior-progress": {
+      "completed": 5,
+      "attempted": 5,
+      "all_seed_mean": {
+        "final_accuracy": 94.64052287581698,
+        "final_loss": 0.11692472433342653
+      },
+      "failures": []
+    }
+  },
+  "paired": {
+    "FedNova-Momentum": {
+      "seeds": [
+        42,
+        101,
+        2024,
+        7,
+        888
+      ],
+      "accuracy_delta_pp": [
+        1.3071895424836697,
+        -1.9607843137254974,
+        -3.267973856209153,
+        0.6535947712418277,
+        -1.9607843137254974
+      ],
+      "mean_delta_pp": -1.0457516339869302,
+      "higher": 2,
+      "tied": 0
+    },
+    "FedNova": {
+      "seeds": [
+        42,
+        101,
+        2024,
+        7,
+        888
+      ],
+      "accuracy_delta_pp": [
+        0.0,
+        -0.6535947712418277,
+        -2.614379084967325,
+        1.3071895424836555,
+        0.0
+      ],
+      "mean_delta_pp": -0.3921568627450995,
+      "higher": 1,
+      "tied": 2
+    },
+    "v3-anchor": {
+      "seeds": [
+        42,
+        101,
+        2024,
+        7,
+        888
+      ],
+      "accuracy_delta_pp": [
+        1.9607843137254974,
+        -1.3071895424836555,
+        0.0,
+        1.3071895424836555,
+        -0.6535947712418277
+      ],
+      "mean_delta_pp": 0.26143790849673393,
+      "higher": 2,
+      "tied": 1
+    }
+  },
+  "matched_accuracy_win": false,
+  "selected": "prior-progress",
+  "holdout": "target",
+  "plan_sha256": "5359b08fe7b30db460f5434db7e269600b32a26d287aff9c323f8facd7b05aee",
+  "selected_config_sha256": "ba1d5ce5906a77e80fc7c8590b69bce9839d67c052e44bd7ed74b76c13f3bcd7",
+  "archived_references": {
+    "C:\\Users\\quenc\\Desktop\\NetProject\\OmniFed\\results\\research\\competitor_tuning_final\\competitor_benchmark_results.json": "5f03a5d228d3e4f43a7ea99abdd9f595b2c3982ff20d01ee1e63c1e7f48af0a4"
+  },
+  "modeled_seconds": 205.6197213692418,
+  "exploratory_selection": false,
+  "interpretation": "Replay on previously scored 153 images; not independent replication."
+}

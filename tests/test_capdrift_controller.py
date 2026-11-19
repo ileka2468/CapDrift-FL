@@ -2,9 +2,10 @@
 Unit and Integration Tests for CapDrift-FL Controller.
 Verifies:
 1. Stage 1: Capability Step Budgeting
-2. Stage 2: Block-Wise Cosine Drift Gating (proving surplus halts on drift)
+2. Stage 2: Legacy Cosine Drift Gating and Classifier-Head Surplus Projection
 3. Stage 3: Coordinator-Side Contribution Clipping (proving norm bounding & direction preservation)
-4. End-to-end integration round across heterogeneous clients.
+4. Local LR scaling, server momentum, and late-round workload annealing
+5. End-to-end integration round across heterogeneous clients.
 """
 
 import copy
@@ -36,6 +37,30 @@ class TinyModel(nn.Module):
         self.fc = nn.Linear(8, 2)
     def forward(self, x):
         return self.fc(x)
+
+
+class TinyClassifier(nn.Module):
+    """Keeps the backbone and final-head gradients independent of the weights."""
+
+    def __init__(self):
+        super().__init__()
+        self.backbone = nn.Parameter(torch.zeros(1))
+        self.classifier = nn.Sequential(
+            nn.Identity(), nn.Identity(), nn.Identity(), nn.Linear(1, 2, bias=False)
+        )
+        nn.init.zeros_(self.classifier[3].weight)
+
+    def forward(self, x):
+        return self.classifier(x) + self.backbone * x
+
+
+class LinearLoss(nn.Module):
+    def forward(self, output, target):
+        return (output * target).sum()
+
+
+def constant_gradient_loader(head_grad):
+    return DataLoader(TensorDataset(torch.ones(1, 1), torch.tensor([head_grad])))
 
 
 class TestCapDriftController(unittest.TestCase):
@@ -107,44 +132,26 @@ class TestCapDriftController(unittest.TestCase):
             S_min=5,
             K_block=5,
             tau_drift=0.50, # requires cosine sim >= 0.50
+            drift_mode="gate",
             enable_capability=True,
             enable_drift_gating=True
         )
         client = CapDriftClientTrainer("client_drift", cfg)
         client.q_hat = 0.6  # 0.6 * 30 = 18 steps budget (surplus is 18 - 5 = 13 steps)
         
-        model = TinyModel()
-        global_weights = [p.data.clone() for p in model.parameters()]
-        
-        # Synthetic dataset where gradient drives model in positive direction
-        X = torch.randn(64, 8)
-        y = torch.randint(0, 2, (64,))
-        ds = TensorDataset(X, y)
-        loader = DataLoader(ds, batch_size=8)
-        
-        # Provide previous global displacement in opposite direction
-        # so local update will have negative cosine similarity (drift > 1.0 > tau_drift=0.5)
-        optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
-        criterion = nn.CrossEntropyLoss()
-        
-        # Perform 1 step to see direction
-        model.zero_grad()
-        loss = criterion(model(X[:8]), y[:8])
-        loss.backward()
-        sample_grad = flatten_params([p.grad for p in model.parameters()])
-        
-        # Construct global displacement that opposes local gradient update
-        # Since update is -lr * grad, local displacement Delta_i will align with -grad.
-        # So we set delta_G to align with +grad to force cos(Delta_i, Delta_G) < 0 (i.e. d > 1.0)
-        opposing_delta_G = sample_grad.clone()
+        model = TinyClassifier()
+        global_weights = [p.detach().clone() for p in model.parameters()]
+
+        # Each SGD step has displacement proportional to [3, 1, 2]; oppose it exactly.
+        opposing_delta_G = torch.tensor([-3.0, -1.0, -2.0])
         
         res = client.train_round(
             local_model=model,
             global_model_weights=global_weights,
             delta_G_prev=opposing_delta_G,
-            train_loader=loader,
-            criterion=criterion,
-            optimizer=optimizer,
+            train_loader=constant_gradient_loader((-1.0, -2.0)),
+            criterion=LinearLoss(),
+            optimizer=torch.optim.SGD(model.parameters(), lr=0.1),
             device=torch.device("cpu")
         )
         
@@ -270,6 +277,149 @@ class TestCapDriftController(unittest.TestCase):
         self.assertGreater(torch.norm(coord.delta_G_prev).item(), 0.0)
         self.assertEqual(len(telemetry["clipping_events"]), 3)
         print("\n [TEST SUCCESS] Round 1 CapDrift Telemetry verified successfully!")
+
+
+class TestOptimizedCapDrift(unittest.TestCase):
+    def test_projection_attenuates_only_surplus_head_updates(self):
+        """The required block, backbone, and signed parallel displacement are untouched."""
+        for head_update in ((1.0, 2.0), (-1.0, 2.0)):
+            with self.subTest(head_update=head_update):
+                cfg = CapDriftConfig(
+                    S_min=1, S_max=4, S_0=4, K_block=2,
+                    drift_mode="projection", drift_parameter_prefix="classifier.3",
+                )
+                trainer = CapDriftClientTrainer("tiny", cfg)
+                model = TinyClassifier()
+                result = trainer.train_round(
+                    local_model=model,
+                    global_model_weights=[p.detach().clone() for p in model.parameters()],
+                    delta_G_prev=torch.tensor([1.0, 0.0]),
+                    train_loader=constant_gradient_loader(tuple(-x for x in head_update)),
+                    criterion=LinearLoss(),
+                    optimizer=torch.optim.SGD(model.parameters(), lr=1.0),
+                    device=torch.device("cpu"),
+                )
+                self.assertEqual(result["steps_completed"], 4)
+                self.assertFalse(result["gated_early"])
+                cosine = head_update[0] / math.hypot(*head_update)
+                scale = max(0.0, cosine)
+                expected_head = torch.tensor([[4 * head_update[0]], [head_update[1] * (1 + 3 * scale)]])
+                expected_backbone = torch.tensor([4 * sum(head_update)])
+                torch.testing.assert_close(result["delta_i"][0], expected_backbone)
+                torch.testing.assert_close(result["delta_i"][1], expected_head)
+                torch.testing.assert_close(model.classifier[3].weight, expected_head)
+                self.assertEqual(len(result["drift_evaluations"]), 2)
+                for event in result["drift_evaluations"]:
+                    self.assertAlmostEqual(event["cosine_similarity"], cosine, places=6)
+                    self.assertAlmostEqual(event["orthogonal_scale"], scale, places=6)
+
+    def test_projection_bootstraps_without_consensus(self):
+        cfg = CapDriftConfig(
+            S_min=1, S_max=3, S_0=3, K_block=2,
+            drift_mode="projection", drift_parameter_prefix="classifier.3",
+        )
+        for consensus in (None, torch.zeros(2)):
+            with self.subTest(consensus=consensus):
+                model = TinyClassifier()
+                result = CapDriftClientTrainer("tiny", cfg).train_round(
+                    model, [p.detach().clone() for p in model.parameters()],
+                    consensus, constant_gradient_loader((-1.0, -2.0)),
+                    LinearLoss(), torch.optim.SGD(model.parameters(), lr=1.0), torch.device("cpu"),
+                )
+                self.assertEqual(result["steps_completed"], 3)
+                self.assertEqual(result["drift_evaluations"], [])
+                torch.testing.assert_close(result["delta_i"][1], torch.tensor([[3.0], [6.0]]))
+
+    def test_step_budget_rescales_each_optimizer_group(self):
+        cfg = CapDriftConfig(S_min=2, S_max=8, S_0=8, scale_local_lr=True, enable_drift_gating=False)
+        for slow in (False, True):
+            with self.subTest(slow=slow):
+                trainer = CapDriftClientTrainer("tiny", cfg)
+                if slow:
+                    trainer.q_hat = cfg.S_min / cfg.T_target_sec
+                model = TinyClassifier()
+                optimizer = torch.optim.SGD([
+                    {"params": [model.backbone], "lr": 0.4},
+                    {"params": model.classifier[3].parameters(), "lr": 0.2},
+                ])
+                result = trainer.train_round(
+                    model, [p.detach().clone() for p in model.parameters()],
+                    None, constant_gradient_loader((-1.0, -2.0)), LinearLoss(), optimizer,
+                    torch.device("cpu"),
+                )
+                steps = 2 if slow else 8
+                scale = 1.0 if slow else 0.5
+                self.assertEqual(result["steps_completed"], steps)
+                self.assertAlmostEqual(result["lr_scale"], scale)
+                self.assertEqual([group["lr"] for group in optimizer.param_groups], [0.4, 0.2])
+                torch.testing.assert_close(result["delta_i"][0], torch.tensor([steps * 0.4 * scale * 3]))
+                torch.testing.assert_close(result["delta_i"][1], torch.tensor([[steps * 0.2 * scale], [steps * 0.4 * scale]]))
+
+    def test_server_momentum_and_prior_head_displacement(self):
+        cfg = CapDriftConfig(
+            enable_clipping=False, server_momentum=0.9, server_lr=0.5,
+            drift_parameter_prefix="classifier.3",
+        )
+        coordinator = CapDriftCoordinator(cfg)
+        model = TinyClassifier()
+        samples = {"tiny": 10}
+
+        def aggregate(round_number, backbone, head):
+            return coordinator.aggregate_round(round_number, model, [{
+                "client_id": "tiny", "q_i": 1.0,
+                "delta_i": [torch.tensor([backbone]), torch.tensor(head).reshape(2, 1)],
+            }], samples)
+
+        aggregate(1, 4.0, [2.0, -4.0])
+        torch.testing.assert_close(coordinator.delta_G_prev, torch.tensor([1.0, -2.0]))
+        telemetry = aggregate(2, 0.0, [0.0, 2.0])
+        # v_2 = 0.9 * [4, 2, -4] + [0, 0, 2]; applied step = 0.5 * v_2.
+        torch.testing.assert_close(coordinator.delta_G_prev, torch.tensor([0.9, -0.8]))
+        torch.testing.assert_close(flatten_params(list(model.parameters())), torch.tensor([3.8, 1.9, -2.8]))
+        self.assertAlmostEqual(telemetry["global_displacement_norm"], math.sqrt(1.8**2 + 0.9**2 + 0.8**2), places=6)
+
+    def test_annealed_workload_respects_deadline_even_with_stale_throughput(self):
+        cfg = CapDriftConfig(
+            S_min=5, S_max=40, S_0=40, T_target_sec=6.5,
+            anneal_start_round=15, anneal_power=0.5,
+        )
+        trainer = CapDriftClientTrainer("tiny", cfg)
+        trainer.q_hat = 1000.0
+        self.assertEqual(trainer.determine_step_budget(server_round=1, total_rounds=25), (40, 5))
+        self.assertEqual(trainer.determine_step_budget(server_round=15, total_rounds=25), (40, 5))
+        self.assertEqual(trainer.determine_step_budget(server_round=16, total_rounds=25), (24, 5))
+        self.assertEqual(trainer.determine_step_budget(server_round=20, total_rounds=25), (17, 5))
+        self.assertEqual(trainer.determine_step_budget(server_round=25, total_rounds=25), (5, 5))
+        linear = CapDriftClientTrainer("linear", CapDriftConfig(S_0=40, S_max=40, anneal_start_round=15))
+        self.assertEqual(linear.determine_step_budget(server_round=20, total_rounds=25), (8, 5))
+        model = TinyClassifier()
+        result = trainer.train_round(
+            model, [p.detach().clone() for p in model.parameters()], None,
+            constant_gradient_loader((-1.0, -2.0)), LinearLoss(),
+            torch.optim.SGD(model.parameters(), lr=0.01), torch.device("cpu"),
+            simulated_step_duration_sec=1.256, server_round=1, total_rounds=25,
+        )
+        self.assertEqual(result["S_cap"], 5)
+        self.assertEqual(result["steps_completed"], 5)
+        self.assertAlmostEqual(result["tau_tr"], 6.28)
+        self.assertLessEqual(result["tau_tr"], cfg.T_target_sec)
+
+    def test_deadline_shorter_than_one_step_leaves_weights_and_ema_unchanged(self):
+        cfg = CapDriftConfig(S_min=5, S_max=40, T_target_sec=6.5, scale_local_lr=True)
+        trainer = CapDriftClientTrainer("tiny", cfg)
+        trainer.q_hat = 1000.0
+        model = TinyClassifier()
+        result = trainer.train_round(
+            model, [p.detach().clone() for p in model.parameters()], None,
+            DataLoader(TensorDataset(torch.empty(0, 1), torch.empty(0, 2))), LinearLoss(),
+            torch.optim.SGD(model.parameters(), lr=0.01), torch.device("cpu"),
+            simulated_step_duration_sec=6.51,
+        )
+        self.assertEqual((result["S_cap"], result["S_req"], result["steps_completed"]), (0, 0, 0))
+        self.assertEqual((result["tau_tr"], result["q_i"], result["lr_scale"]), (0.0, 0.0, 1.0))
+        self.assertEqual(result["q_hat"], 1000.0)
+        for displacement in result["delta_i"]:
+            torch.testing.assert_close(displacement, torch.zeros_like(displacement))
 
 
 if __name__ == "__main__":

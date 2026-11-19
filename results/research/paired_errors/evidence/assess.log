@@ -1,0 +1,193 @@
+{
+  "route": "half-feature-lr",
+  "selecting_rival": "FedNova",
+  "complete_matched_folds": 1,
+  "near": 1,
+  "rival_only_cases": 2,
+  "by_rival_and_fold": {
+    "FedNova-Momentum": [
+      {
+        "failure": {
+          "failed_round": 10,
+          "loss": "nan"
+        }
+      },
+      {
+        "failure": {
+          "failed_round": 2,
+          "loss": "nan"
+        }
+      }
+    ],
+    "FedNova": [
+      {
+        "samples": 122,
+        "cap_correct": 112,
+        "rival_correct": 114,
+        "rival_only_correct": 2,
+        "cap_only_correct": 0,
+        "rival_only_near": 1,
+        "rival_only_confident_ge_80pct": 0,
+        "rival_only_by_label": [
+          0,
+          2
+        ]
+      },
+      {
+        "failure": {
+          "failed_round": 15,
+          "loss": "nan"
+        }
+      }
+    ]
+  },
+  "failures": {
+    "paired_dev_0_FedNova-Momentum.json": {
+      "failed_round": 10,
+      "loss": "nan"
+    },
+    "paired_dev_1_FedNova-Momentum.json": {
+      "failed_round": 2,
+      "loss": "nan"
+    },
+    "paired_dev_1_FedNova.json": {
+      "failed_round": 15,
+      "loss": "nan"
+    }
+  },
+  "input_sha256": {
+    "paired_dev_0_v3-anchor.json": "3538d698071e81cd2237c463fac0beb5c164b32f40f133dfde059d7daddd303c",
+    "evidence/dev-0-FedNova-Momentum.log": "772753cf91e34835373464d11f7cf51b619254938199bc7606e23fc6619faf22",
+    "paired_dev_0_FedNova.json": "6e5920345413a263b0b37e3ca6dbe3d44e20f01c2c50d352a2aae05ea482a056",
+    "paired_dev_1_v3-anchor.json": "f8a41cf1d749693a3d73e8b3190c6841216595744c42770ea65bb603f8a00443",
+    "evidence/dev-1-FedNova-Momentum.log": "a9682c36fa09ac0d164cd19d1b5ac9e12ba39d0488420d7a4cff0605141f4840",
+    "evidence/dev-1-FedNova.log": "76c64222cc622b3964b290380c8c21c9c0378832cc561a1a428b23ac0fd30ca3"
+  },
+  "plan_sha256": "21a52e796a3ab8313b4512422b915ffbeab5e187092e600d524dbf584613c39d",
+  "amendment_sha256": "44beaf64780cf9490108767f04101206845c469ff113118bfee90856491b285c",
+  "selection_policy": "Prespecified-for-remaining-analysis fallback when canonical FedNova diverges.\n\nRetain every attempted fold. If canonical lacks a complete pair of folds, use\nthe rival with the most completed matched folds (canonical breaks ties).\nIf only one survives, record the resulting direction as a one-fold diagnostic.\nDo not replace a failed score or substitute one fold from a different rival."
+}
+{
+  "route": "half-feature-lr",
+  "selecting_rival": "FedNova",
+  "complete_matched_folds": 1,
+  "near": 1,
+  "rival_only_cases": 2,
+  "by_rival_and_fold": {
+    "FedNova-Momentum": [
+      {
+        "failure": {
+          "failed_round": 10,
+          "loss": "nan"
+        }
+      },
+      {
+        "failure": {
+          "failed_round": 2,
+          "loss": "nan"
+        }
+      }
+    ],
+    "FedNova": [
+      {
+        "samples": 122,
+        "cap_correct": 112,
+        "rival_correct": 114,
+        "rival_only_correct": 2,
+        "cap_only_correct": 0,
+        "rival_only_near": 1,
+        "rival_only_confident_ge_80pct": 0,
+        "rival_only_by_label": [
+          0,
+          2
+        ]
+      },
+      {
+        "failure": {
+          "failed_round": 15,
+          "loss": "nan"
+        }
+      }
+    ]
+  },
+  "failures": {
+    "paired_dev_0_FedNova-Momentum.json": {
+      "failed_round": 10,
+      "loss": "nan"
+    },
+    "paired_dev_1_FedNova-Momentum.json": {
+      "failed_round": 2,
+      "loss": "nan"
+    },
+    "paired_dev_1_FedNova.json": {
+      "failed_round": 15,
+      "loss": "nan"
+    }
+  },
+  "input_sha256": {
+    "paired_dev_0_v3-anchor.json": "3538d698071e81cd2237c463fac0beb5c164b32f40f133dfde059d7daddd303c",
+    "evidence/dev-0-FedNova-Momentum.log": "772753cf91e34835373464d11f7cf51b619254938199bc7606e23fc6619faf22",
+    "paired_dev_0_FedNova.json": "6e5920345413a263b0b37e3ca6dbe3d44e20f01c2c50d352a2aae05ea482a056",
+    "paired_dev_1_v3-anchor.json": "f8a41cf1d749693a3d73e8b3190c6841216595744c42770ea65bb603f8a00443",
+    "evidence/dev-1-FedNova-Momentum.log": "a9682c36fa09ac0d164cd19d1b5ac9e12ba39d0488420d7a4cff0605141f4840",
+    "evidence/dev-1-FedNova.log": "76c64222cc622b3964b290380c8c21c9c0378832cc561a1a428b23ac0fd30ca3"
+  },
+  "plan_sha256": "21a52e796a3ab8313b4512422b915ffbeab5e187092e600d524dbf584613c39d",
+  "amendment_sha256": "44beaf64780cf9490108767f04101206845c469ff113118bfee90856491b285c",
+  "selection_policy": "Prespecified-for-remaining-analysis fallback when canonical FedNova diverges.\n\nRetain every attempted fold. If canonical lacks a complete pair of folds, use\nthe rival with the most completed matched folds (canonical breaks ties).\nIf only one survives, record the resulting direction as a one-fold diagnostic.\nDo not replace a failed score or substitute one fold from a different rival."
+}
+{
+  "route": "half-feature-lr",
+  "plan_sha256": "21a52e796a3ab8313b4512422b915ffbeab5e187092e600d524dbf584613c39d",
+  "details": {
+    "0": {
+      "samples": 122,
+      "cap_correct": 111,
+      "rival_correct": 112,
+      "rival_only_correct": 2,
+      "cap_only_correct": 1,
+      "rival_only_near": 0,
+      "rival_only_confident_ge_80pct": 0,
+      "rival_only_by_label": [
+        0,
+        2
+      ],
+      "feature_ce": 0.3085643566045605,
+      "anchor_ce": 0.28834774113092265,
+      "feature_accuracy": 90.98360655737704,
+      "anchor_accuracy": 91.80327868852459
+    },
+    "1": {
+      "samples": 122,
+      "cap_correct": 113,
+      "rival_correct": 114,
+      "rival_only_correct": 2,
+      "cap_only_correct": 1,
+      "rival_only_near": 0,
+      "rival_only_confident_ge_80pct": 0,
+      "rival_only_by_label": [
+        1,
+        1
+      ],
+      "feature_ce": 0.20098271474364351,
+      "anchor_ce": 0.1476131268456334,
+      "feature_accuracy": 92.62295081967213,
+      "anchor_accuracy": 93.44262295081968
+    }
+  },
+  "decision_signed_gain_per_fold": [
+    -1,
+    -1
+  ],
+  "promoted": false,
+  "input_sha256": {
+    "paired_dev_0_v3-anchor.json": "3538d698071e81cd2237c463fac0beb5c164b32f40f133dfde059d7daddd303c",
+    "evidence/dev-0-FedNova-Momentum.log": "772753cf91e34835373464d11f7cf51b619254938199bc7606e23fc6619faf22",
+    "paired_dev_0_FedNova.json": "6e5920345413a263b0b37e3ca6dbe3d44e20f01c2c50d352a2aae05ea482a056",
+    "paired_dev_1_v3-anchor.json": "f8a41cf1d749693a3d73e8b3190c6841216595744c42770ea65bb603f8a00443",
+    "evidence/dev-1-FedNova-Momentum.log": "a9682c36fa09ac0d164cd19d1b5ac9e12ba39d0488420d7a4cff0605141f4840",
+    "evidence/dev-1-FedNova.log": "76c64222cc622b3964b290380c8c21c9c0378832cc561a1a428b23ac0fd30ca3",
+    "paired_dev_0_half-feature-lr.json": "337ff6d55c5583abdf15f157a0b8eec87afc4c488d7ad2fc3c2a7c0fb28c7000",
+    "paired_dev_1_half-feature-lr.json": "1681f0cae23cfffe87d9fcab888abf769dee199cd2ac8724f1ea1e630a00b627"
+  }
+}

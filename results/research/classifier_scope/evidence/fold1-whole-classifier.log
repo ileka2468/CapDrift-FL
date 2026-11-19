@@ -1,0 +1,32 @@
+Preloading dataset into memory: C:\Users\quenc\Desktop\NetProject\data\global_test\train
+Promoted on round-25 development accuracy: ['whole-classifier']
+Recovery | whole-classifier | seed=2024 | full 25 rounds
+
+=======================================================
+  Competitor Benchmark: CapDrift-Tuned (Rounds=25, seed=2024)
+=======================================================
+   Round 01 | Acc: 77.87% | Loss: 0.5508 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 1 | Projected: 0
+   Round 02 | Acc: 76.23% | Loss: 0.4771 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 1 | Projected: 15
+   Round 03 | Acc: 86.07% | Loss: 0.3608 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 1 | Projected: 15
+   Round 04 | Acc: 92.62% | Loss: 0.2328 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 05 | Acc: 91.80% | Loss: 0.2038 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 1 | Projected: 15
+   Round 06 | Acc: 92.62% | Loss: 0.1787 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 07 | Acc: 93.44% | Loss: 0.1700 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 08 | Acc: 92.62% | Loss: 0.1700 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 09 | Acc: 93.44% | Loss: 0.1684 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 10 | Acc: 94.26% | Loss: 0.1665 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 11 | Acc: 94.26% | Loss: 0.1647 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 12 | Acc: 94.26% | Loss: 0.1618 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 13 | Acc: 93.44% | Loss: 0.1579 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 14 | Acc: 93.44% | Loss: 0.1555 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 15 | Acc: 93.44% | Loss: 0.1534 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 16 | Acc: 94.26% | Loss: 0.1531 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 17 | Acc: 94.26% | Loss: 0.1542 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 18 | Acc: 94.26% | Loss: 0.1562 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 19 | Acc: 94.26% | Loss: 0.1582 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 1 | Projected: 15
+   Round 20 | Acc: 94.26% | Loss: 0.1606 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 21 | Acc: 94.26% | Loss: 0.1633 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 22 | Acc: 94.26% | Loss: 0.1656 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 23 | Acc: 94.26% | Loss: 0.1678 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 24 | Acc: 94.26% | Loss: 0.1699 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15
+   Round 25 | Acc: 94.26% | Loss: 0.1719 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 2 | Projected: 15

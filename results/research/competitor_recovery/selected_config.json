@@ -1,0 +1,58 @@
+{
+  "name": "prior-progress",
+  "controller_config": {
+    "beta_ema": 0.8,
+    "T_target_sec": 6.5,
+    "S_max": 40,
+    "S_min": 5,
+    "S_0": 5,
+    "K_block": 5,
+    "tau_drift": 0.85,
+    "epsilon": 1e-08,
+    "kappa_c": 1.5,
+    "server_lr": 0.65,
+    "enable_capability": true,
+    "enable_drift_gating": true,
+    "enable_clipping": true,
+    "dynamic_clipping": true,
+    "drift_mode": "projection",
+    "drift_parameter_prefix": "classifier.3",
+    "scale_local_lr": true,
+    "server_momentum": 0.55,
+    "anneal_start_round": null,
+    "anneal_power": 1.0,
+    "budget_lr_power": 0.25,
+    "client_update_normalization_power": 0.0,
+    "server_lr_decay_start_round": 10,
+    "server_lr_final_ratio": 0.15,
+    "server_average_decay": 0.85,
+    "server_average_start_round": 8,
+    "local_prior_strength": 0.75,
+    "gradient_mass_blend": 0.25
+  },
+  "development": {
+    "v3-anchor": {
+      "final_accuracy": 92.62295081967213,
+      "final_loss": 0.21798043398827804
+    },
+    "prior-progress": {
+      "final_accuracy": 93.44262295081967,
+      "final_loss": 0.21425848620653642
+    },
+    "later-taper": {
+      "final_accuracy": 93.03278688524591,
+      "final_loss": 0.2325209254765364
+    }
+  },
+  "development_accuracy_delta_pp": 0.8196721311475414,
+  "exploratory_only": false,
+  "plan_sha256": "5359b08fe7b30db460f5434db7e269600b32a26d287aff9c323f8facd7b05aee",
+  "trial_sha256": {
+    "dev_0_v3-anchor.json": "7fb6673fa84a9ad673494d923329d9f9eb0399ab984572099db5436bf988294b",
+    "dev_1_v3-anchor.json": "df30a4abe5cdfedfda567ef5f773618c264ec9da2538e134d02580eb0b2ff2e2",
+    "dev_0_prior-progress.json": "1c72331538270b0b06418342f724972b5b36163ec7af69e5139864a2400473ff",
+    "dev_1_prior-progress.json": "d0883bda0d446121f0ceea825cd160792c54d0a2ef888c9a02a0131a9b03ad54",
+    "dev_0_later-taper.json": "7ec72900c2f824c8e0bb5dc34a8696c0f6a422ee49b6e1ba0584d8055c064ea1",
+    "dev_1_later-taper.json": "bfdc22cc51363d9537faa1b49d7a7d4b82624f80e0f733253a738df6c26405cd"
+  }
+}

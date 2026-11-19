@@ -1,0 +1,24 @@
+Changed training field: drift_parameter_prefix: classifier.3 -> classifier. The original stays unchanged.
+MODIFIED_FILE: C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_capdrift_classifier_scope.py
+DIFF_FILE: C:\Users\quenc\Desktop\NetProject\OmniFed\results\research\classifier_scope\evidence\classifier_scope.patch
+VERIFICATION: C:\Users\quenc\Desktop\NetProject\OmniFed\results\research\classifier_scope\evidence\VERIFICATION.txt
+ROLLBACK: C:\Users\quenc\Desktop\NetProject\OmniFed\results\research\classifier_scope\evidence\ROLLBACK.sh
+Working directory: C:\Users\quenc\Desktop\NetProject\OmniFed
+Original SHA256: f1573dd16813cfbd75f11173b2d283ef6adf9dcdaac599973b81c588259b8a2e
+Modified SHA256: 8195b47e0cae8dabefcce0644c9c9c1e88371cb42bc81840e4f12f444188d9a8
+Rollback SHA256: f1573dd16813cfbd75f11173b2d283ef6adf9dcdaac599973b81c588259b8a2e
+BASELINE: & ..\.venv\Scripts\python.exe results/research/classifier_scope/evidence/probe.py scripts/run_capdrift_recovery.py | anchor=classifier.3; whole-classifier=absent | exit 0
+MODIFIED: & ..\.venv\Scripts\python.exe results/research/classifier_scope/evidence/probe.py scripts/run_capdrift_classifier_scope.py | anchor=classifier.3; whole-classifier=classifier | exit 0
+ROLLBACK: & ..\.venv\Scripts\python.exe results/research/classifier_scope/evidence/probe.py results/research/classifier_scope/evidence/rollback_probe_copy.py | anchor=classifier.3; whole-classifier=absent | exit 0
+Rollback command: & 'C:/Program Files/Git/bin/bash.exe' results/research/classifier_scope/evidence/ROLLBACK.sh results/research/classifier_scope/evidence/rollback_probe_copy.py | restored f1573dd16813cfbd75f11173b2d283ef6adf9dcdaac599973b81c588259b8a2e | exit 0
+GPU snapshot during paired runs: NVIDIA GeForce RTX 5070 Ti, 71 %, 5772 MiB
+Plan GPU: {'device': 'cuda', 'device_name': 'NVIDIA GeForce RTX 5070 Ti', 'torch': '2.14.0+cu130', 'torchvision': '0.29.0+cu130', 'fused_sgd': True, 'local_lr': 0.002, 'freeze_bn': True, 'channels_last': True, 'rng_policy': 'paired'}
+Fixed 25 rounds, steps [40,28,16,5]. Development only; no benchmark holdout evaluation.
+& ..\.venv\Scripts\python.exe scripts/run_capdrift_classifier_scope.py --stage screen --fold 0 --case v3-anchor --output-dir results/research/classifier_scope | seed=42, final_accuracy=91.80327868852459, final_loss=0.28834774113092265, modeled_seconds=205.61972136924192 | exit 0
+& ..\.venv\Scripts\python.exe scripts/run_capdrift_classifier_scope.py --stage screen --fold 0 --case whole-classifier --output-dir results/research/classifier_scope | seed=42, final_accuracy=89.34426229508196, final_loss=0.35031293894423815, modeled_seconds=205.61972136924192 | exit 0
+& ..\.venv\Scripts\python.exe scripts/run_capdrift_classifier_scope.py --stage screen --fold 1 --case v3-anchor --output-dir results/research/classifier_scope | seed=2024, final_accuracy=93.44262295081968, final_loss=0.1476131268456334, modeled_seconds=205.61972136924192 | exit 0
+& ..\.venv\Scripts\python.exe scripts/run_capdrift_classifier_scope.py --stage screen --fold 1 --case whole-classifier --output-dir results/research/classifier_scope | seed=2024, final_accuracy=94.26229508196722, final_loss=0.17192706706948946, modeled_seconds=205.61972136924192 | exit 0
+Two-fold endpoint means: {"v3-anchor": {"final_accuracy": 92.62295081967213, "final_loss": 0.21798043398827804}, "whole-classifier": {"final_accuracy": 91.80327868852459, "final_loss": 0.2611200030068638}}
+GPU fold controls replayed archived metrics for every round.
+Development change: -0.8196721311475414 pp. Gate test: No round-25 development gain; do not open holdouts for challenger
+References: results/research/competitor_recovery/report_target.json and report_source.json (not new holdout measurements).

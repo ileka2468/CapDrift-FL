@@ -1,167 +1,210 @@
-"""
-Plotting Script for Competitor Baseline Benchmark:
-Compares:
-1. FedAvg (McMahan et al., AISTATS 2017)
-2. FedProx (Li et al., MLSys 2020)
-3. FedNova (Wang et al., NeurIPS 2020)
-4. CapDrift-FL (Ours)
+"""Plot accuracy, loss and simulated systems metrics from competitor trial JSON."""
 
-Outputs:
-- results/research/plots/fig_competitor_comparison.png
-"""
-
+import argparse
 import json
+import shutil
 from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.ticker import FormatStrFormatter
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RESULTS_DIR = PROJECT_ROOT / "results" / "research"
 PLOTS_DIR = RESULTS_DIR / "plots"
-PLOTS_DIR.mkdir(parents=True, exist_ok=True)
+RESULTS_NAME = "competitor_benchmark_results.json"
+FIGURE_NAME = "fig_competitor_comparison.png"
 
-plt.rcParams.update({
-    "font.family": "serif",
-    "font.size": 11,
-    "axes.labelsize": 12,
-    "axes.titlesize": 13,
-    "xtick.labelsize": 10,
-    "ytick.labelsize": 10,
-    "legend.fontsize": 10,
-    "figure.titlesize": 14,
-    "figure.dpi": 300,
-    "lines.linewidth": 2.2
-})
+STYLES = {
+    "FedAvg": ("#555555", "o"),
+    "FedProx": ("#0072B2", "s"),
+    "FedNova": ("#D55E00", "^"),
+    "CapDrift-Legacy": ("#8C5FA8", "v"),
+    "CapDrift-FL": ("#008065", "D"),
+}
 
 
-def plot_competitors():
-    json_path = RESULTS_DIR / "competitor_benchmark_results.json"
-    if not json_path.exists():
-        print(f"Results file not found: {json_path}")
-        return
+def _load_results(path):
+    data = json.loads(path.read_text(encoding="utf-8"))
+    # Accept both the historical flat JSON and a metadata + methods envelope.
+    methods = data.get("methods", data)
+    trials_by_method = {}
+    rounds = None
+    for method, info in methods.items():
+        if not isinstance(info, dict) or not {"trials", "history"}.intersection(info):
+            continue
+        trials = info["trials"] if "trials" in info else [info]
+        if not trials:
+            raise ValueError(f"{method} has no trials")
+        for trial in trials:
+            trial_rounds = [record["round"] for record in trial["history"]]
+            if not trial_rounds or trial_rounds != sorted(set(trial_rounds)):
+                raise ValueError(f"{method} has missing, duplicate or unordered round records")
+            if rounds is None:
+                rounds = trial_rounds
+            elif rounds != trial_rounds:
+                raise ValueError(f"{method} does not share the benchmark round grid")
+        trials_by_method[method] = trials
+    if not trials_by_method:
+        raise ValueError(f"No method trials found in {path}")
+    return trials_by_method, rounds, data.get("metadata", {})
 
-    with open(json_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
 
-    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(16, 5))
+def _history_stats(trials, field):
+    histories = [trial["history"] for trial in trials]
+    if not all(field in record for history in histories for record in history):
+        return None
+    values = np.asarray([[record[field] for record in history] for history in histories])
+    return values.mean(axis=0), values.std(axis=0)
 
-    colors = {
-        "FedAvg": "#7f7f7f",
-        "FedProx": "#1f77b4",
-        "FedNova": "#ff7f0e",
-        "CapDrift-FL": "#2ca02c"
-    }
-    markers = {
-        "FedAvg": "o",
-        "FedProx": "s",
-        "FedNova": "^",
-        "CapDrift-FL": "D"
-    }
 
-    # (a) Accuracy Convergence
-    for method, info in data.items():
-        color = colors.get(method, "#333333")
-        marker = markers.get(method, "o")
-        if "trials" in info:
-            trials = info["trials"]
-            rounds = [h["round"] for h in trials[0]["history"]]
-            acc_matrix = np.array([[h["val_accuracy"] for h in t["history"]] for t in trials])
-            mean_accs = np.mean(acc_matrix, axis=0)
-            std_accs = np.std(acc_matrix, axis=0)
-            ax1.plot(
-                rounds,
-                mean_accs,
-                label=f"{method} ({info['mean_final_acc']:.1f} ± {info['std_final_acc']:.1f}%)",
-                color=color,
-                marker=marker,
-                markersize=5,
-                markevery=2
-            )
-            ax1.fill_between(rounds, mean_accs - std_accs, mean_accs + std_accs, color=color, alpha=0.15)
-        else:
-            rounds = [h["round"] for h in info["history"]]
-            accs = [h["val_accuracy"] for h in info["history"]]
-            ax1.plot(
-                rounds,
-                accs,
-                label=f"{method} (Final: {info['final_accuracy']:.1f}%)",
-                color=color,
-                marker=marker,
-                markersize=6
-            )
+def _trial_stats(trials, field):
+    values = [trial[field] for trial in trials]
+    return float(np.mean(values)), float(np.std(values))
 
-    ax1.set_xlabel("Communication Round ($t$)")
-    ax1.set_ylabel("Validation Accuracy (%)")
-    ax1.set_title("(a) Convergence under Heterogeneity (alpha = 0.5)")
-    ax1.set_ylim([0, 100])
-    ax1.grid(True, linestyle="--", alpha=0.5)
-    ax1.legend(loc="lower right")
 
-    # (b) Pareto Tradeoff: Final Accuracy vs Execution Time (Scatter Plot)
-    for method, info in data.items():
-        color = colors.get(method, "#333333")
-        marker = markers.get(method, "o")
-        if "trials" in info:
-            m_acc = info["mean_final_acc"]
-            s_acc = info["std_final_acc"]
-            m_time = info["mean_time_sec"]
-            s_time = info["std_time_sec"]
-            ax2.errorbar(
-                m_time, m_acc, xerr=s_time, yerr=s_acc, fmt=marker, color=color,
-                ecolor=color, elinewidth=1.5, capsize=4, markersize=9, label=method
-            )
-            offset_y = 1.2 if "CapDrift" in method else -1.8
-            ax2.annotate(
-                f"{method}\n({m_acc:.1f}%, {m_time:.0f}s)",
-                (m_time, m_acc), xytext=(8, offset_y), textcoords="offset points",
-                fontsize=9, fontweight="bold", color=color
-            )
-        else:
-            m_acc = info["final_accuracy"]
-            m_time = info["total_time_sec"]
-            ax2.scatter(m_time, m_acc, color=color, marker=marker, s=90, label=method)
-            ax2.annotate(
-                f"{method} ({m_acc:.1f}%, {m_time:.0f}s)",
-                (m_time, m_acc), xytext=(5, 5), textcoords="offset points",
-                fontsize=9, fontweight="bold", color=color
-            )
+def _seed_label(methods):
+    seeds = [[trial.get("seed") for trial in trials] for trials in methods.values()]
+    first = seeds[0]
+    if all(None not in ids and len(set(ids)) == len(ids) and set(ids) == set(first) for ids in seeds):
+        suffix = "s" if len(first) != 1 else ""
+        return f"{len(first)} shared seed{suffix}: {', '.join(map(str, first))}"
+    if all(all(seed is None for seed in ids) for ids in seeds):
+        return "seed IDs not recorded"
+    return "seed sets differ or are incomplete"
 
-    ax2.set_xlabel("Total Simulated Execution Time (seconds)")
-    ax2.set_ylabel("Final Validation Accuracy (%)")
-    ax2.set_title("(b) Accuracy vs. Execution Time (Tradeoff)")
-    ax2.set_ylim([0, 100])
-    ax2.grid(True, linestyle="--", alpha=0.5)
 
-    # (c) Cumulative Straggler Idle Waste
-    methods = list(data.keys())
-    if "trials" in data[methods[0]]:
-        wastes = [data[m]["mean_idle_sec"] for m in methods]
-        waste_errs = [data[m]["std_idle_sec"] for m in methods]
-        bars3 = ax3.bar(methods, wastes, yerr=waste_errs, capsize=4, color=[colors.get(m, "#555") for m in methods], edgecolor="#222", alpha=0.85, width=0.45)
+def plot_competitors(results_path=None, output_path=None, *, metadata_path=None):
+    """Write the figure, retaining the historic docs copies on a default run."""
+    uses_default_input = results_path is None
+    copy_to_docs = uses_default_input and output_path is None
+    results_path = Path(results_path) if results_path is not None else RESULTS_DIR / RESULTS_NAME
+    default_plot_dir = PLOTS_DIR if uses_default_input else results_path.parent / "plots"
+    output_path = Path(output_path) if output_path is not None else default_plot_dir / FIGURE_NAME
+    methods, rounds, metadata = _load_results(results_path)
+    if metadata_path is not None:
+        metadata = json.loads(Path(metadata_path).read_text(encoding="utf-8"))
+    elif results_path.name == RESULTS_NAME:
+        sidecar = results_path.with_name("competitor_benchmark_metadata.json")
+        if sidecar.exists():
+            metadata = json.loads(sidecar.read_text(encoding="utf-8"))
+
+    all_times = [trial["total_time_sec"] for trials in methods.values() for trial in trials]
+    expected_time = metadata.get("modeled_reference_total_time_sec")
+    if len(set(all_times)) == 1:
+        time_summary = f"{all_times[0]:.2f} s in every trial"
     else:
-        wastes = [data[m]["total_idle_sec"] for m in methods]
-        bars3 = ax3.bar(methods, wastes, color=[colors.get(m, "#555") for m in methods], edgecolor="#222", alpha=0.85, width=0.45)
+        time_summary = f"{min(all_times):.2f}–{max(all_times):.2f} s across trials"
 
-    ax3.set_xlabel("Federated Learning Baseline")
-    ax3.set_ylabel("Straggler Idle Waste (seconds)")
-    ax3.set_title("(c) Straggler Synchronization Waste")
-    ax3.grid(axis="y", linestyle="--", alpha=0.5)
-    ax3.set_xticklabels(methods, rotation=15)
+    with plt.rc_context({"font.size": 10, "axes.titlesize": 12, "figure.dpi": 300}):
+        fig, axes = plt.subplots(2, 3, figsize=(16, 8.8), layout="constrained")
+        accuracy_ax, loss_ax, util_ax, pareto_ax, idle_ax, time_ax = axes.flat
+        description = f"{len(rounds)} rounds · {_seed_label(methods)} · Modeled runtime: {time_summary}"
+        alpha = metadata.get("alpha")
+        if alpha is not None:
+            description += f" · Dirichlet α={alpha}"
+        fig.suptitle(f"Federated comparison under hardware and label skew\n{description}", fontsize=13)
 
-    for bar in bars3:
-        h = bar.get_height()
-        ax3.text(bar.get_x() + bar.get_width()/2., h + 2.0, f"{h:.1f}s", ha="center", va="bottom", fontsize=10, fontweight="bold")
+        curves = (
+            (accuracy_ax, "val_accuracy", "(a) Accuracy convergence", "Validation accuracy (%)"),
+            (loss_ax, "val_loss", "(b) Cross-entropy convergence", "Validation cross-entropy"),
+            (util_ax, "cluster_utilization_pct", "(c) Modeled cluster utilization", "Cluster utilization (%)"),
+        )
+        for ax, _, title, ylabel in curves:
+            ax.set(title=title, xlabel="Communication round", ylabel=ylabel)
+        accuracy_ax.set_ylim(0, 100)
+        util_ax.set_ylim(0, 100)
 
-    plt.tight_layout()
-    out_path = PLOTS_DIR / "fig_competitor_comparison.png"
-    plt.savefig(out_path, dpi=300)
-    docs_fig = PROJECT_ROOT / "docs" / "figures" / "fig_competitor_comparison.png"
-    plt.savefig(docs_fig, dpi=300)
-    docs_root = PROJECT_ROOT / "docs" / "fig_competitor_comparison.png"
-    plt.savefig(docs_root, dpi=300)
-    plt.close()
-    print(f"[Generated Competitor Benchmark Figure] -> {out_path}")
+        idle_max = 0.0
+        drawn_metrics = set()
+        elapsed_bounds = list(all_times)
+        for position, (method, trials) in enumerate(methods.items()):
+            color, marker = STYLES.get(method, (f"C{position % 10}", "o"))
+            for ax, field, _, _ in curves:
+                stats = _history_stats(trials, field)
+                if stats is not None:
+                    drawn_metrics.add(field)
+                    mean, std = stats
+                    ax.plot(rounds, mean, color=color, marker=marker, markersize=4,
+                            markevery=max(1, len(rounds) // 6), label=method)
+                    ax.fill_between(rounds, mean - std, mean + std, color=color, alpha=0.13)
+
+            accuracy, accuracy_sd = _trial_stats(trials, "final_accuracy")
+            elapsed, elapsed_sd = _trial_stats(trials, "total_time_sec")
+            elapsed_bounds.extend((elapsed - elapsed_sd, elapsed + elapsed_sd))
+            idle, idle_sd = _trial_stats(trials, "total_idle_sec")
+            pareto_ax.errorbar(elapsed, accuracy, xerr=elapsed_sd, yerr=accuracy_sd, color=color,
+                               fmt=marker, capsize=3, markersize=6,
+                               label=f"{method}  {accuracy:.1f}%")
+            idle_ax.bar(position, idle, yerr=idle_sd, color=color, capsize=3, width=0.6)
+            idle_ax.annotate(f"{idle:.1f}", (position, idle + idle_sd), xytext=(0, 4),
+                             textcoords="offset points", ha="center")
+            idle_max = max(idle_max, idle + idle_sd)
+            time_ax.errorbar(position, elapsed, yerr=elapsed_sd, color=color, fmt=marker,
+                             capsize=3, markersize=6)
+            time_ax.annotate(f"{elapsed:.2f}", (position, elapsed + elapsed_sd), xytext=(0, 6),
+                             textcoords="offset points", ha="center")
+
+        for ax, field, _, _ in curves:
+            if field not in drawn_metrics:
+                ax.text(0.5, 0.5, "Metric not recorded", transform=ax.transAxes, ha="center")
+        loss_ax.set_ylim(bottom=0)
+        if "val_accuracy" in drawn_metrics:
+            accuracy_ax.legend(loc="lower right", fontsize=8, title="Mean ± seed SD")
+        pareto_ax.set(title="(d) Final accuracy vs. modeled runtime", xlabel="Modeled runtime (s)",
+                      ylabel="Final validation accuracy (%)", ylim=(0, 100))
+        pareto_ax.legend(loc="lower right", fontsize=8)
+        pareto_ax.xaxis.set_major_formatter(FormatStrFormatter("%.2f"))
+        idle_ax.set(title="(e) Synchronization idle waste", ylabel="Aggregate client idle (s)",
+                    ylim=(0, max(1, idle_max * 1.16)))
+        time_ax.set(title="(f) Modeled completion time", ylabel="Modeled runtime (s)")
+        for ax in (idle_ax, time_ax):
+            ax.set_xticks(range(len(methods)), list(methods), rotation=16, ha="right")
+            ax.set_xlim(-0.55, len(methods) - 0.45)
+        if expected_time is not None:
+            time_ax.axhline(expected_time, color="#333333", linestyle=":", zorder=0,
+                            label=f"Modeled reference: {expected_time:.2f} s")
+            time_ax.legend(loc="lower right", fontsize=8)
+        # Include mean ± SD, observed range and reference without misleading x-axis jitter.
+        if expected_time is not None:
+            elapsed_bounds.append(expected_time)
+        lo, hi = min(elapsed_bounds), max(elapsed_bounds)
+        margin = max(0.2, (hi - lo) * 0.2)
+        time_ax.set_ylim(lo - margin, hi + margin)
+        time_ax.yaxis.set_major_formatter(FormatStrFormatter("%.2f"))
+        pareto_ax.set_xlim(lo - margin, hi + margin)
+        for ax in axes.flat:
+            ax.set_axisbelow(True)
+            ax.grid(axis="y", linestyle="--", alpha=0.35)
+
+        try:
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            fig.savefig(output_path)
+        finally:
+            plt.close(fig)
+
+    if copy_to_docs:
+        for destination in (
+            PROJECT_ROOT / "docs" / "figures" / FIGURE_NAME,
+            PROJECT_ROOT / "docs" / FIGURE_NAME,
+        ):
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(output_path, destination)
+    print(f"[Generated Competitor Benchmark Figure] -> {output_path}")
+    return output_path
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--input", type=Path, help="Competitor benchmark JSON")
+    parser.add_argument("--output", type=Path, help="Figure output path (omit for the standard location)")
+    parser.add_argument("--metadata", type=Path, help="Optional benchmark metadata JSON")
+    args = parser.parse_args()
+    try:
+        plot_competitors(args.input, args.output, metadata_path=args.metadata)
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        parser.error(str(exc))
 
 
 if __name__ == "__main__":
-    plot_competitors()
+    main()

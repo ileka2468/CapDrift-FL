@@ -1,0 +1,38 @@
+Preloading dataset into memory: C:\Users\quenc\Desktop\NetProject\data\global_test\train
+
+=======================================================
+  Competitor Benchmark: FedNova (Rounds=25, seed=2024)
+=======================================================
+   Round 01 | Acc: 83.61% | Loss: 0.5834 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 02 | Acc: 84.43% | Loss: 0.3410 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 03 | Acc: 52.46% | Loss: 0.8439 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 04 | Acc: 90.98% | Loss: 0.2252 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 05 | Acc: 86.89% | Loss: 0.3235 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 06 | Acc: 82.79% | Loss: 0.5153 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 07 | Acc: 50.00% | Loss: 1.6471 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 08 | Acc: 52.46% | Loss: 1.2567 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 09 | Acc: 57.38% | Loss: 0.7301 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 10 | Acc: 83.61% | Loss: 0.4448 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 11 | Acc: 78.69% | Loss: 0.5446 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 12 | Acc: 79.51% | Loss: 0.6356 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 13 | Acc: 50.82% | Loss: 1.3374 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+   Round 14 | Acc: 50.82% | Loss: 3.2341 | Duration:  8.22s | Idle:  7.91s | Util: 75.9% | Steps: [40, 28, 16, 5] | Clipped: 0 | Projected: 0
+Traceback (most recent call last):
+  File "C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_capdrift_paired_errors.py", line 266, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_capdrift_paired_errors.py", line 262, in main
+    run_dev(study, args.fold, args.method)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_capdrift_paired_errors.py", line 138, in run_dev
+    trial, rows = train(study, method, data, val, clients, ids, seed)
+                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_capdrift_paired_errors.py", line 116, in train
+    trial = bench.run_competitor_trial(
+        backend, data, val, clients, study.tiers, num_rounds=protocol.ROUNDS,
+    ...<2 lines>...
+        final_model_observer=save, feature_lr_multiplier=.5 if method == FEATURE else 1.,
+    )
+  File "C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_competitor_benchmark.py", line 426, in run_competitor_trial
+    raise NonFiniteMetricError(r, val_acc, val_loss)
+run_competitor_benchmark.NonFiniteMetricError: round 15: accuracy=50.0, loss=nan

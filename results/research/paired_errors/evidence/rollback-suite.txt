@@ -1,0 +1,8 @@
+final_model_observer=Falsefeature_lr_multiplier=False
+
+ [TEST SUCCESS] Round 1 CapDrift Telemetry verified successfully!
+........................................
+----------------------------------------------------------------------
+Ran 40 tests in 0.460s
+
+OK

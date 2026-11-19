@@ -1,0 +1,111 @@
+{
+  "methods": {
+    "FedNova-Momentum": {
+      "completed": 5,
+      "attempted": 5,
+      "all_seed_mean": {
+        "final_accuracy": 88.60520094562648,
+        "final_loss": 0.42567677607017174
+      },
+      "failures": []
+    },
+    "FedNova": {
+      "completed": 5,
+      "attempted": 5,
+      "all_seed_mean": {
+        "final_accuracy": 89.03073286052009,
+        "final_loss": 0.46637828447298185
+      },
+      "failures": []
+    },
+    "v3-anchor": {
+      "completed": 5,
+      "attempted": 5,
+      "all_seed_mean": {
+        "final_accuracy": 91.25295508274232,
+        "final_loss": 0.2543715490519381
+      },
+      "failures": []
+    },
+    "prior-progress": {
+      "completed": 5,
+      "attempted": 5,
+      "all_seed_mean": {
+        "final_accuracy": 91.11111111111111,
+        "final_loss": 0.28884379662463666
+      },
+      "failures": []
+    }
+  },
+  "paired": {
+    "FedNova-Momentum": {
+      "seeds": [
+        42,
+        101,
+        2024,
+        7,
+        888
+      ],
+      "accuracy_delta_pp": [
+        3.0732860520094505,
+        -0.7092198581560325,
+        3.3096926713947994,
+        5.910165484633566,
+        0.9456264775413672
+      ],
+      "mean_delta_pp": 2.50591016548463,
+      "higher": 4,
+      "tied": 0
+    },
+    "FedNova": {
+      "seeds": [
+        42,
+        101,
+        2024,
+        7,
+        888
+      ],
+      "accuracy_delta_pp": [
+        1.6548463356973997,
+        -1.182033096926716,
+        2.836879432624116,
+        3.3096926713947994,
+        3.7825059101654688
+      ],
+      "mean_delta_pp": 2.0803782505910133,
+      "higher": 4,
+      "tied": 0
+    },
+    "v3-anchor": {
+      "seeds": [
+        42,
+        101,
+        2024,
+        7,
+        888
+      ],
+      "accuracy_delta_pp": [
+        0.9456264775413672,
+        -3.3096926713947994,
+        0.2364066193853489,
+        1.418439716312065,
+        0.0
+      ],
+      "mean_delta_pp": -0.14184397163120366,
+      "higher": 3,
+      "tied": 1
+    }
+  },
+  "matched_accuracy_win": false,
+  "selected": "prior-progress",
+  "holdout": "source",
+  "plan_sha256": "5359b08fe7b30db460f5434db7e269600b32a26d287aff9c323f8facd7b05aee",
+  "selected_config_sha256": "ba1d5ce5906a77e80fc7c8590b69bce9839d67c052e44bd7ed74b76c13f3bcd7",
+  "archived_references": {
+    "C:\\Users\\quenc\\Desktop\\NetProject\\OmniFed\\results\\research\\competitor_accuracy\\holdout_FedNova-Momentum.json": "7a1c3a70246bc4ea203a9c48b7b938db8b027dd24529e245f06067fa5118a493",
+    "C:\\Users\\quenc\\Desktop\\NetProject\\OmniFed\\results\\research\\competitor_accuracy\\holdout_FedNova.json": "9d3f29d8ecb7aec08bd82722d32d54a0067e405014b47de683565562e4af8472"
+  },
+  "modeled_seconds": 205.6197213692418,
+  "exploratory_selection": false,
+  "interpretation": "Separate 423-image source split; previously scored for other methods."
+}

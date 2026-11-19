@@ -1,0 +1,4909 @@
+{
+  "CapDrift-Tuned": {
+    "method": "CapDrift-Tuned",
+    "trials": [
+      {
+        "method": "CapDrift-Tuned",
+        "seed": 42,
+        "num_rounds": 25,
+        "peak_accuracy": 94.77124183006535,
+        "final_accuracy": 93.4640522875817,
+        "final_loss": 0.1813461857488732,
+        "total_time_sec": 205.61972136924192,
+        "total_idle_sec": 197.83526954378465,
+        "mean_utilization_pct": 75.94646220868552,
+        "mean_compute_utilization_pct": 69.41167620305411,
+        "max_client_compute_time_sec": 6.31697687535251,
+        "wall_time_sec": 113.28829270001734,
+        "total_gating_events": 0,
+        "total_clipping_events": 22,
+        "total_projection_evaluations": 360,
+        "history": [
+          {
+            "round": 1,
+            "val_accuracy": 86.9281045751634,
+            "val_loss": 0.3652878074474584,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 8.224788854769672,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 0,
+            "num_clipped": 0,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 2,
+            "val_accuracy": 84.9673202614379,
+            "val_loss": 0.2844965401428198,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 16.449577709539344,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 3,
+            "val_accuracy": 84.9673202614379,
+            "val_loss": 0.2910582976403579,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 24.674366564309018,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 4,
+            "val_accuracy": 92.15686274509804,
+            "val_loss": 0.19683831706156138,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 32.89915541907869,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 5,
+            "val_accuracy": 91.50326797385621,
+            "val_loss": 0.21384048793050978,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 41.12394427384836,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 6,
+            "val_accuracy": 92.81045751633987,
+            "val_loss": 0.16087387063924005,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 49.34873312861803,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 7,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.13710552113118515,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 57.5735219833877,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 8,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.13305362708428325,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 65.79831083815738,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 9,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.13822821065101748,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 74.02309969292705,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 10,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.1305210012333845,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 82.24788854769672,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.1305210012333845,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 11,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.1273195856049949,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 90.47267740246639,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.1315464065744986,
+            "effective_server_lr": 0.6439632747027139
+          },
+          {
+            "round": 12,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.12506657127850976,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 98.69746625723606,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.14185385542367798,
+            "effective_server_lr": 0.6261169326737686
+          },
+          {
+            "round": 13,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.1252770815896832,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 106.92225511200573,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.12489533434116762,
+            "effective_server_lr": 0.5972409446960792
+          },
+          {
+            "round": 14,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.13214687399225297,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 115.1470439667754,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.1583605511418355,
+            "effective_server_lr": 0.5585973300066346
+          },
+          {
+            "round": 15,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.14271200248618532,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 123.37183282154507,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.18468020160019008,
+            "effective_server_lr": 0.511875
+          },
+          {
+            "round": 16,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.15321154741485135,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 131.59662167631475,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.2002388946468534,
+            "effective_server_lr": 0.45911594469607925
+          },
+          {
+            "round": 17,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.1611851502477733,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 139.82141053108444,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.19130365633302265,
+            "effective_server_lr": 0.4026259879776893
+          },
+          {
+            "round": 18,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.171831245856737,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 148.04619938585412,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 2,
+            "raw_val_accuracy": 92.81045751633987,
+            "raw_val_loss": 0.20438284670410592,
+            "effective_server_lr": 0.34487401202231077
+          },
+          {
+            "round": 19,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.17911596518326428,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 156.2709882406238,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.19633748445635527,
+            "effective_server_lr": 0.28838405530392075
+          },
+          {
+            "round": 20,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.18237015833846884,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 164.4957770953935,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.19054221907277513,
+            "effective_server_lr": 0.23562500000000003
+          },
+          {
+            "round": 21,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.18352044144876642,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 172.72056595016318,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.18815194552435593,
+            "effective_server_lr": 0.18890266999336552
+          },
+          {
+            "round": 22,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.18272767386405298,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 180.94535480493286,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.18091840749862148,
+            "effective_server_lr": 0.15025905530392078
+          },
+          {
+            "round": 23,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.18197112515860914,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 189.17014365970255,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.18114643100819555,
+            "effective_server_lr": 0.12138306732623148
+          },
+          {
+            "round": 24,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.1815852853986952,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 197.39493251447223,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.18270660449866377,
+            "effective_server_lr": 0.10353672529728619
+          },
+          {
+            "round": 25,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.1813461857488732,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 205.61972136924192,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.18214310033648623,
+            "effective_server_lr": 0.0975
+          }
+        ]
+      },
+      {
+        "method": "CapDrift-Tuned",
+        "seed": 101,
+        "num_rounds": 25,
+        "peak_accuracy": 95.42483660130719,
+        "final_accuracy": 94.11764705882352,
+        "final_loss": 0.1880737748605753,
+        "total_time_sec": 205.61972136924192,
+        "total_idle_sec": 197.83526954378465,
+        "mean_utilization_pct": 75.94646220868552,
+        "mean_compute_utilization_pct": 69.41167620305411,
+        "max_client_compute_time_sec": 6.31697687535251,
+        "wall_time_sec": 128.70929450000403,
+        "total_gating_events": 0,
+        "total_clipping_events": 23,
+        "total_projection_evaluations": 360,
+        "history": [
+          {
+            "round": 1,
+            "val_accuracy": 74.50980392156863,
+            "val_loss": 0.49048004469840356,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 8.224788854769672,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 0,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 2,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.21810313513855528,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 16.449577709539344,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 3,
+            "val_accuracy": 90.19607843137256,
+            "val_loss": 0.23807221709513196,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 24.674366564309018,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 4,
+            "val_accuracy": 90.19607843137256,
+            "val_loss": 0.29867459609617597,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 32.89915541907869,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 5,
+            "val_accuracy": 90.19607843137256,
+            "val_loss": 0.2475005828477199,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 41.12394427384836,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 6,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.19173326333558638,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 49.34873312861803,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 7,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.14311924060575323,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 57.5735219833877,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 8,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.15887215197865479,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 65.79831083815738,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 9,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.19747597169057995,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 74.02309969292705,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 10,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.18189185185759676,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 82.24788854769672,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 2,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.18189185185759676,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 11,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.17865115384650387,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 90.47267740246639,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.15805679058132607,
+            "effective_server_lr": 0.6439632747027139
+          },
+          {
+            "round": 12,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.1716019050065988,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 98.69746625723606,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.13054891524751203,
+            "effective_server_lr": 0.6261169326737686
+          },
+          {
+            "round": 13,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.16410638245881773,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 106.92225511200573,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.14216114200797736,
+            "effective_server_lr": 0.5972409446960792
+          },
+          {
+            "round": 14,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.1576012148235748,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 115.1470439667754,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.14685354561977138,
+            "effective_server_lr": 0.5585973300066346
+          },
+          {
+            "round": 15,
+            "val_accuracy": 95.42483660130719,
+            "val_loss": 0.1571688800076254,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 123.37183282154507,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.15467080571293051,
+            "effective_server_lr": 0.511875
+          },
+          {
+            "round": 16,
+            "val_accuracy": 95.42483660130719,
+            "val_loss": 0.15926788525741084,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 131.59662167631475,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.17001805858674393,
+            "effective_server_lr": 0.45911594469607925
+          },
+          {
+            "round": 17,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.16109518986804033,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 139.82141053108444,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.17009820555355035,
+            "effective_server_lr": 0.4026259879776893
+          },
+          {
+            "round": 18,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.16335835828890208,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 148.04619938585412,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.1751834863638566,
+            "effective_server_lr": 0.34487401202231077
+          },
+          {
+            "round": 19,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.165808312789677,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 156.2709882406238,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.1758887990335234,
+            "effective_server_lr": 0.28838405530392075
+          },
+          {
+            "round": 20,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.16856463540808048,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 164.4957770953935,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.18088328331903694,
+            "effective_server_lr": 0.23562500000000003
+          },
+          {
+            "round": 21,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.1730956113805958,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 172.72056595016318,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.19391817224571128,
+            "effective_server_lr": 0.18890266999336552
+          },
+          {
+            "round": 22,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.17750531361967908,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 180.94535480493286,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.19730285428513109,
+            "effective_server_lr": 0.15025905530392078
+          },
+          {
+            "round": 23,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.18235127773939394,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 189.17014365970255,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.20294737423849263,
+            "effective_server_lr": 0.12138306732623148
+          },
+          {
+            "round": 24,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.18587755051508448,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 197.39493251447223,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.2019430331496242,
+            "effective_server_lr": 0.10353672529728619
+          },
+          {
+            "round": 25,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.1880737748605753,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 205.61972136924192,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.19795149844748522,
+            "effective_server_lr": 0.0975
+          }
+        ]
+      },
+      {
+        "method": "CapDrift-Tuned",
+        "seed": 2024,
+        "num_rounds": 25,
+        "peak_accuracy": 94.11764705882352,
+        "final_accuracy": 94.11764705882352,
+        "final_loss": 0.12241106431663426,
+        "total_time_sec": 205.61972136924192,
+        "total_idle_sec": 197.83526954378465,
+        "mean_utilization_pct": 75.94646220868552,
+        "mean_compute_utilization_pct": 69.41167620305411,
+        "max_client_compute_time_sec": 6.31697687535251,
+        "wall_time_sec": 127.00778799998807,
+        "total_gating_events": 0,
+        "total_clipping_events": 23,
+        "total_projection_evaluations": 360,
+        "history": [
+          {
+            "round": 1,
+            "val_accuracy": 77.12418300653596,
+            "val_loss": 0.5178732170778162,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 8.224788854769672,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 0,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 2,
+            "val_accuracy": 84.9673202614379,
+            "val_loss": 0.3016039709639705,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 16.449577709539344,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 3,
+            "val_accuracy": 90.84967320261438,
+            "val_loss": 0.19235817172558478,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 24.674366564309018,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 4,
+            "val_accuracy": 92.15686274509804,
+            "val_loss": 0.18562451569862615,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 32.89915541907869,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 5,
+            "val_accuracy": 86.9281045751634,
+            "val_loss": 0.30000247460564755,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 41.12394427384836,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 6,
+            "val_accuracy": 90.19607843137256,
+            "val_loss": 0.27440647060185475,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 49.34873312861803,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 7,
+            "val_accuracy": 89.54248366013073,
+            "val_loss": 0.28329406610501356,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 57.5735219833877,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 8,
+            "val_accuracy": 92.15686274509804,
+            "val_loss": 0.210562164292616,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 65.79831083815738,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 9,
+            "val_accuracy": 92.81045751633987,
+            "val_loss": 0.18299367658647836,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 74.02309969292705,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 10,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.12989232740273662,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 82.24788854769672,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.12989232740273662,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 11,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.12115320207831128,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 90.47267740246639,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.11486969508376776,
+            "effective_server_lr": 0.6439632747027139
+          },
+          {
+            "round": 12,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.11531259343515035,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 98.69746625723606,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.10126765116172678,
+            "effective_server_lr": 0.6261169326737686
+          },
+          {
+            "round": 13,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.11174813628781076,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 106.92225511200573,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.10576931221617593,
+            "effective_server_lr": 0.5972409446960792
+          },
+          {
+            "round": 14,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.1122807713797669,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 115.1470439667754,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.12380068995107234,
+            "effective_server_lr": 0.5585973300066346
+          },
+          {
+            "round": 15,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.11704560361948668,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 123.37183282154507,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.15826749563022377,
+            "effective_server_lr": 0.511875
+          },
+          {
+            "round": 16,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.12552942077513612,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 131.59662167631475,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.16738783741016794,
+            "effective_server_lr": 0.45911594469607925
+          },
+          {
+            "round": 17,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.12845049757096502,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 139.82141053108444,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 2,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.13458468397361,
+            "effective_server_lr": 0.4026259879776893
+          },
+          {
+            "round": 18,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.12643126478674366,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 148.04619938585412,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.1226463788036817,
+            "effective_server_lr": 0.34487401202231077
+          },
+          {
+            "round": 19,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.12423599935045429,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 156.2709882406238,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 92.81045751633987,
+            "raw_val_loss": 0.12057074811918284,
+            "effective_server_lr": 0.28838405530392075
+          },
+          {
+            "round": 20,
+            "val_accuracy": 92.81045751633987,
+            "val_loss": 0.12141967971437896,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 164.4957770953935,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.12087158849036772,
+            "effective_server_lr": 0.23562500000000003
+          },
+          {
+            "round": 21,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.11953000651270736,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 172.72056595016318,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.11946766487523622,
+            "effective_server_lr": 0.18890266999336552
+          },
+          {
+            "round": 22,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.11881456022558648,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 180.94535480493286,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.1199440632770264,
+            "effective_server_lr": 0.15025905530392078
+          },
+          {
+            "round": 23,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.12000220590362362,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 189.17014365970255,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.12512215606722177,
+            "effective_server_lr": 0.12138306732623148
+          },
+          {
+            "round": 24,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.12123902692319521,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 197.39493251447223,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.12590730224364724,
+            "effective_server_lr": 0.10353672529728619
+          },
+          {
+            "round": 25,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.12241106431663426,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 205.61972136924192,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.1273516503716606,
+            "effective_server_lr": 0.0975
+          }
+        ]
+      },
+      {
+        "method": "CapDrift-Tuned",
+        "seed": 7,
+        "num_rounds": 25,
+        "peak_accuracy": 95.42483660130719,
+        "final_accuracy": 95.42483660130719,
+        "final_loss": 0.10671930808841792,
+        "total_time_sec": 205.61972136924192,
+        "total_idle_sec": 197.83526954378465,
+        "mean_utilization_pct": 75.94646220868552,
+        "mean_compute_utilization_pct": 69.41167620305411,
+        "max_client_compute_time_sec": 6.31697687535251,
+        "wall_time_sec": 128.71953669999493,
+        "total_gating_events": 0,
+        "total_clipping_events": 22,
+        "total_projection_evaluations": 360,
+        "history": [
+          {
+            "round": 1,
+            "val_accuracy": 83.66013071895425,
+            "val_loss": 0.4419452999931535,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 8.224788854769672,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 0,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 2,
+            "val_accuracy": 83.00653594771242,
+            "val_loss": 0.39335523906096914,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 16.449577709539344,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 3,
+            "val_accuracy": 89.54248366013073,
+            "val_loss": 0.2839330868198981,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 24.674366564309018,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 4,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.13964183088026794,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 32.89915541907869,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 5,
+            "val_accuracy": 91.50326797385621,
+            "val_loss": 0.1639878111921884,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 41.12394427384836,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 6,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.1447774625681584,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 49.34873312861803,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 7,
+            "val_accuracy": 92.81045751633987,
+            "val_loss": 0.2155239681402842,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 57.5735219833877,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 8,
+            "val_accuracy": 92.15686274509804,
+            "val_loss": 0.2342320706914453,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 65.79831083815738,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 2,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 9,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.149002412857573,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 74.02309969292705,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 10,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.11530265343539856,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 82.24788854769672,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.11530265343539856,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 11,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.11448832051037183,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 90.47267740246639,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.11101391853070726,
+            "effective_server_lr": 0.6439632747027139
+          },
+          {
+            "round": 12,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.11228096777317571,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 98.69746625723606,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.11855398712594525,
+            "effective_server_lr": 0.6261169326737686
+          },
+          {
+            "round": 13,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.10625154637043772,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 106.92225511200573,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.11212730461281109,
+            "effective_server_lr": 0.5972409446960792
+          },
+          {
+            "round": 14,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.1039193204902356,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 115.1470439667754,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.1570337712034291,
+            "effective_server_lr": 0.5585973300066346
+          },
+          {
+            "round": 15,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.10488622328814338,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 123.37183282154507,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.1439027475692283,
+            "effective_server_lr": 0.511875
+          },
+          {
+            "round": 16,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.10263346549537447,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 131.59662167631475,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 96.07843137254902,
+            "raw_val_loss": 0.10477336464461938,
+            "effective_server_lr": 0.45911594469607925
+          },
+          {
+            "round": 17,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.1002117451158614,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 139.82141053108444,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.10102956790744869,
+            "effective_server_lr": 0.4026259879776893
+          },
+          {
+            "round": 18,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.09882076479056302,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 148.04619938585412,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.10534840262208889,
+            "effective_server_lr": 0.34487401202231077
+          },
+          {
+            "round": 19,
+            "val_accuracy": 95.42483660130719,
+            "val_loss": 0.09883763022672117,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 156.2709882406238,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.11226528123313305,
+            "effective_server_lr": 0.28838405530392075
+          },
+          {
+            "round": 20,
+            "val_accuracy": 95.42483660130719,
+            "val_loss": 0.09926339268100028,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 164.4957770953935,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.10850216867097842,
+            "effective_server_lr": 0.23562500000000003
+          },
+          {
+            "round": 21,
+            "val_accuracy": 95.42483660130719,
+            "val_loss": 0.09976678312409158,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 172.72056595016318,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.10563730696837108,
+            "effective_server_lr": 0.18890266999336552
+          },
+          {
+            "round": 22,
+            "val_accuracy": 95.42483660130719,
+            "val_loss": 0.10061697374566708,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 180.94535480493286,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.10575616301274766,
+            "effective_server_lr": 0.15025905530392078
+          },
+          {
+            "round": 23,
+            "val_accuracy": 95.42483660130719,
+            "val_loss": 0.10214180927845387,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 189.17014365970255,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 95.42483660130719,
+            "raw_val_loss": 0.11072419773714215,
+            "effective_server_lr": 0.12138306732623148
+          },
+          {
+            "round": 24,
+            "val_accuracy": 95.42483660130719,
+            "val_loss": 0.1041608685566709,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 197.39493251447223,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 95.42483660130719,
+            "raw_val_loss": 0.11723178824762893,
+            "effective_server_lr": 0.10353672529728619
+          },
+          {
+            "round": 25,
+            "val_accuracy": 95.42483660130719,
+            "val_loss": 0.10671930808841792,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 205.61972136924192,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "raw_val_accuracy": 95.42483660130719,
+            "raw_val_loss": 0.11977302127219493,
+            "effective_server_lr": 0.0975
+          }
+        ]
+      },
+      {
+        "method": "CapDrift-Tuned",
+        "seed": 888,
+        "num_rounds": 25,
+        "peak_accuracy": 95.42483660130719,
+        "final_accuracy": 93.4640522875817,
+        "final_loss": 0.1565555636984071,
+        "total_time_sec": 205.61972136924192,
+        "total_idle_sec": 197.83526954378465,
+        "mean_utilization_pct": 75.94646220868552,
+        "mean_compute_utilization_pct": 69.41167620305411,
+        "max_client_compute_time_sec": 6.31697687535251,
+        "wall_time_sec": 136.70504829997662,
+        "total_gating_events": 0,
+        "total_clipping_events": 22,
+        "total_projection_evaluations": 360,
+        "history": [
+          {
+            "round": 1,
+            "val_accuracy": 73.8562091503268,
+            "val_loss": 0.5195692621804531,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 8.224788854769672,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 0,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 2,
+            "val_accuracy": 81.04575163398692,
+            "val_loss": 0.4010195952225355,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 16.449577709539344,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 3,
+            "val_accuracy": 90.19607843137256,
+            "val_loss": 0.24464311367935604,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 24.674366564309018,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 4,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.19112184015559217,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 32.89915541907869,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 5,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.16463413220994613,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 41.12394427384836,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 0,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 6,
+            "val_accuracy": 91.50326797385621,
+            "val_loss": 0.2816626564934363,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 49.34873312861803,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 7,
+            "val_accuracy": 92.15686274509804,
+            "val_loss": 0.21834907671010573,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 57.5735219833877,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 8,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.18355967917668273,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 65.79831083815738,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 9,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.12800529740409913,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 74.02309969292705,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 10,
+            "val_accuracy": 92.81045751633987,
+            "val_loss": 0.12383893302647896,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 82.24788854769672,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 92.81045751633987,
+            "raw_val_loss": 0.12383893302647896,
+            "effective_server_lr": 0.65
+          },
+          {
+            "round": 11,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.12442940682951921,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 90.47267740246639,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.12988720683295743,
+            "effective_server_lr": 0.6439632747027139
+          },
+          {
+            "round": 12,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.12597212575229944,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 98.69746625723606,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 92.15686274509804,
+            "raw_val_loss": 0.1447901447224461,
+            "effective_server_lr": 0.6261169326737686
+          },
+          {
+            "round": 13,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.12732998047973595,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 106.92225511200573,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 92.81045751633987,
+            "raw_val_loss": 0.14320247464515026,
+            "effective_server_lr": 0.5972409446960792
+          },
+          {
+            "round": 14,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.1280637218866473,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 115.1470439667754,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.14277184204338422,
+            "effective_server_lr": 0.5585973300066346
+          },
+          {
+            "round": 15,
+            "val_accuracy": 94.77124183006535,
+            "val_loss": 0.12854179832475637,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 123.37183282154507,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.14139378723365809,
+            "effective_server_lr": 0.511875
+          },
+          {
+            "round": 16,
+            "val_accuracy": 95.42483660130719,
+            "val_loss": 0.12908750679952646,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 131.59662167631475,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.13488263432301728,
+            "effective_server_lr": 0.45911594469607925
+          },
+          {
+            "round": 17,
+            "val_accuracy": 95.42483660130719,
+            "val_loss": 0.12968099248759887,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 139.82141053108444,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.77124183006535,
+            "raw_val_loss": 0.13614848372983,
+            "effective_server_lr": 0.4026259879776893
+          },
+          {
+            "round": 18,
+            "val_accuracy": 94.11764705882352,
+            "val_loss": 0.13184308655121746,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 148.04619938585412,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 92.81045751633987,
+            "raw_val_loss": 0.15331151543392074,
+            "effective_server_lr": 0.34487401202231077
+          },
+          {
+            "round": 19,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.1363123375557217,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 156.2709882406238,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 94.11764705882352,
+            "raw_val_loss": 0.17993559296322026,
+            "effective_server_lr": 0.28838405530392075
+          },
+          {
+            "round": 20,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.14113233038802553,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 164.4957770953935,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.1739590582894344,
+            "effective_server_lr": 0.23562500000000003
+          },
+          {
+            "round": 21,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.14500491990665204,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 172.72056595016318,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.16493476666753587,
+            "effective_server_lr": 0.18890266999336552
+          },
+          {
+            "round": 22,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.14784839130889357,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 180.94535480493286,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.16153464356766029,
+            "effective_server_lr": 0.15025905530392078
+          },
+          {
+            "round": 23,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.15003024443399673,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 189.17014365970255,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.15961699265670154,
+            "effective_server_lr": 0.12138306732623148
+          },
+          {
+            "round": 24,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.1521968623878909,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 197.39493251447223,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 93.4640522875817,
+            "raw_val_loss": 0.16186312308498457,
+            "effective_server_lr": 0.10353672529728619
+          },
+          {
+            "round": 25,
+            "val_accuracy": 93.4640522875817,
+            "val_loss": 0.1565555636984071,
+            "round_duration_sec": 8.224788854769672,
+            "cumulative_time_sec": 205.61972136924192,
+            "round_idle_sec": 7.913410781751382,
+            "cluster_utilization_pct": 75.94646220868552,
+            "compute_utilization_pct": 69.41167620305411,
+            "compute_sec_per_client": {
+              "client_0": 3.968007936015872,
+              "client_1": 6.31697687535251,
+              "client_2": 6.271435570798628,
+              "client_3": 6.279434850863423
+            },
+            "client_duration_sec": {
+              "client_0": 4.017391786113528,
+              "client_1": 6.369360725450166,
+              "client_2": 6.374203270993941,
+              "client_3": 8.224788854769672
+            },
+            "steps_per_client": {
+              "client_0": 40,
+              "client_1": 28,
+              "client_2": 16,
+              "client_3": 5
+            },
+            "lr_scale_per_client": {
+              "client_0": 0.3535533905932738,
+              "client_1": 0.4225771273642583,
+              "client_2": 0.5590169943749475,
+              "client_3": 1.0
+            },
+            "projection_evaluations": 15,
+            "num_clipped": 1,
+            "raw_val_accuracy": 92.81045751633987,
+            "raw_val_loss": 0.1746115333406754,
+            "effective_server_lr": 0.0975
+          }
+        ]
+      }
+    ],
+    "mean_final_acc": 94.12,
+    "std_final_acc": 0.72,
+    "mean_peak_acc": 95.03,
+    "std_peak_acc": 0.52,
+    "mean_loss": 0.151,
+    "std_loss": 0.032,
+    "mean_time_sec": 205.62,
+    "std_time_sec": 0.0,
+    "mean_idle_sec": 197.84,
+    "std_idle_sec": 0.0,
+    "mean_util_pct": 75.95,
+    "std_util_pct": 0.0,
+    "mean_compute_util_pct": 69.41,
+    "std_compute_util_pct": 0.0,
+    "mean_wall_time_sec": 126.89,
+    "std_wall_time_sec": 7.59,
+    "mean_gating_events": 0.0,
+    "std_gating_events": 0.0,
+    "mean_clipping_events": 22.4,
+    "std_clipping_events": 0.49,
+    "mean_projection_evaluations": 360.0,
+    "std_projection_evaluations": 0.0
+  }
+}

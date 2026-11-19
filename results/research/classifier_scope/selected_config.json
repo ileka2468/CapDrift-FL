@@ -1,0 +1,52 @@
+{
+  "name": "whole-classifier",
+  "controller_config": {
+    "beta_ema": 0.8,
+    "T_target_sec": 6.5,
+    "S_max": 40,
+    "S_min": 5,
+    "S_0": 5,
+    "K_block": 5,
+    "tau_drift": 0.85,
+    "epsilon": 1e-08,
+    "kappa_c": 1.5,
+    "server_lr": 0.65,
+    "enable_capability": true,
+    "enable_drift_gating": true,
+    "enable_clipping": true,
+    "dynamic_clipping": true,
+    "drift_mode": "projection",
+    "drift_parameter_prefix": "classifier",
+    "scale_local_lr": true,
+    "server_momentum": 0.55,
+    "anneal_start_round": null,
+    "anneal_power": 1.0,
+    "budget_lr_power": 0.5,
+    "client_update_normalization_power": 0.0,
+    "server_lr_decay_start_round": 7,
+    "server_lr_final_ratio": 0.05,
+    "server_average_decay": 0.85,
+    "server_average_start_round": 8,
+    "local_prior_strength": 0.0,
+    "gradient_mass_blend": 0.0
+  },
+  "development": {
+    "v3-anchor": {
+      "final_accuracy": 92.62295081967213,
+      "final_loss": 0.21798043398827804
+    },
+    "whole-classifier": {
+      "final_accuracy": 91.80327868852459,
+      "final_loss": 0.2611200030068638
+    }
+  },
+  "development_accuracy_delta_pp": -0.8196721311475414,
+  "exploratory_only": true,
+  "plan_sha256": "cc57eaa03e029ed58cdba4c474a54c6a5f65e357564c40d2893e6d852ed5bcac",
+  "trial_sha256": {
+    "dev_0_v3-anchor.json": "5c63613dc27d365783ccb785eaae849bf1b3e5256a1003a613b06a89f828739a",
+    "dev_1_v3-anchor.json": "d7ccfa8a112f19fdd0455a0a69ac5fed1fe93a89d3e3ed26fc146c9de8be520d",
+    "dev_0_whole-classifier.json": "f79c412835ceb59ceb03c853748081f75c8b46fee14883e2fc4834b78507ac77",
+    "dev_1_whole-classifier.json": "5a657f1ea9f03ccf62c75beddf3bfb46b2c7c1050200b13a6f12d43e7ca3df26"
+  }
+}

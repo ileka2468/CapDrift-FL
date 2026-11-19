@@ -1,0 +1,1597 @@
+{
+  "fold": 1,
+  "method": "half-feature-lr",
+  "trial": {
+    "method": "half-feature-lr",
+    "seed": 2024,
+    "num_rounds": 25,
+    "peak_accuracy": 93.44262295081968,
+    "final_accuracy": 92.62295081967213,
+    "final_loss": 0.20098271474364351,
+    "total_time_sec": 205.61972136924192,
+    "total_idle_sec": 197.83526954378465,
+    "mean_utilization_pct": 75.94646220868552,
+    "mean_compute_utilization_pct": 69.41167620305411,
+    "max_client_compute_time_sec": 6.31697687535251,
+    "wall_time_sec": 107.10830870002974,
+    "total_gating_events": 0,
+    "total_clipping_events": 42,
+    "total_projection_evaluations": 360,
+    "history": [
+      {
+        "round": 1,
+        "val_accuracy": 78.68852459016394,
+        "val_loss": 0.5356520345953645,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 8.224788854769672,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 0,
+        "num_clipped": 1,
+        "effective_server_lr": 0.65
+      },
+      {
+        "round": 2,
+        "val_accuracy": 72.1311475409836,
+        "val_loss": 0.4997477477691213,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 16.449577709539344,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 1,
+        "effective_server_lr": 0.65
+      },
+      {
+        "round": 3,
+        "val_accuracy": 87.70491803278688,
+        "val_loss": 0.3190973068847031,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 24.674366564309018,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 1,
+        "effective_server_lr": 0.65
+      },
+      {
+        "round": 4,
+        "val_accuracy": 90.1639344262295,
+        "val_loss": 0.25759344083852453,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 32.89915541907869,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "effective_server_lr": 0.65
+      },
+      {
+        "round": 5,
+        "val_accuracy": 88.52459016393442,
+        "val_loss": 0.27723575652134225,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 41.12394427384836,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "effective_server_lr": 0.65
+      },
+      {
+        "round": 6,
+        "val_accuracy": 90.98360655737704,
+        "val_loss": 0.25225559029667105,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 49.34873312861803,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 1,
+        "effective_server_lr": 0.65
+      },
+      {
+        "round": 7,
+        "val_accuracy": 91.80327868852459,
+        "val_loss": 0.24287512440417633,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 57.5735219833877,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "effective_server_lr": 0.65
+      },
+      {
+        "round": 8,
+        "val_accuracy": 92.62295081967213,
+        "val_loss": 0.21535412228254022,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 65.79831083815738,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 92.62295081967213,
+        "raw_val_loss": 0.21535412228254022,
+        "effective_server_lr": 0.6453093937425193
+      },
+      {
+        "round": 9,
+        "val_accuracy": 93.44262295081968,
+        "val_loss": 0.22016207403579696,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 74.02309969292705,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 91.80327868852459,
+        "raw_val_loss": 0.2495899671902422,
+        "effective_server_lr": 0.6313800966676493
+      },
+      {
+        "round": 10,
+        "val_accuracy": 91.80327868852459,
+        "val_loss": 0.22546211440787942,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 82.24788854769672,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 90.1639344262295,
+        "raw_val_loss": 0.26362882469032634,
+        "effective_server_lr": 0.6086353434184455
+      },
+      {
+        "round": 11,
+        "val_accuracy": 91.80327868852459,
+        "val_loss": 0.2299011104175302,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 90.47267740246639,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 86.88524590163934,
+        "raw_val_loss": 0.27115327590068833,
+        "effective_server_lr": 0.5777662218129844
+      },
+      {
+        "round": 12,
+        "val_accuracy": 90.1639344262295,
+        "val_loss": 0.2285360482017525,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 98.69746625723606,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 89.34426229508196,
+        "raw_val_loss": 0.211862818994483,
+        "effective_server_lr": 0.539710674490719
+      },
+      {
+        "round": 13,
+        "val_accuracy": 89.34426229508196,
+        "val_loss": 0.22437835503064218,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 106.92225511200573,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 1,
+        "raw_val_accuracy": 91.80327868852459,
+        "raw_val_loss": 0.1864190794771812,
+        "effective_server_lr": 0.495625
+      },
+      {
+        "round": 14,
+        "val_accuracy": 90.1639344262295,
+        "val_loss": 0.21927984492456326,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 115.1470439667754,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 91.80327868852459,
+        "raw_val_loss": 0.1991054827011511,
+        "effective_server_lr": 0.4468487192518003
+      },
+      {
+        "round": 15,
+        "val_accuracy": 89.34426229508196,
+        "val_loss": 0.212711295204573,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 123.37183282154507,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 1,
+        "raw_val_accuracy": 92.62295081967213,
+        "raw_val_loss": 0.20700641379493182,
+        "effective_server_lr": 0.3948638748546648
+      },
+      {
+        "round": 16,
+        "val_accuracy": 89.34426229508196,
+        "val_loss": 0.20635869830358225,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 131.59662167631475,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 92.62295081967213,
+        "raw_val_loss": 0.1963458994678298,
+        "effective_server_lr": 0.34125000000000005
+      },
+      {
+        "round": 17,
+        "val_accuracy": 89.34426229508196,
+        "val_loss": 0.19972055826763638,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 139.82141053108444,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 92.62295081967213,
+        "raw_val_loss": 0.19921010045609513,
+        "effective_server_lr": 0.28763612514533526
+      },
+      {
+        "round": 18,
+        "val_accuracy": 90.1639344262295,
+        "val_loss": 0.19621700347691287,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 148.04619938585412,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 92.62295081967213,
+        "raw_val_loss": 0.1928850353741255,
+        "effective_server_lr": 0.2356512807481998
+      },
+      {
+        "round": 19,
+        "val_accuracy": 90.98360655737704,
+        "val_loss": 0.19454207424013342,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 156.2709882406238,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 1,
+        "raw_val_accuracy": 92.62295081967213,
+        "raw_val_loss": 0.1953659834737172,
+        "effective_server_lr": 0.18687500000000007
+      },
+      {
+        "round": 20,
+        "val_accuracy": 91.80327868852459,
+        "val_loss": 0.1939407009936747,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 164.4957770953935,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 92.62295081967213,
+        "raw_val_loss": 0.20287146034543632,
+        "effective_server_lr": 0.142789325509281
+      },
+      {
+        "round": 21,
+        "val_accuracy": 91.80327868852459,
+        "val_loss": 0.19475279076666127,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 172.72056595016318,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 92.62295081967213,
+        "raw_val_loss": 0.21020504572718848,
+        "effective_server_lr": 0.10473377818701556
+      },
+      {
+        "round": 22,
+        "val_accuracy": 91.80327868852459,
+        "val_loss": 0.19586109140979463,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 180.94535480493286,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 92.62295081967213,
+        "raw_val_loss": 0.21298403998256707,
+        "effective_server_lr": 0.07386465658155456
+      },
+      {
+        "round": 23,
+        "val_accuracy": 92.62295081967213,
+        "val_loss": 0.1973251163593081,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 189.17014365970255,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 92.62295081967213,
+        "raw_val_loss": 0.21266634478310092,
+        "effective_server_lr": 0.05111990333235081
+      },
+      {
+        "round": 24,
+        "val_accuracy": 92.62295081967213,
+        "val_loss": 0.1991108469054347,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 197.39493251447223,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 2,
+        "raw_val_accuracy": 92.62295081967213,
+        "raw_val_loss": 0.21252907586635136,
+        "effective_server_lr": 0.03719060625748078
+      },
+      {
+        "round": 25,
+        "val_accuracy": 92.62295081967213,
+        "val_loss": 0.20098271474364351,
+        "round_duration_sec": 8.224788854769672,
+        "cumulative_time_sec": 205.61972136924192,
+        "round_idle_sec": 7.913410781751382,
+        "cluster_utilization_pct": 75.94646220868552,
+        "compute_utilization_pct": 69.41167620305411,
+        "compute_sec_per_client": {
+          "client_0": 3.968007936015872,
+          "client_1": 6.31697687535251,
+          "client_2": 6.271435570798628,
+          "client_3": 6.279434850863423
+        },
+        "client_duration_sec": {
+          "client_0": 4.017391786113528,
+          "client_1": 6.369360725450166,
+          "client_2": 6.374203270993941,
+          "client_3": 8.224788854769672
+        },
+        "steps_per_client": {
+          "client_0": 40,
+          "client_1": 28,
+          "client_2": 16,
+          "client_3": 5
+        },
+        "lr_scale_per_client": {
+          "client_0": 0.3535533905932738,
+          "client_1": 0.4225771273642583,
+          "client_2": 0.5590169943749475,
+          "client_3": 1.0
+        },
+        "projection_evaluations": 15,
+        "num_clipped": 1,
+        "raw_val_accuracy": 92.62295081967213,
+        "raw_val_loss": 0.21328851550084646,
+        "effective_server_lr": 0.0325
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "id": 51,
+      "label": 0,
+      "margin": -3.54008150100708
+    },
+    {
+      "id": 5,
+      "label": 0,
+      "margin": -1.8873524069786072
+    },
+    {
+      "id": 626,
+      "label": 1,
+      "margin": 9.074521541595459
+    },
+    {
+      "id": 638,
+      "label": 1,
+      "margin": 1.4271754026412964
+    },
+    {
+      "id": 399,
+      "label": 1,
+      "margin": 7.259671688079834
+    },
+    {
+      "id": 56,
+      "label": 0,
+      "margin": -5.496267557144165
+    },
+    {
+      "id": 620,
+      "label": 1,
+      "margin": 6.023130655288696
+    },
+    {
+      "id": 0,
+      "label": 0,
+      "margin": -2.2322975993156433
+    },
+    {
+      "id": 506,
+      "label": 1,
+      "margin": 9.202047348022461
+    },
+    {
+      "id": 482,
+      "label": 1,
+      "margin": 0.15406110882759094
+    },
+    {
+      "id": 721,
+      "label": 1,
+      "margin": 0.6610800921916962
+    },
+    {
+      "id": 483,
+      "label": 1,
+      "margin": -1.0658149421215057
+    },
+    {
+      "id": 165,
+      "label": 0,
+      "margin": 1.8247979283332825
+    },
+    {
+      "id": 137,
+      "label": 0,
+      "margin": -1.1197670698165894
+    },
+    {
+      "id": 584,
+      "label": 1,
+      "margin": 6.6585304737091064
+    },
+    {
+      "id": 273,
+      "label": 0,
+      "margin": -2.912216901779175
+    },
+    {
+      "id": 284,
+      "label": 0,
+      "margin": -3.3838706016540527
+    },
+    {
+      "id": 329,
+      "label": 0,
+      "margin": -3.859707236289978
+    },
+    {
+      "id": 711,
+      "label": 1,
+      "margin": 12.003982543945312
+    },
+    {
+      "id": 118,
+      "label": 0,
+      "margin": -6.659600734710693
+    },
+    {
+      "id": 377,
+      "label": 0,
+      "margin": -1.5674689412117004
+    },
+    {
+      "id": 503,
+      "label": 1,
+      "margin": 7.586526870727539
+    },
+    {
+      "id": 219,
+      "label": 0,
+      "margin": -5.1418232917785645
+    },
+    {
+      "id": 592,
+      "label": 1,
+      "margin": 6.542110443115234
+    },
+    {
+      "id": 644,
+      "label": 1,
+      "margin": 5.7145912647247314
+    },
+    {
+      "id": 305,
+      "label": 0,
+      "margin": -5.32291316986084
+    },
+    {
+      "id": 179,
+      "label": 0,
+      "margin": -5.268099308013916
+    },
+    {
+      "id": 425,
+      "label": 1,
+      "margin": 1.977397382259369
+    },
+    {
+      "id": 269,
+      "label": 0,
+      "margin": -2.4088945388793945
+    },
+    {
+      "id": 150,
+      "label": 0,
+      "margin": -5.7214062213897705
+    },
+    {
+      "id": 723,
+      "label": 1,
+      "margin": 0.22129017859697342
+    },
+    {
+      "id": 32,
+      "label": 0,
+      "margin": -7.293773889541626
+    },
+    {
+      "id": 730,
+      "label": 1,
+      "margin": 1.5263502895832062
+    },
+    {
+      "id": 733,
+      "label": 1,
+      "margin": 4.44559919834137
+    },
+    {
+      "id": 407,
+      "label": 1,
+      "margin": -2.173358201980591
+    },
+    {
+      "id": 456,
+      "label": 1,
+      "margin": 5.540582656860352
+    },
+    {
+      "id": 272,
+      "label": 0,
+      "margin": 2.159337043762207
+    },
+    {
+      "id": 136,
+      "label": 0,
+      "margin": -3.9201159477233887
+    },
+    {
+      "id": 214,
+      "label": 0,
+      "margin": -1.4481433629989624
+    },
+    {
+      "id": 625,
+      "label": 1,
+      "margin": 3.5638900995254517
+    },
+    {
+      "id": 304,
+      "label": 0,
+      "margin": -6.664877891540527
+    },
+    {
+      "id": 600,
+      "label": 1,
+      "margin": 12.651313781738281
+    },
+    {
+      "id": 295,
+      "label": 0,
+      "margin": -2.0521864891052246
+    },
+    {
+      "id": 753,
+      "label": 1,
+      "margin": 9.04971170425415
+    },
+    {
+      "id": 263,
+      "label": 0,
+      "margin": -5.99259877204895
+    },
+    {
+      "id": 239,
+      "label": 0,
+      "margin": -0.94709712266922
+    },
+    {
+      "id": 710,
+      "label": 1,
+      "margin": 3.7257288694381714
+    },
+    {
+      "id": 12,
+      "label": 0,
+      "margin": -2.354520559310913
+    },
+    {
+      "id": 735,
+      "label": 1,
+      "margin": 4.82111668586731
+    },
+    {
+      "id": 690,
+      "label": 1,
+      "margin": 3.335045099258423
+    },
+    {
+      "id": 601,
+      "label": 1,
+      "margin": 10.780139923095703
+    },
+    {
+      "id": 99,
+      "label": 0,
+      "margin": -5.454076290130615
+    },
+    {
+      "id": 643,
+      "label": 1,
+      "margin": 2.9258424043655396
+    },
+    {
+      "id": 413,
+      "label": 1,
+      "margin": -1.4214285612106323
+    },
+    {
+      "id": 597,
+      "label": 1,
+      "margin": 4.498051047325134
+    },
+    {
+      "id": 74,
+      "label": 0,
+      "margin": -4.5165581703186035
+    },
+    {
+      "id": 220,
+      "label": 0,
+      "margin": -6.434697151184082
+    },
+    {
+      "id": 169,
+      "label": 0,
+      "margin": -2.845008969306946
+    },
+    {
+      "id": 275,
+      "label": 0,
+      "margin": 0.9628082811832428
+    },
+    {
+      "id": 386,
+      "label": 1,
+      "margin": 5.903740882873535
+    },
+    {
+      "id": 588,
+      "label": 1,
+      "margin": 8.099955558776855
+    },
+    {
+      "id": 338,
+      "label": 0,
+      "margin": -5.054924488067627
+    },
+    {
+      "id": 49,
+      "label": 0,
+      "margin": -7.4019880294799805
+    },
+    {
+      "id": 725,
+      "label": 1,
+      "margin": -1.0660658702254295
+    },
+    {
+      "id": 20,
+      "label": 0,
+      "margin": -6.336919069290161
+    },
+    {
+      "id": 354,
+      "label": 0,
+      "margin": 4.695455312728882
+    },
+    {
+      "id": 736,
+      "label": 1,
+      "margin": 3.48608934879303
+    },
+    {
+      "id": 162,
+      "label": 0,
+      "margin": -6.496161460876465
+    },
+    {
+      "id": 516,
+      "label": 1,
+      "margin": 7.212647914886475
+    },
+    {
+      "id": 43,
+      "label": 0,
+      "margin": -7.092010021209717
+    },
+    {
+      "id": 573,
+      "label": 1,
+      "margin": 8.126331806182861
+    },
+    {
+      "id": 215,
+      "label": 0,
+      "margin": -4.0143043994903564
+    },
+    {
+      "id": 151,
+      "label": 0,
+      "margin": -2.616004228591919
+    },
+    {
+      "id": 171,
+      "label": 0,
+      "margin": -5.406067132949829
+    },
+    {
+      "id": 300,
+      "label": 0,
+      "margin": -5.303358316421509
+    },
+    {
+      "id": 52,
+      "label": 0,
+      "margin": -5.831223011016846
+    },
+    {
+      "id": 76,
+      "label": 0,
+      "margin": -3.9612542390823364
+    },
+    {
+      "id": 258,
+      "label": 0,
+      "margin": -6.134579420089722
+    },
+    {
+      "id": 734,
+      "label": 1,
+      "margin": 5.608629465103149
+    },
+    {
+      "id": 682,
+      "label": 1,
+      "margin": 5.9149346351623535
+    },
+    {
+      "id": 655,
+      "label": 1,
+      "margin": 5.26520037651062
+    },
+    {
+      "id": 640,
+      "label": 1,
+      "margin": 5.219775199890137
+    },
+    {
+      "id": 465,
+      "label": 1,
+      "margin": 7.687330961227417
+    },
+    {
+      "id": 8,
+      "label": 0,
+      "margin": -3.432775139808655
+    },
+    {
+      "id": 537,
+      "label": 1,
+      "margin": 4.517872333526611
+    },
+    {
+      "id": 507,
+      "label": 1,
+      "margin": 6.309632062911987
+    },
+    {
+      "id": 647,
+      "label": 1,
+      "margin": 6.4432854652404785
+    },
+    {
+      "id": 554,
+      "label": 1,
+      "margin": 0.35825115442276
+    },
+    {
+      "id": 585,
+      "label": 1,
+      "margin": 4.614397048950195
+    },
+    {
+      "id": 454,
+      "label": 1,
+      "margin": -1.9157061576843262
+    },
+    {
+      "id": 65,
+      "label": 0,
+      "margin": -6.037391185760498
+    },
+    {
+      "id": 404,
+      "label": 1,
+      "margin": 3.410699248313904
+    },
+    {
+      "id": 459,
+      "label": 1,
+      "margin": 4.943396091461182
+    },
+    {
+      "id": 372,
+      "label": 0,
+      "margin": -4.4091691970825195
+    },
+    {
+      "id": 400,
+      "label": 1,
+      "margin": 7.5625159740448
+    },
+    {
+      "id": 128,
+      "label": 0,
+      "margin": -4.212015867233276
+    },
+    {
+      "id": 683,
+      "label": 1,
+      "margin": 1.2626904249191284
+    },
+    {
+      "id": 406,
+      "label": 1,
+      "margin": 11.457683086395264
+    },
+    {
+      "id": 7,
+      "label": 0,
+      "margin": -5.736238241195679
+    },
+    {
+      "id": 570,
+      "label": 1,
+      "margin": 7.163952589035034
+    },
+    {
+      "id": 29,
+      "label": 0,
+      "margin": -3.877389073371887
+    },
+    {
+      "id": 132,
+      "label": 0,
+      "margin": -2.0091143250465393
+    },
+    {
+      "id": 242,
+      "label": 0,
+      "margin": -3.452477216720581
+    },
+    {
+      "id": 536,
+      "label": 1,
+      "margin": 6.91280722618103
+    },
+    {
+      "id": 534,
+      "label": 1,
+      "margin": 11.542140483856201
+    },
+    {
+      "id": 578,
+      "label": 1,
+      "margin": 9.064816951751709
+    },
+    {
+      "id": 147,
+      "label": 0,
+      "margin": -2.3492374420166016
+    },
+    {
+      "id": 467,
+      "label": 1,
+      "margin": 5.180459499359131
+    },
+    {
+      "id": 337,
+      "label": 0,
+      "margin": -5.823163270950317
+    },
+    {
+      "id": 254,
+      "label": 0,
+      "margin": -4.616163730621338
+    },
+    {
+      "id": 252,
+      "label": 0,
+      "margin": -8.29586124420166
+    },
+    {
+      "id": 405,
+      "label": 1,
+      "margin": 4.577684640884399
+    },
+    {
+      "id": 16,
+      "label": 0,
+      "margin": -7.009165525436401
+    },
+    {
+      "id": 496,
+      "label": 1,
+      "margin": 9.487199783325195
+    },
+    {
+      "id": 408,
+      "label": 1,
+      "margin": 7.310921907424927
+    },
+    {
+      "id": 142,
+      "label": 0,
+      "margin": -6.1858625411987305
+    },
+    {
+      "id": 350,
+      "label": 0,
+      "margin": -4.659948110580444
+    },
+    {
+      "id": 94,
+      "label": 0,
+      "margin": -6.857983589172363
+    },
+    {
+      "id": 650,
+      "label": 1,
+      "margin": 6.1755993366241455
+    },
+    {
+      "id": 351,
+      "label": 0,
+      "margin": -3.9954466819763184
+    },
+    {
+      "id": 339,
+      "label": 0,
+      "margin": -5.699688911437988
+    },
+    {
+      "id": 564,
+      "label": 1,
+      "margin": 5.6595611572265625
+    }
+  ],
+  "plan_sha256": "21a52e796a3ab8313b4512422b915ffbeab5e187092e600d524dbf584613c39d"
+}

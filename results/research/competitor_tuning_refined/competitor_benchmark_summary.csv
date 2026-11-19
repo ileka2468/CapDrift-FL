@@ -1,0 +1,2 @@
+Method,Successful Trials,Final Acc (%) [Mean ± Std],Peak Acc (%) [Mean ± Std],Final Loss,Total Time (s),Idle Waste (s),Mean Util (%),Mean Compute Util (%),Mean Wall Time (s),Gated Events,Clipped Events,Projected Blocks
+CapDrift-Tuned,5/5,94.38 ± 0.67,94.64 ± 0.64,0.1391 ± 0.0236,205.62 ± 0.00,197.84 ± 0.00,75.95 ± 0.00,69.41 ± 0.00,119.59 ± 7.85,0.0 ± 0.0,21.8 ± 1.5,360.0 ± 0.0

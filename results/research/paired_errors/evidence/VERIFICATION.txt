@@ -1,0 +1,28 @@
+Paired round-25 development error audit and feature/classifier LR ablation
+Working directory: C:\Users\quenc\Desktop\NetProject\OmniFed
+Changed field: feature_lr_multiplier=.5 for the feature branch; default=1.0. Classifier LR remains .002 before the existing per-client scaling. final_model_observer records logits from the existing round-25 evaluation model.
+MODIFIED_FILE: C:\Users\quenc\Desktop\NetProject\OmniFed\scripts\run_competitor_benchmark.py
+DIFF_FILE: C:\Users\quenc\Desktop\NetProject\OmniFed\results\research\paired_errors\evidence\paired_errors.patch
+VERIFICATION: C:\Users\quenc\Desktop\NetProject\OmniFed\results\research\paired_errors\evidence\VERIFICATION.txt
+ROLLBACK: C:\Users\quenc\Desktop\NetProject\OmniFed\results\research\paired_errors\evidence\ROLLBACK.sh
+Baseline SHA-256: 4b3b9594c66fb53ea915039c87e0b95d84c2bdbece4496cccca01a0eba8ff733
+Modified SHA-256: 554be7aeef042f0788721abe916c7ab483a32baf382f5ef536aa4285d4c5823c
+Restored SHA-256: 4b3b9594c66fb53ea915039c87e0b95d84c2bdbece4496cccca01a0eba8ff733
+BASELINE (before edit): & ..\.venv\Scripts\python.exe -m unittest discover -s tests -p 'test_capdrift*.py' | Ran 36 tests; OK | exit 0
+MODIFIED: & ..\.venv\Scripts\python.exe -m unittest discover -s tests -p 'test_capdrift*.py' | Ran 40 tests; OK | exit 0
+ROLLBACK: & 'C:/Program Files/Git/bin/bash.exe' results/research/paired_errors/evidence/ROLLBACK.sh results/research/paired_errors/evidence/rollback_probe_copy.py | restored 4b3b9594c66fb53ea915039c87e0b95d84c2bdbece4496cccca01a0eba8ff733 | exit 0
+RESTORED BEHAVIOR: & ..\.venv\Scripts\python.exe results/research/paired_errors/evidence/verify_copy.py results/research/paired_errors/evidence/rollback_probe_copy.py | final_model_observer=Falsefeature_lr_multiplier=False; Ran 40 tests; OK | exit 0
+MODIFIED BEHAVIOR: & ..\.venv\Scripts\python.exe results/research/paired_errors/evidence/verify_copy.py scripts/run_competitor_benchmark.py | final_model_observer=Truefeature_lr_multiplier=True; Ran 40 tests; OK | exit 0
+git apply --reverse --check results/research/paired_errors/evidence/paired_errors.patch | no output | exit 0
+GPU snapshot in trial: NVIDIA GeForce RTX 5070 Ti, 77 %, 6417 MiB
+& ..\.venv\Scripts\python.exe scripts/run_capdrift_paired_errors.py dev --fold 0 --method v3-anchor | seed=42; final_accuracy=91.80327868852459; final_loss=0.28834774113092265; 25 rounds; modeled_seconds=205.61972136924192 | exit 0
+& ..\.venv\Scripts\python.exe scripts/run_capdrift_paired_errors.py dev --fold 0 --method FedNova-Momentum | NonFiniteMetricError: round 10: accuracy=50.0, loss=nan | exit 1
+& ..\.venv\Scripts\python.exe scripts/run_capdrift_paired_errors.py dev --fold 0 --method FedNova | seed=42; final_accuracy=93.44262295081968; final_loss=0.3193763720451808; 25 rounds; modeled_seconds=205.61972136924192 | exit 0
+& ..\.venv\Scripts\python.exe scripts/run_capdrift_paired_errors.py dev --fold 0 --method half-feature-lr | seed=42; final_accuracy=90.98360655737704; final_loss=0.3085643566045605; 25 rounds; modeled_seconds=205.61972136924192 | exit 0
+& ..\.venv\Scripts\python.exe scripts/run_capdrift_paired_errors.py dev --fold 1 --method v3-anchor | seed=2024; final_accuracy=93.44262295081968; final_loss=0.1476131268456334; 25 rounds; modeled_seconds=205.61972136924192 | exit 0
+& ..\.venv\Scripts\python.exe scripts/run_capdrift_paired_errors.py dev --fold 1 --method FedNova-Momentum | NonFiniteMetricError: round 2: accuracy=50.0, loss=nan | exit 1
+& ..\.venv\Scripts\python.exe scripts/run_capdrift_paired_errors.py dev --fold 1 --method FedNova | NonFiniteMetricError: round 15: accuracy=50.0, loss=nan | exit 1
+& ..\.venv\Scripts\python.exe scripts/run_capdrift_paired_errors.py dev --fold 1 --method half-feature-lr | seed=2024; final_accuracy=92.62295081967213; final_loss=0.20098271474364351; 25 rounds; modeled_seconds=205.61972136924192 | exit 0
+& ..\.venv\Scripts\python.exe scripts/assess_capdrift_paired_errors.py assess | route=half-feature-lr; decision_signed_gain_per_fold=[-1,-1]; promoted=false | exit 0
+& ..\.venv\Scripts\python.exe scripts/run_capdrift_paired_replay.py freeze | ValueError: development evaluation did not promote a challenger | exit 1
+Final development means: anchor=92.622950820% CE=0.217980434; half features=91.803278689% CE=0.254773536. Frozen 94.38% preset unchanged. Neither benchmark split was scored for the challenger.

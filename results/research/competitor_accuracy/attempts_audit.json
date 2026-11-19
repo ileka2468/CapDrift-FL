@@ -1,0 +1,93 @@
+{
+  "qualified_accuracy_win": false,
+  "selected_variant": "clipping-only",
+  "holdout": {
+    "source_test_total": 624,
+    "discarded_overlaps_and_duplicates": 201,
+    "evaluated": 423,
+    "class_counts": {
+      "NORMAL": 167,
+      "PNEUMONIA": 256
+    },
+    "groups": 312,
+    "recognized_filenames_across_both_cohorts": 1387,
+    "verified_patient_ids": false,
+    "eligible_sha256": "0e990728b1842c560e1e9046d8d38934a868e851c0ebc38c63a74c187f4dae27"
+  },
+  "attempted_trials": 15,
+  "completed_trials": 14,
+  "audited_completed_rounds": 350,
+  "max_modeled_client_compute_sec": 6.31697687535251,
+  "matched_seeds": [
+    42,
+    101,
+    2024,
+    888
+  ],
+  "failures": [
+    {
+      "method": "CapDrift-Accuracy",
+      "seed": 7,
+      "failed_round": 3,
+      "failure": "round 3: accuracy=39.479905437352244, loss=nan"
+    }
+  ],
+  "summary": [
+    {
+      "method": "CapDrift-Accuracy",
+      "completed": 4,
+      "attempted": 5,
+      "five_seed_final_accuracy_pct": null,
+      "matched_seed_final_accuracy_pct": 89.0661938534279,
+      "matched_seed_final_balanced_accuracy_pct": 87.03744854041916,
+      "matched_seed_final_loss": 0.44001125590042367,
+      "mean_modeled_time_sec_completed": 205.61972136924192,
+      "mean_active_utilization_pct_completed": 75.94646220868552
+    },
+    {
+      "method": "FedNova-Momentum",
+      "completed": 5,
+      "attempted": 5,
+      "five_seed_final_accuracy_pct": 88.60520094562648,
+      "matched_seed_final_accuracy_pct": 89.00709219858156,
+      "matched_seed_final_balanced_accuracy_pct": 86.96259824101796,
+      "matched_seed_final_loss": 0.4324005261915414,
+      "mean_modeled_time_sec_completed": 205.61972136924192,
+      "mean_active_utilization_pct_completed": 75.94646220868552
+    },
+    {
+      "method": "FedNova",
+      "completed": 5,
+      "attempted": 5,
+      "five_seed_final_accuracy_pct": 89.03073286052009,
+      "matched_seed_final_accuracy_pct": 88.88888888888889,
+      "matched_seed_final_balanced_accuracy_pct": 86.60472024700599,
+      "matched_seed_final_loss": 0.47524601802257516,
+      "mean_modeled_time_sec_completed": 205.61972136924192,
+      "mean_active_utilization_pct_completed": 75.94646220868552
+    }
+  ],
+  "comparisons_over_completed_pairs_only": {
+    "FedNova-Momentum": {
+      "paired_accuracy_delta_pp": {
+        "42": 0.9456264775413672,
+        "101": -1.8912529550827344,
+        "2024": 2.836879432624116,
+        "888": -1.6548463356973997
+      },
+      "mean_delta_pp": 0.059101654846337226,
+      "paired_seeds_higher": 2
+    },
+    "FedNova": {
+      "paired_accuracy_delta_pp": {
+        "42": -0.4728132387706836,
+        "101": -2.364066193853418,
+        "2024": 2.364066193853432,
+        "888": 1.1820330969267019
+      },
+      "mean_delta_pp": 0.17730496453900813,
+      "paired_seeds_higher": 2
+    }
+  },
+  "frozen_manifest_sha256": "b50af3b05b7ee65de6f9d3e6948e873988853812bf0e52f8eaf04289c2578aa9"
+}

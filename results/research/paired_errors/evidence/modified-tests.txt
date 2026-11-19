@@ -1,0 +1,7 @@
+........................................
+----------------------------------------------------------------------
+Ran 40 tests in 0.575s
+
+OK
+
+ [TEST SUCCESS] Round 1 CapDrift Telemetry verified successfully!

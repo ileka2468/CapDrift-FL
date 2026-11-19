@@ -1,0 +1,182 @@
+{
+  "FedNova-Momentum": {
+    "tuned_minus_reference_accuracy_pp": {
+      "mean": -1.307189542483664,
+      "sd": 1.0125446656751418,
+      "positive": 0,
+      "tied": 0,
+      "negative": 5
+    },
+    "tuned_minus_reference_loss": {
+      "mean": 0.011292009423273835,
+      "sd": 0.015763003515763544,
+      "positive": 4,
+      "tied": 0,
+      "negative": 1
+    },
+    "tuned_minus_reference_utilization_pp": {
+      "mean": 0.0,
+      "sd": 0.0,
+      "positive": 0,
+      "tied": 5,
+      "negative": 0
+    },
+    "tuned_minus_reference_idle_sec": {
+      "mean": 0.0,
+      "sd": 0.0,
+      "positive": 0,
+      "tied": 5,
+      "negative": 0
+    }
+  },
+  "FedNova": {
+    "tuned_minus_reference_accuracy_pp": {
+      "mean": -0.6535947712418334,
+      "sd": 1.3709919583923569,
+      "positive": 2,
+      "tied": 1,
+      "negative": 2
+    },
+    "tuned_minus_reference_loss": {
+      "mean": -0.005743618095232772,
+      "sd": 0.03351614924551205,
+      "positive": 3,
+      "tied": 0,
+      "negative": 2
+    },
+    "tuned_minus_reference_utilization_pp": {
+      "mean": 0.0,
+      "sd": 0.0,
+      "positive": 0,
+      "tied": 5,
+      "negative": 0
+    },
+    "tuned_minus_reference_idle_sec": {
+      "mean": 0.0,
+      "sd": 0.0,
+      "positive": 0,
+      "tied": 5,
+      "negative": 0
+    }
+  },
+  "FedAvg": {
+    "tuned_minus_reference_accuracy_pp": {
+      "mean": 0.6535947712418249,
+      "sd": 2.3746277287039166,
+      "positive": 3,
+      "tied": 0,
+      "negative": 2
+    },
+    "tuned_minus_reference_loss": {
+      "mean": -0.026867577258278343,
+      "sd": 0.06808325111088966,
+      "positive": 3,
+      "tied": 0,
+      "negative": 2
+    },
+    "tuned_minus_reference_utilization_pp": {
+      "mean": 39.43129853687097,
+      "sd": 0.0,
+      "positive": 5,
+      "tied": 0,
+      "negative": 0
+    },
+    "tuned_minus_reference_idle_sec": {
+      "mean": -324.3141047351518,
+      "sd": 0.0,
+      "positive": 0,
+      "tied": 0,
+      "negative": 5
+    }
+  },
+  "FedProx": {
+    "tuned_minus_reference_accuracy_pp": {
+      "mean": 1.8300653594771235,
+      "sd": 1.9996154955265821,
+      "positive": 3,
+      "tied": 2,
+      "negative": 0
+    },
+    "tuned_minus_reference_loss": {
+      "mean": -0.049549303744353505,
+      "sd": 0.07829980738323337,
+      "positive": 2,
+      "tied": 0,
+      "negative": 3
+    },
+    "tuned_minus_reference_utilization_pp": {
+      "mean": 39.43129853687097,
+      "sd": 0.0,
+      "positive": 5,
+      "tied": 0,
+      "negative": 0
+    },
+    "tuned_minus_reference_idle_sec": {
+      "mean": -324.3141047351518,
+      "sd": 0.0,
+      "positive": 0,
+      "tied": 0,
+      "negative": 5
+    }
+  },
+  "CapDrift-Legacy": {
+    "tuned_minus_reference_accuracy_pp": {
+      "mean": -0.2614379084967311,
+      "sd": 1.4673166222642944,
+      "positive": 1,
+      "tied": 2,
+      "negative": 2
+    },
+    "tuned_minus_reference_loss": {
+      "mean": 0.0032398369771982293,
+      "sd": 0.033991969987749664,
+      "positive": 3,
+      "tied": 0,
+      "negative": 2
+    },
+    "tuned_minus_reference_utilization_pp": {
+      "mean": 35.26934364504248,
+      "sd": 1.293683596789375,
+      "positive": 5,
+      "tied": 0,
+      "negative": 0
+    },
+    "tuned_minus_reference_idle_sec": {
+      "mean": -290.0829045267867,
+      "sd": 10.640274428471601,
+      "positive": 0,
+      "tied": 0,
+      "negative": 5
+    }
+  },
+  "CapDrift-FL": {
+    "tuned_minus_reference_accuracy_pp": {
+      "mean": 1.17647058823529,
+      "sd": 2.3163457708064494,
+      "positive": 4,
+      "tied": 0,
+      "negative": 1
+    },
+    "tuned_minus_reference_loss": {
+      "mean": -0.045368407973471817,
+      "sd": 0.05869672459164689,
+      "positive": 1,
+      "tied": 0,
+      "negative": 4
+    },
+    "tuned_minus_reference_utilization_pp": {
+      "mean": 13.158089119179692,
+      "sd": 0.0,
+      "positive": 5,
+      "tied": 0,
+      "negative": 0
+    },
+    "tuned_minus_reference_idle_sec": {
+      "mean": -108.22250473749506,
+      "sd": 0.0,
+      "positive": 0,
+      "tied": 0,
+      "negative": 5
+    }
+  }
+}

@@ -1,0 +1,3 @@
+Ratio,Method,Successful Trials,Final Acc (%) [Mean ± Std],Peak Acc (%) [Mean ± Std],Final Loss,Total Time (s),Idle Waste (s),Mean Util (%),Mean Compute Util (%)
+5.0,FedAvg,5/5,92.29 ± 0.87,94.38 ± 0.89,0.1951 ± 0.0361,111.13 ± 0.00,257.86 ± 0.00,41.99 ± 0.00,29.90 ± 0.00
+5.0,FedProx,5/5,92.94 ± 1.12,94.12 ± 0.58,0.1813 ± 0.0381,111.13 ± 0.00,257.86 ± 0.00,41.99 ± 0.00,29.90 ± 0.00

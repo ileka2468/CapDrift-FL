@@ -1,0 +1,6 @@
+Method,Successful Trials,Final Acc (%) [Mean ± Std],Peak Acc (%) [Mean ± Std],Final Loss,Total Time (s),Idle Waste (s),Mean Util (%),Mean Compute Util (%),Mean Wall Time (s),Gated Events,Clipped Events,Projected Blocks
+CapDrift-FL,5/5,93.46 ± 0.92,93.59 ± 0.76,0.1850 ± 0.0106,205.62 ± 0.00,306.06 ± 0.00,62.79 ± 0.00,56.25 ± 0.00,64.65 ± 1.27,0.0 ± 0.0,19.2 ± 3.9,237.0 ± 0.0
+FedAvg,5/5,78.82 ± 4.63,86.14 ± 2.79,0.4577 ± 0.0666,205.62 ± 0.00,522.15 ± 0.00,36.52 ± 0.00,29.98 ± 0.00,25.33 ± 0.11,0.0 ± 0.0,0.0 ± 0.0,0.0 ± 0.0
+FedProx,4/5,68.46 ± 12.58,83.99 ± 3.71,0.6683 ± 0.2539,205.62 ± 0.00,522.15 ± 0.00,36.52 ± 0.00,29.98 ± 0.00,42.05 ± 0.11,0.0 ± 0.0,0.0 ± 0.0,0.0 ± 0.0
+FedNova,0/5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+FedNova-Momentum,0/5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A

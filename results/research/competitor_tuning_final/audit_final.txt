@@ -1,0 +1,17 @@
+Verified 7 methods x 5 seeds x 25 rounds = 875 records; zero overlapping inferred filename groups
+Every trial: 205.619721369242 modeled s; maximum modeled compute 6.316976875 s; tuned steps [40, 28, 16, 5]
+Selected short-memory-early-taper; manifest SHA-256 46c700aa28363994fdd16cc87ee499aa11afc1ddfee4fe9eadd3c754dd200064
+CapDrift-Tuned: accuracy 94.38 ± 0.67%, cross-entropy 0.1391 ± 0.0236, active utilization 75.95 ± 0.00%
+FedNova-Momentum: accuracy 95.69 ± 0.67%, cross-entropy 0.1278 ± 0.0220, active utilization 75.95 ± 0.00%
+FedNova: accuracy 95.03 ± 1.06%, cross-entropy 0.1449 ± 0.0296, active utilization 75.95 ± 0.00%
+FedAvg: accuracy 93.73 ± 2.13%, cross-entropy 0.1660 ± 0.0475, active utilization 36.52 ± 0.00%
+FedProx: accuracy 92.55 ± 2.13%, cross-entropy 0.1887 ± 0.0574, active utilization 36.52 ± 0.00%
+CapDrift-Legacy: accuracy 94.64 ± 0.87%, cross-entropy 0.1359 ± 0.0131, active utilization 40.68 ± 1.29%
+CapDrift-FL: accuracy 93.20 ± 1.97%, cross-entropy 0.1845 ± 0.0597, active utilization 62.79 ± 0.00%
+Paired tuned minus FedNova-Momentum: accuracy -1.307 pp (0/5 higher), loss +0.0113 (1/5 lower), utilization +0.000 pp
+Paired tuned minus FedNova: accuracy -0.654 pp (2/5 higher), loss -0.0057 (2/5 lower), utilization +0.000 pp
+Paired tuned minus FedAvg: accuracy +0.654 pp (3/5 higher), loss -0.0269 (2/5 lower), utilization +39.431 pp
+Paired tuned minus FedProx: accuracy +1.830 pp (3/5 higher), loss -0.0495 (3/5 lower), utilization +39.431 pp
+Paired tuned minus CapDrift-Legacy: accuracy -0.261 pp (1/5 higher), loss +0.0032 (2/5 lower), utilization +35.269 pp
+Paired tuned minus CapDrift-FL: accuracy +1.176 pp (4/5 higher), loss -0.0454 (4/5 lower), utilization +13.158 pp
+Reproducible merged results: C:\Users\quenc\Desktop\NetProject\OmniFed\results\research\competitor_tuning_final

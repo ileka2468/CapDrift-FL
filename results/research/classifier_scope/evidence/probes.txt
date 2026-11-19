@@ -1,0 +1,3 @@
+BASELINE: & ..\.venv\Scripts\python.exe results/research/classifier_scope/evidence/probe.py scripts/run_capdrift_recovery.py | anchor=classifier.3; whole-classifier=absent | exit 0
+MODIFIED: & ..\.venv\Scripts\python.exe results/research/classifier_scope/evidence/probe.py scripts/run_capdrift_classifier_scope.py | anchor=classifier.3; whole-classifier=classifier | exit 0
+ROLLBACK: & ..\.venv\Scripts\python.exe results/research/classifier_scope/evidence/probe.py results/research/classifier_scope/evidence/rollback_probe_copy.py | anchor=classifier.3; whole-classifier=absent | exit 0

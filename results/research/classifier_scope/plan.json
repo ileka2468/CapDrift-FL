@@ -1,0 +1,141 @@
+{
+  "schema": 1,
+  "baseline_manifest_sha256": "46c700aa28363994fdd16cc87ee499aa11afc1ddfee4fe9eadd3c754dd200064",
+  "dataset_sha256": "6f086b4962440f3f9f00706320e7c5dbf1bb3536c5ffc0ce9a6b2a0c7a2a9850",
+  "training_samples": 610,
+  "target_samples": 153,
+  "target_classes": {
+    "NORMAL": 76,
+    "PNEUMONIA": 77
+  },
+  "target_split_sha256": "fb46cffd7a2027667ab3c35e30452e5af7d2f9233006553bb9a9af9e8001681c",
+  "target_partition_sha256": "e1912b4b4354636b8134a1aabfc61100fb599c8219c78eb606a258fe37f2b9c7",
+  "train_index_sha256": "ef126b3ab9457185ee042e079b1b41c9440c568c206b7b0386c4f561e90bf5d2",
+  "local_partition_sha256": "6965decdbf2e27f554781481514ebea7993f3c9f6962bd141b633b7883826692",
+  "source": {
+    "source_test_total": 624,
+    "discarded_overlaps_and_duplicates": 201,
+    "evaluated": 423,
+    "class_counts": {
+      "NORMAL": 167,
+      "PNEUMONIA": 256
+    },
+    "groups": 312,
+    "recognized_filenames_across_both_cohorts": 1387,
+    "verified_patient_ids": false,
+    "eligible_sha256": "0e990728b1842c560e1e9046d8d38934a868e851c0ebc38c63a74c187f4dae27"
+  },
+  "seeds": [
+    42,
+    101,
+    2024,
+    7,
+    888
+  ],
+  "rounds": 25,
+  "steps": [
+    40,
+    28,
+    16,
+    5
+  ],
+  "dev_scenarios": [
+    [
+      2309,
+      42,
+      42
+    ],
+    [
+      5171,
+      2024,
+      314
+    ]
+  ],
+  "top": 1,
+  "round_seconds": 8.224788854769672,
+  "environment": {
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 5070 Ti",
+    "torch": "2.14.0+cu130",
+    "torchvision": "0.29.0+cu130",
+    "fused_sgd": true,
+    "local_lr": 0.002,
+    "freeze_bn": true,
+    "channels_last": true,
+    "rng_policy": "paired"
+  },
+  "historical_environment_match": true,
+  "configs": {
+    "v3-anchor": {
+      "beta_ema": 0.8,
+      "T_target_sec": 6.5,
+      "S_max": 40,
+      "S_min": 5,
+      "S_0": 5,
+      "K_block": 5,
+      "tau_drift": 0.85,
+      "epsilon": 1e-08,
+      "kappa_c": 1.5,
+      "server_lr": 0.65,
+      "enable_capability": true,
+      "enable_drift_gating": true,
+      "enable_clipping": true,
+      "dynamic_clipping": true,
+      "drift_mode": "projection",
+      "drift_parameter_prefix": "classifier.3",
+      "scale_local_lr": true,
+      "server_momentum": 0.55,
+      "anneal_start_round": null,
+      "anneal_power": 1.0,
+      "budget_lr_power": 0.5,
+      "client_update_normalization_power": 0.0,
+      "server_lr_decay_start_round": 7,
+      "server_lr_final_ratio": 0.05,
+      "server_average_decay": 0.85,
+      "server_average_start_round": 8,
+      "local_prior_strength": 0.0,
+      "gradient_mass_blend": 0.0
+    },
+    "whole-classifier": {
+      "beta_ema": 0.8,
+      "T_target_sec": 6.5,
+      "S_max": 40,
+      "S_min": 5,
+      "S_0": 5,
+      "K_block": 5,
+      "tau_drift": 0.85,
+      "epsilon": 1e-08,
+      "kappa_c": 1.5,
+      "server_lr": 0.65,
+      "enable_capability": true,
+      "enable_drift_gating": true,
+      "enable_clipping": true,
+      "dynamic_clipping": true,
+      "drift_mode": "projection",
+      "drift_parameter_prefix": "classifier",
+      "scale_local_lr": true,
+      "server_momentum": 0.55,
+      "anneal_start_round": null,
+      "anneal_power": 1.0,
+      "budget_lr_power": 0.5,
+      "client_update_normalization_power": 0.0,
+      "server_lr_decay_start_round": 7,
+      "server_lr_final_ratio": 0.05,
+      "server_average_decay": 0.85,
+      "server_average_start_round": 8,
+      "local_prior_strength": 0.0,
+      "gradient_mass_blend": 0.0
+    }
+  },
+  "code_sha256": {
+    "run_capdrift_classifier_scope.py": "8195b47e0cae8dabefcce0644c9c9c1e88371cb42bc81840e4f12f444188d9a8",
+    "run_competitor_benchmark.py": "4b3b9594c66fb53ea915039c87e0b95d84c2bdbece4496cccca01a0eba8ff733",
+    "run_capdrift_tuning.py": "3d75c356bb3e5653b39f5737f77e5d48ac9228da61ac0d9e17129140a9525e16",
+    "run_capdrift_accuracy.py": "79f2c43cc98387e86571796bcc736bf91caed8cb072dc0ea8ff2dda677e6c704",
+    "capdrift_controller.py": "34347d4e594e2ae82c8eeb8fa67e9a3a14e0c4a6fe54a38fa74f99be377e8727",
+    "competitor_split.py": "4da74bf36a5d2fad185c7ea2098f8694a2fa549ad712a25e069390f5e705f1e4",
+    "non_iid.py": "c46ea6388e986c09259a734074773dce4e4646c42de1490758eaaa6916084c3a",
+    "heterogeneous_fleet.py": "b8c25b77de0b8c384d4135d9810969ba4ae005472c9a1a35db909a8f1c1d6e2e"
+  },
+  "archived_target_metadata_sha256": "900a23339e3b25840db363664d7ab2568153a03346223c2fd38241dcd9ca4cde"
+}
